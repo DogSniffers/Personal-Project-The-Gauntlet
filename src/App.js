@@ -2,8 +2,6 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import './App.css';
 import route from './routes';
-import Header from './Components/Header/Header';
-import Auth from './Components/Auth/Auth';
 import Dashboard from './Components/Dashboard/Dashboard';
 
 function App(props) {
@@ -13,12 +11,11 @@ function App(props) {
       {props.location.pathname === '/' ? (
         <>
         {route}
-        {/* HEADER */}
+        {/* AUTHORIZATION PAGE */}
         </>
       ):(
       <>
       <div>
-        <Dashboard/>
         {route}
       </div>
       </>)}

@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
+import {getUser} from '../../ducks/reducer'
 
 
 class Auth extends React.Component{
@@ -30,16 +33,26 @@ class Auth extends React.Component{
         this.setState({username:e.target.value})
     };
 
-    login(){
+    authView = () => {
+        this.setState({loginview:!this.state.loginview})
+    }
+
+    login = () => {
         const {email,password} = this.state
+        if(email === ''){
+            alert('Email is required!')
+        }else{
+            if(password === ''){
+                alert('Password is required!')
+            }else{
         axios.post('/api/login', {email,password}).then(res => {
             this.props.getUser(res.data)
-            this.props.history.push('/dashboard')
+            this.props.history.push('/header')
             console.log(res.data)
         }).catch(err => console.log(err))
-    };
+    }}};
 
-    register(){
+    register= () =>{
         const {email,password,confirmPassword,username} = this.state
         if(email === ''){
             alert('A valid Email is required!')
@@ -55,7 +68,7 @@ class Auth extends React.Component{
         }else{
             axios.post('/api/register', {email,password,username}).then(res => {
                 this.props.getUser(res.data)
-                this.props.history.push('/dashboard')
+                this.props.history.push('/header')
             }).catch(err => console.log(err))
         }
     }}}};
@@ -68,22 +81,22 @@ class Auth extends React.Component{
                 <h1>Login</h1>
                 <input placeholder='Email' onChange={this.handleEmail}></input>
                 <input placeholder='Password' onChange={this.handlePassword}></input>
-                <button>Login</button>
+                <button onClick={this.login}>Login</button>
+                <p onClick={this.authView}>Don't have an account? Register here.</p>
                 </>
                 ):(
                 <>
                 <h1>Register</h1>
                 <input placeholder='Email' onChange={this.handleEmail}></input>
-                <input placeholder='Username'></input>
+                <input placeholder='Username' onChange={this.handleUsername}></input>
                 <input placeholder='Password' onChange={this.handlePassword}></input>
-                <input placeholder='Confirm Password'></input>
-                <button>Register</button>
+                <input placeholder='Confirm Password' onChange={this.handleConfirmPassword}></input>
+                <button onClick={this.register}>Create Account</button>
+                <p onClick={this.authView}>Already have an account? Login here.</p>
                 </>
-                )}
-                
-            </div>
-        )
-    }
-}
+            )}    
+        </div>
+    )
+}}
 
-export default Auth
+export default connect(null,getUser)(withRouter(Auth))
