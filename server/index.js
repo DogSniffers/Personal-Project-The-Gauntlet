@@ -5,6 +5,7 @@ const massive = require('massive');
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 const app = express();
 app.use(express.json())
+const authController = require('./controllers/authController')
 
 app.use(
     session({
@@ -27,9 +28,10 @@ massive({
 })
 
 // User Stuff:
-// axios.post('/api/login', controller.*)
-// axios.post('/api/register', controller.*)
-// axios.post('/api/logout', controller.*)
+// axios.post('/api/login', authController.login)
+// axios.post('/api/register', authController.register)
+// axios.post('/api/logout', authController.logout)
+
 // axios.put('/api/users/:id', controller.*)
 // axios.delete('/api/users/:id', controller.*)
 

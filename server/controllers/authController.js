@@ -1,13 +1,13 @@
-const bcrypt = require('bycryptjs')
+const bcrypt = require('bcryptjs')
 
 module.exports = {
-    login: (req,res) => {
-        const {email,password}
+    login: async (req,res) => {
+        const {email,password} = req.body
         const {session} = req
         const db = req.app.get('db')
 
-        let email = await db.check_email([email])
-        user=email[0]
+        let emailLogin = await db.check_email([email])
+        user=emailLogin[0]
         if(!user){
             return res.status(400).send('Email is not Associated with an Account')
         }
@@ -26,8 +26,8 @@ module.exports = {
         const {session} = req
         const db = req.app.get('db')
         
-        let email = await db.check_email([email])
-        email=email[0]
+        let emailRegister = await db.check_email([email])
+        email=emailRegister[0]
         if(email){
             return res.status(400).send('Email Already in Use')
         }
