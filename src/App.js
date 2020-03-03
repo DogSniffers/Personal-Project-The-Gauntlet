@@ -2,7 +2,6 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import './App.css';
 import route from './routes';
-import Dashboard from './Components/Dashboard/Dashboard';
 
 function App(props) {
   console.log(props.location.pathname)

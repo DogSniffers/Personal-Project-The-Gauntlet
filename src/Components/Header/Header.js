@@ -1,4 +1,5 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 
 class Header extends React.Component{
     constructor(){
@@ -12,10 +13,10 @@ class Header extends React.Component{
         return(
             <div>
             <h1>The Gauntlet</h1>
-            <button>START</button>
+            <button onClick={ () =>this.props.history.push('/dashboard')}>START</button>
             </div>
         )
     }
 }
 
-export default Header;
+export default withRouter(Header);
