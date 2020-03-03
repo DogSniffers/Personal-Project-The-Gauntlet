@@ -1,10 +1,12 @@
 INSERT INTO users (
     email,
     password,
-    username
+    username,
+    runs
 )
 VALUES(
     ${email},
     ${hash},
-    ${username}
+    ${username},
+    ${runs}
 )

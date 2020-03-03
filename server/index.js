@@ -6,6 +6,7 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 const app = express();
 app.use(express.json())
 const authController = require('./controllers/authController')
+const axios = require('axios')
 
 app.use(
     session({
@@ -28,14 +29,14 @@ massive({
 })
 
 // User Stuff:
-// axios.post('/api/login', authController.login)
-// axios.post('/api/register', authController.register)
-// axios.post('/api/logout', authController.logout)
+app.post('/api/login', authController.login)
+// app.post('/api/register', authController.register)
+// app.post('/api/logout', authController.logout)
 
-// axios.put('/api/users/:id', controller.*)
-// axios.delete('/api/users/:id', controller.*)
+// app.put('/api/users/:id', controller.*)
+// app.delete('/api/users/:id', controller.*)
 
 // LeaderBoard Stuff:
-// axios.get('/api/leaderboard', controller.*)
-// axios.post('/api/leaderboard', controller.*)
+// app.get('/api/leaderboard', controller.*)
+// app.post('/api/leaderboard', controller.*)
 

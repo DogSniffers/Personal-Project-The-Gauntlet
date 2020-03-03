@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 
 class Auth extends React.Component{
@@ -31,6 +31,11 @@ class Auth extends React.Component{
 
     login(){
         const {email,password} = this.state
+        axios.post('/api/login', {email,password}).then(res => {
+            this.props.getUser(res.data)
+            this.props.history.push('/dashboard')
+            console.log(res.data)
+        }).catch(err => console.log(err))
     };
 
     register(){

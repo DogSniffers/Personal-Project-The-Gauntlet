@@ -2,7 +2,8 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email VARCHAR (240),
     password VARCHAR (240),
-    username VARCHAR (50)
+    username VARCHAR (50),
+    runs int
 );
 
 CREATE TABLE leaderboard (

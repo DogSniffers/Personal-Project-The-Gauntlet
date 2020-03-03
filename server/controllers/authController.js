@@ -25,6 +25,7 @@ module.exports = {
         const {email,password,confirmPassword,username} = req.body
         const {session} = req
         const db = req.app.get('db')
+        const runs = 0
         
         let emailRegister = await db.check_email([email])
         email=emailRegister[0]
@@ -38,7 +39,7 @@ module.exports = {
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password,salt)
 
-        let newUser = await db.register({email,hash,username})
+        let newUser = await db.register({email,hash,username,runs})
         session.user = newUser
         res.status(200).send(session.user)
     },
