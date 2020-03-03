@@ -30,8 +30,8 @@ massive({
 
 // User Stuff:
 app.post('/api/login', authController.login)
-// app.post('/api/register', authController.register)
-// app.post('/api/logout', authController.logout)
+app.post('/api/register', authController.register)
+app.post('/api/logout', authController.logout)
 
 // app.put('/api/users/:id', controller.*)
 // app.delete('/api/users/:id', controller.*)

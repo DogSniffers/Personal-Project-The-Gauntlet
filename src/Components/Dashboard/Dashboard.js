@@ -6,7 +6,7 @@ class Dashboard extends React.Component{
     constructor(){
         super()
         this.state = {
-            classSelected:false
+            classSelect:false,
         }
     }
     
@@ -16,7 +16,7 @@ class Dashboard extends React.Component{
         return(
             <div>
                 <Nav/>
-                {this.state.classSelected === false ?(
+                {this.state.classSelect === false ?(
                     <Class/>
                 ):
                 (
