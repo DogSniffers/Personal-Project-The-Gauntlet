@@ -22,7 +22,7 @@ module.exports = {
     },
 
     register: async (req,res) => {
-        const {email,password,confirmPassword,username} = req.body
+        const {email,password,username} = req.body
         const {session} = req
         const db = req.app.get('db')
         const runs = 0
@@ -32,10 +32,7 @@ module.exports = {
         if(email){
             return res.status(400).send('Email Already in Use')
         }
-        if(password !== confirmPassword){
-            return res.status(400).send('Passwords do not Match')
-        }
-
+        
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password,salt)
 

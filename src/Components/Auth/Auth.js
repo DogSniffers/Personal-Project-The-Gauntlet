@@ -10,6 +10,7 @@ class Auth extends React.Component{
             password:'',
             confirmPassword:'',
             username:'',
+            loginview:true
         }
     }
 
@@ -39,17 +40,47 @@ class Auth extends React.Component{
     };
 
     register(){
-        const {email,password,confirmPassword} = this.state
-
-    };
+        const {email,password,confirmPassword,username} = this.state
+        if(email === ''){
+            alert('A valid Email is required!')
+        }else{
+            if(username === ''){
+                alert('Username is required!')
+        }else{
+            if(password === ''){
+                alert('A password is required!')
+        }else{
+            if(password !==confirmPassword){
+                alert('Passwords do not match!')
+        }else{
+            axios.post('/api/register', {email,password,username}).then(res => {
+                this.props.getUser(res.data)
+                this.props.history.push('/dashboard')
+            }).catch(err => console.log(err))
+        }
+    }}}};
 
     render(){
         return(
             <div>
+                {this.state.loginview === true ? (
+                    <>
                 <h1>Login</h1>
                 <input placeholder='Email' onChange={this.handleEmail}></input>
                 <input placeholder='Password' onChange={this.handlePassword}></input>
                 <button>Login</button>
+                </>
+                ):(
+                <>
+                <h1>Register</h1>
+                <input placeholder='Email' onChange={this.handleEmail}></input>
+                <input placeholder='Username'></input>
+                <input placeholder='Password' onChange={this.handlePassword}></input>
+                <input placeholder='Confirm Password'></input>
+                <button>Register</button>
+                </>
+                )}
+                
             </div>
         )
     }
