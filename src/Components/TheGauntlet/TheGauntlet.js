@@ -45,7 +45,7 @@ class TheGauntlet extends React.Component{
             selectedClassName:'',
             selectedClassDesc:'',
             selectedClassattack1Name:'',
-            selectedClassattack1Damage:'',
+            selectedClassattack1Damage:0,
             selectedClassattack1Type:'',
             selectedClassattack1Cost:0,
             selectedClassattack2Name:'',
@@ -59,28 +59,38 @@ class TheGauntlet extends React.Component{
     componentDidMount(){
         axios.get('/api/classes').then(res => {
             this.setState({classList:res.data})
-            let classListLength = this.state.classList.length
-            let class1 = Math.floor(Math.random()*classListLength)
-            let class2 = Math.floor(Math.random()*classListLength)
-            let class3 = Math.floor(Math.random()*classListLength)
-            if(class1 === class2){
-                if(class2 === classListLength){
-                    class2 -= 1
-                }else{
-                    class2 += 1
-                }}
-            if(class1 === class3){
-                if(class3 === classListLength){
-                    class3 -= 1}
-                else{
-                    class3 += 1
-                }}
-            if(class2 === class3){
-                if(class3 === classListLength){
-                    class3 -=2}
-                else{
-                    class3+=1
-                }}
+            // let classListLength = this.state.classList.length
+            // let class1 = Math.floor(Math.random()*classListLength)
+            // let class2 = Math.floor(Math.random()*classListLength)
+            // let class3 = Math.floor(Math.random()*classListLength)
+            // if(class1 === class2){
+            //     if(class2 === classListLength){
+            //         class2 -= 1
+            //     }else{
+            //         class2 += 1
+            //     }}
+            // if(class1 === class3){
+            //     if(class3 === classListLength){
+            //         class3 -= 1}
+            //     else{
+            //         class3 += 1
+            //     }}
+            // if(class2 === class3){
+            //     if(class3 === classListLength){
+            //         class3 -=2}
+            //     else{
+            //         class3+=1
+            //     }}
+            let classes = []
+            while(classes <4){
+                var random = Math.floor(Math.random(this.state.classList.length))
+                if(classes.indexOf(random) === -1){
+                    classes.push(random)
+                }
+            }
+            let class1 = classes[0]
+            let class2 = classes[1]
+            let class3 = classes[2]
         this.setState({
                 class1Name: this.state.classList[class1].class,
                 class1Desc:this.state.classList[class1].desc,
@@ -118,7 +128,6 @@ class TheGauntlet extends React.Component{
                 class3attack2Cost:this.state.classList[class3].attack2cost,
             })
             console.log(class1,class2,class3)
-            console.log(this.state)
             
             }
         )
@@ -133,7 +142,7 @@ class TheGauntlet extends React.Component{
             selectedClassName: this.state.class1Name,
             selectedClassDesc: this.state.class1Desc,
             selectedClassattack1Name: this.state.class1attack1Name,
-            selectedClassattack1Damage: this.state.class1attackDamage,
+            selectedClassattack1Damage: this.state.class1attack1Damage,
             selectedClassattack1Type: this.state.class1attack1Type,
             selectedClassattack1Cost: this.state.class1attack1Cost,
             selectedClassattack2Name: this.state.class1attack2Name,
@@ -149,7 +158,7 @@ class TheGauntlet extends React.Component{
             selectedClassName: this.state.class2Name,
             selectedClassDesc: this.state.class2Desc,
             selectedClassattack1Name: this.state.class2attack1Name,
-            selectedClassattack1Damage: this.state.class2attackDamage,
+            selectedClassattack1Damage: this.state.class2attack1Damage,
             selectedClassattack1Type: this.state.class2attack1Type,
             selectedClassattack1Cost: this.state.class2attack1Cost,
             selectedClassattack2Name: this.state.class2attack2Name,
@@ -165,7 +174,7 @@ class TheGauntlet extends React.Component{
             selectedClassName: this.state.class3Name,
             selectedClassDesc: this.state.class3Desc,
             selectedClassattack1Name: this.state.class3attack1Name,
-            selectedClassattack1Damage: this.state.class3attackDamage,
+            selectedClassattack1Damage: this.state.class3attack1Damage,
             selectedClassattack1Type: this.state.class3attack1Type,
             selectedClassattack1Cost: this.state.class3attack1Cost,
             selectedClassattack2Name: this.state.class3attack2Name,
@@ -178,6 +187,7 @@ class TheGauntlet extends React.Component{
     
 
     render(){
+        console.log(this.state)
         return(
             <div>
                 {this.state.classSelected === false ?(
@@ -192,9 +202,14 @@ class TheGauntlet extends React.Component{
             ):(
                 <div>
                     <div>CLASS
-                        <p>Class Name</p>
-                        <p>Class Desc</p>
-                        <p>Class Attacks</p>
+                        <p>Class:{this.state.selectedClassName}</p>
+                        <p>Desc:{this.state.selectedClassDesc}</p>
+                        <p>Attack 1:{this.state.selectedClassattack1Name}</p>
+                        <p>Type:{this.state.selectedClassattack1Type}</p>
+                        <p>Damage:{this.state.selectedClassattack1Damage}</p>
+                        <p>Attack 2:{this.state.selectedClassattack2Name}</p>
+                        <p>Damage:{this.state.selectedClassattack2Damage}</p>
+                        <p>Type:{this.state.selectedClassattack2Type}</p>
                     </div>
                 <button>Confirm?</button>
                 </div>
