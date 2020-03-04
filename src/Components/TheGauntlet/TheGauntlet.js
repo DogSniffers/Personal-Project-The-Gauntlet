@@ -107,7 +107,7 @@ class TheGauntlet extends React.Component{
                 class3attack2Type:this.state.classList[class3].attack2type,
                 class3attack2Cost:this.state.classList[class3].attack2cost,
             })
-            console.log(class1,class2,class3)
+            // console.log(class1,class2,class3)
             
             }
         )
@@ -163,20 +163,23 @@ class TheGauntlet extends React.Component{
             selectedClassattack2Cost: this.state.class3attack2Cost,
         })
     }
+    classConfirm = () => {
+        this.setState({classSelected:true})
+    }
 
     
 
     render(){
-        console.log(this.state)
+        // console.log(this.state)
         return(
             <div>
                 {this.state.classSelected === false ?(
                     
                 <div>
                 <>
-            <div onClick={this.selectedClass1}>Class 1</div>
-            <div onClick={this.selectedClass2}>Class 2</div>
-            <div onClick={this.selectedClass3}>Class 3</div>
+                <div onClick={this.selectedClass1}>{this.state.class1Name}</div>
+                <div onClick={this.selectedClass2}>{this.state.class2Name}</div>
+                <div onClick={this.selectedClass3}>{this.state.class3Name}</div>
             {this.state.classClick === false ? (
                 null
             ):(
@@ -191,7 +194,7 @@ class TheGauntlet extends React.Component{
                         <p>Damage:{this.state.selectedClassattack2Damage}</p>
                         <p>Type:{this.state.selectedClassattack2Type}</p>
                     </div>
-                <button>Confirm?</button>
+                <button onClick={this.classConfirm}>Confirm?</button>
                 </div>
             )
             }
