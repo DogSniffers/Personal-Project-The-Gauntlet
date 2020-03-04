@@ -1,7 +1,7 @@
 module.exports =  [
     {
         class:'Crusader',
-        classDesc:``,
+        desc:``,
         attack1name:'Holy Blade',
         attack1damage:4,
         attack1type:'Slash',
@@ -13,7 +13,7 @@ module.exports =  [
     },
     {
         class:'Hunter',
-        classDesc:``,
+        desc:``,
         attack1name:'Arrow Shot',
         attack1damage:4,
         attack1type:'Slash',
@@ -25,7 +25,7 @@ module.exports =  [
     },
     {
         class:'Mage',
-        classDesc:``,
+        desc:``,
         attack1name:'Fireball',
         attack1damage:4,
         attack1type:'Fire',
@@ -37,7 +37,7 @@ module.exports =  [
     },
     {
         class:'',
-        classDesc:``,
+        desc:``,
         attack1name:'',
         attack1damage:0,
         attack1type:'',
