@@ -14,28 +14,43 @@ class Combat extends React.Component{
             attack2name:'',
             attack2damage:0,
             attack2type:'',
-            
 
+            
+            
             combatLog:[],
-            costLimit:12,
+            turn:0,
+            attackDamage:0,
+            monsterAttackDamage:0,
+            
+            monsterName:'',
+            monsterClass:'',
+            monsterHealth:0,
+            monsterDefense:0,
+            monsterAttack1name:'',
+            monsterAttack1damage:0,
+            monsterAttack2name:'',
+            monsterAttack2damage:0,
+            monsterWeaknesses:'',
+            monsterResistances:'',
+            monsterScoreReward:0,
+            monsterXPReward:0,
 
         }
     }
 
     componentDidMount(){
         this.setState({health:this.props.health, attack1name:this.props.attack1name, attack1damage:this.props.attack1damage, attack1type:this.props.attack1type, 
-        attack2name:this.props.attack2name, attack2damage:this.props.attack2damage, attack2type:this.props.attack1type,  })
+        attack2name:this.props.attack2name, attack2damage:this.props.attack2damage, attack2type:this.props.attack1type,})
     }
 
     attack1AddAction = () => {
-        this.setState({combatLog:[...this.state.combatLog, this.state.attack1name ]})
+        this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${this.state.attackDamage} damage!` ]})
     }
     attack2AddAction = () => {
-        this.setState({combatLog:[...this.state.combatLog, this.state.attack2name ]})
+        this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${this.state.attackDamage} damage!` ]})
     }
 
     render(){
-        console.log(this.state)
         return(
             <div>
                 <h2>Floor:{this.state.floor}</h2>
@@ -45,21 +60,17 @@ class Combat extends React.Component{
                     <h2>{this.state.attack1name}</h2>
                     <p>Damage:{this.state.attack1damage}</p>
                     <p>Type:{this.state.attack1type}</p>
-                    <button onClick={this.attack1AddAction}>Add Action</button>
+                    <button onClick={this.attack1AddAction}>Attack</button>
                 </div>
                 <div className='attacks'>
                     <h2>{this.state.attack2name}</h2>
                     <p>Damage:{this.state.attack2damage}</p>
                     <p>Type:{this.state.attack2type}</p>
-                    <button onClick={this.attack2AddAction}>Add Action</button>
+                    <button onClick={this.attack2AddAction}>Attack</button>
                 </div>
                 <div>
                     <h2>Combat Log:</h2>
-                    {this.state.combatLog.forEach(() =>{
-                        return(
-                        <div>{}</div>
-                        )
-                    })}
+                    {this.state.combatLog}
                     
                 
                 
