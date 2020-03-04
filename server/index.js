@@ -6,6 +6,7 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 const app = express();
 app.use(express.json())
 const authController = require('./controllers/authController')
+const gauntletController = require('./controllers/theGauntletController')
 const axios = require('axios')
 
 app.use(
@@ -39,4 +40,7 @@ app.post('/api/logout', authController.logout)
 // LeaderBoard Stuff:
 // app.get('/api/leaderboard', controller.*)
 // app.post('/api/leaderboard', controller.*)
+
+// TheGauntlet Stuff:
+app.get('/api/classes/', gauntletController.fetchClasses)
 

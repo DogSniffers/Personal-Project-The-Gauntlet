@@ -1,12 +1,11 @@
 import React from 'react'
-import Class from '../Class/Class'
 import Nav from '../Nav/Nav'
+import TheGauntlet from '../TheGauntlet/TheGauntlet'
 
 class Dashboard extends React.Component{
     constructor(){
         super()
         this.state = {
-            classSelect:false,
         }
     }
     
@@ -16,13 +15,7 @@ class Dashboard extends React.Component{
         return(
             <div>
                 <Nav/>
-                {this.state.classSelect === false ?(
-                    <Class/>
-                ):
-                (
-                    <div>Snark</div>
-                )}
-                
+                <TheGauntlet/>
             </div>
         )
     }
