@@ -1,4 +1,4 @@
-module.exports = {class: [
+module.exports =  [
     {
         class:'Crusader',
         classDesc:``,
@@ -27,11 +27,11 @@ module.exports = {class: [
         class:'Mage',
         classDesc:``,
         attack1name:'Fireball',
-        attack1damage:'4',
+        attack1damage:4,
         attack1type:'Fire',
         attack1cost:4,
         attack2name:'Ice Spike',
-        attack2damage:'4',
+        attack2damage:4,
         attack2type:'Ice',
         attack2cost:4,
     },
@@ -39,13 +39,12 @@ module.exports = {class: [
         class:'',
         classDesc:``,
         attack1name:'',
-        attack1damage:'',
+        attack1damage:0,
         attack1type:'',
-        attack1cost:'',
+        attack1cost:0,
         attack2name:'',
-        attack2damage:'',
+        attack2damage:0,
         attack2type:'',
-        attack2cost:'',
+        attack2cost:0,
     },
-
-]}
+]

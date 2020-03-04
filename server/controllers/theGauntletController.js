@@ -1,4 +1,4 @@
-const {classes} = require('../dumdata/class')
+const classes = require('../dumdata/class')
 
 module.exports = {
     fetchClasses: (req,res) => {
