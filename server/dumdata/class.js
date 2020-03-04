@@ -47,4 +47,5 @@ module.exports =  [
         attack2type:'',
         attack2cost:0,
     },
+    
 ]

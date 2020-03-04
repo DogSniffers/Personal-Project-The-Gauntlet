@@ -5,7 +5,7 @@ class TheGauntlet extends React.Component{
     constructor(){
         super()
         this.state = {
-            classList:[],
+            classList:[1,2,3],
             classClick:false,
             classSelected:false,
 
@@ -59,34 +59,14 @@ class TheGauntlet extends React.Component{
     componentDidMount(){
         axios.get('/api/classes').then(res => {
             this.setState({classList:res.data})
-            // let classListLength = this.state.classList.length
-            // let class1 = Math.floor(Math.random()*classListLength)
-            // let class2 = Math.floor(Math.random()*classListLength)
-            // let class3 = Math.floor(Math.random()*classListLength)
-            // if(class1 === class2){
-            //     if(class2 === classListLength){
-            //         class2 -= 1
-            //     }else{
-            //         class2 += 1
-            //     }}
-            // if(class1 === class3){
-            //     if(class3 === classListLength){
-            //         class3 -= 1}
-            //     else{
-            //         class3 += 1
-            //     }}
-            // if(class2 === class3){
-            //     if(class3 === classListLength){
-            //         class3 -=2}
-            //     else{
-            //         class3+=1
-            //     }}
+            
             let classes = []
-            while(classes <4){
-                var random = Math.floor(Math.random(this.state.classList.length))
+            while(classes.length < 3){
+                var random = Math.floor(Math.random() * this.state.classList.length)
                 if(classes.indexOf(random) === -1){
                     classes.push(random)
                 }
+                // console.log(classes)
             }
             let class1 = classes[0]
             let class2 = classes[1]
