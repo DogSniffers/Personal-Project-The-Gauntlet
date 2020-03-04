@@ -4,13 +4,13 @@ module.exports = {monsters: [
         class:'',
         health:0,
         weaknesses:'',
-        // Slash/Blunt/Magic
         resistances:'',
-        // Slash/Blunt/Magic
         attack1name:'',
         attack1damage:0,
+        attack1desc:'',
         attack2name:'',
         attack2damage:0,
+        attack2desc:'',
         xpReward:0,
         scoreReward:0,
     },
@@ -19,14 +19,15 @@ module.exports = {monsters: [
         class:'',
         health:0,
         weaknesses:'',
-        // Slash/Blunt/Magic
         resistances:'',
-        // Slash/Blunt/Magic
         attack1name:'',
         attack1damage:0,
+        attack1desc:'',
         attack2name:'',
         attack2damage:0,
+        attack2desc:'',
         xpReward:0,
         scoreReward:0,
     },
+   
 ]}
