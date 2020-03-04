@@ -35,7 +35,7 @@ class Combat extends React.Component{
             monsterAttack2name:'TestAttack2',
             monsterAttack2damage:0,
             monsterWeaknesses:'',
-            monsterResistances:'',
+            monsterResistances:'Slash',
             monsterScoreReward:0,
             monsterXPReward:0,
             monsterDead:false,
@@ -45,7 +45,7 @@ class Combat extends React.Component{
 
     componentDidMount(){
         this.setState({health:this.props.health, attack1name:this.props.attack1name, attack1damage:this.props.attack1damage, attack1type:this.props.attack1type, 
-        attack2name:this.props.attack2name, attack2damage:this.props.attack2damage, attack2type:this.props.attack1type,})
+        attack2name:this.props.attack2name, attack2damage:this.props.attack2damage, attack2type:this.props.attack2type,})
     }
 
     attack1action = () => {
@@ -54,13 +54,13 @@ class Combat extends React.Component{
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
-            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage!` ]})
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage! (CRIT!)` ]})
         }else if(this.state.attack1type === this.state.monsterResistances){
             let damage = this.state.attack1damage * 0.5
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
-            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage!` ]})
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage! (RESISTED!)` ]})
         }else{
             let damage = this.state.attack1damage
             let monsterHealth = this.state.monsterHealth
@@ -75,13 +75,13 @@ class Combat extends React.Component{
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
-            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage!` ]})
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage! (CRIT!)` ]})
         }else if(this.state.attack2type === this.state.monsterResistances){
             let damage = this.state.attack2damage * 0.5
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
-            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage!` ]})
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage! (RESISTANCED!)` ]})
         }else{
             let damage = this.state.attack2damage
             let monsterHealth = this.state.monsterHealth
