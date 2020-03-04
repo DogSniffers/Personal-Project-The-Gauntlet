@@ -60,15 +60,28 @@ class TheGauntlet extends React.Component{
         axios.get('/api/classes').then(res => {
             this.setState({classList:res.data})
             let classListLength = this.state.classList.length
+            console.log(classListLength)
             let class1 = Math.floor(Math.random()*classListLength)
             let class2 = Math.floor(Math.random()*classListLength)
             let class3 = Math.floor(Math.random()*classListLength)
             if(class1 === class2){
-                class2 += 1}
+                if(class2 === classListLength){
+                    class2 -= 1
+                }else{
+                    class2 += 1
+                }}
             if(class1 === class3){
-                class3 += 1}
+                if(class3 === classListLength){
+                    class3 -= 1}
+                else{
+                    class3 += 1
+                }}
             if(class2 === class3){
-                class3 +=1}
+                if(class3 === classListLength){
+                    class3 -=2}
+                    else{
+                        class3+=1
+                    }}
             
             console.log(class1, class2, class3)
             
