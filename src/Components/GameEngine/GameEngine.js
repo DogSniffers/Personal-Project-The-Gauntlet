@@ -327,10 +327,24 @@ class Combat extends React.Component{
             if(this.state.attackTypeUsed === 'Block'){
                 if(this.state.block === 10){
                     this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack1name}, but it was fully blocked!`],canAttack:true})
+                }else if(this.state.block === 0){
+                let playerHealth = this.state.health - this.state.monsterAttack1damage
+                this.setState({health:playerHealth})
+                this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack1name} for ${this.state.monsterAttack1damage} damage! (BLOCKED 0 DAMAGE!) `],canAttack:true})
+                if(playerHealth <= 0){
+                    this.setState({playerDead:true})
+                }
                 }else{
+                    let ogHealth = this.state.health
                     let blockedDamage = damage - this.state.block
                     let health = this.state.health - blockedDamage
+                    if(health > ogHealth){
+                        health = ogHealth
+                    }
                     this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack1name} for ${blockedDamage} damage! (${this.state.block} blocked damage.)`],health:health,canAttack:true})
+                    if(health <= 0){
+                        this.setState({playerDead:true})
+                    }
                 }
             }else{
                 let playerHealth = this.state.health - this.state.monsterAttack1damage
@@ -353,10 +367,23 @@ class Combat extends React.Component{
             if(this.state.attackTypeUsed === 'Block'){
                 if(this.state.block === 10){
                     this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack2name}, but it was fully blocked!`],canAttack:true})
+                }else if(this.state.block === 0){
+                    let playerHealth = this.state.health - this.state.monsterAttack1damage
+                this.setState({health:playerHealth})
+                this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack2name} for ${this.state.monsterAttack2damage} damage! (BLOCKED 0 DAMAGE!) `],canAttack:true})
+                if(playerHealth <= 0){
+                    this.setState({playerDead:true})}
                 }else{
+                    let ogHealth = this.state.health
                     let blockedDamage = damage - this.state.block
                     let health = this.state.health - blockedDamage
+                    if(health > ogHealth){
+                        health = ogHealth
+                    }
                     this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack2name} for ${blockedDamage} damage! (${this.state.block} blocked damage.)`],health:health,canAttack:true})
+                    if(health <= 0){
+                        this.setState({playerDead:true})
+                    }
                 }
             }else{
                 let playerHealth = this.state.health - this.state.monsterAttack2damage
@@ -374,7 +401,7 @@ class Combat extends React.Component{
         // console.log(this.state.currentXp)
         // console.log(this.state.xpToLevel)
         // console.log(this.state.levelUp)
-        console.log(this.state.combatLog)
+        // console.log(this.state.combatLog)
         return(
             <div>
                 <div>
