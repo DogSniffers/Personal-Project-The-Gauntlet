@@ -2,7 +2,7 @@
 // Current Attack Types: Slash, Blunt, Fire, Ice, Holy, Arcane
 
 
-module.exports = {monsters: [
+module.exports = [
     {
         name:'Goblin Fisher',
         class:'Goblin',
@@ -121,4 +121,4 @@ module.exports = {monsters: [
         scoreReward:0,
     },
    
-]}
+]
