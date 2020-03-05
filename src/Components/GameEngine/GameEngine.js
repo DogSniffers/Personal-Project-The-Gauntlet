@@ -34,7 +34,7 @@ class Combat extends React.Component{
             monsterAttack1damage:0,
             monsterAttack2name:'TestAttack2',
             monsterAttack2damage:0,
-            monsterWeaknesses:'',
+            monsterWeaknesses:'Holy',
             monsterResistances:'Slash',
             monsterScoreReward:0,
             monsterXPReward:0,
