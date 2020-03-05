@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from '../Nav/Nav'
-import TheGauntlet from '../TheGauntlet/TheGauntlet'
+import ClassSelect from '../ClassSelect/ClassSelect'
 
 class Dashboard extends React.Component{
     constructor(){
@@ -15,7 +15,7 @@ class Dashboard extends React.Component{
         return(
             <div>
                 <Nav/>
-                <TheGauntlet/>
+                <ClassSelect/>
             </div>
         )
     }

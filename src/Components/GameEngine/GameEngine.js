@@ -33,16 +33,16 @@ class Combat extends React.Component{
             monsterList:[],
             monsterName:'Test',
             monsterClass:'',
-            monsterHealth:40,
-            monsterDefense:0,
+            monsterHealth:10,
+            monsterBlock:0,
             monsterAttack1name:'TestAttack1',
             monsterAttack1damage:0,
             monsterAttack2name:'TestAttack2',
             monsterAttack2damage:0,
             monsterWeaknesses:'Holy',
             monsterResistances:'Slash',
-            monsterScoreReward:0,
-            monsterXPReward:0,
+            monsterScoreReward:20,
+            monsterXPReward:10,
 
             monsterDead:false,
 
@@ -74,13 +74,21 @@ class Combat extends React.Component{
                     this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to block enemies attack! (CRIT!)` ], block:10})
                     // BLOCK 10 MEANS NO DAMAGE IN MONSTER ATTACK CODE
             }else{
-            let damage = this.state.attack1damage * 2.5
+            let damage = this.state.attack1damage * 2.5 - this.state.monsterBlock
             let monsterHealth = this.state.monsterHealth
-            let afterAttackHealth = monsterHealth - damage
+            let afterAttackHealth = monsterHealth - damage 
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} for ${damage} damage! (CRIT!)` ]})
             if(afterAttackHealth <= 0){
-                this.setState({monsterDead:true})}
+                let xp = this.state.currentXp + this.state.monsterXPReward
+                let score = this.state.score +this.state.monsterScoreReward
+                this.setState({monsterDead:true, currentXp:xp,score:score})
+                if(this.state.currentXp >= this.state.xpToLevel){
+                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let xp = 0 + savedXP
+                    let nextXPtoLevel = this.state.xpToLevel + 5
+                    this.setState({currentXp:xp,xpToLevel:nextXPtoLevel,levelUp:true})
+                }}
             }
         }
          else if(this.state.attack1type === 'Heal'){
@@ -96,25 +104,41 @@ class Combat extends React.Component{
             this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to block for ${this.state.attack1damage} damage!` ],block:this.state.attack1damage})
 
         }else if(this.state.attack1type === this.state.monsterWeaknesses){
-            let damage = this.state.attack1damage * 1.5
+            let damage = this.state.attack1damage * 1.5 - this.state.monsterBlock
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} for ${damage} damage! (EFFECTIVE!)` ]})
             if(afterAttackHealth <= 0){
-                this.setState({monsterDead:true})
+                let xp = this.state.currentXp + this.state.monsterXPReward
+                let score = this.state.score +this.state.monsterScoreReward
+                this.setState({monsterDead:true, currentXp:xp,score:score})
+                if(this.state.currentXp >= this.state.xpToLevel){
+                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let xp = 0 + savedXP
+                    let nextXPtoLevel = this.state.xpToLevel + 5
+                    this.setState({currentXp:xp,xpToLevel:nextXPtoLevel,levelUp:true})
+                }
             }
         }else if(this.state.attack1type === this.state.monsterResistances){
-            let damage = this.state.attack1damage * 0.5
+            let damage = this.state.attack1damage * 0.5 - this.state.monsterBlock
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} for ${damage} damage! (RESISTED!)` ]})
             if(afterAttackHealth <= 0){
-                this.setState({monsterDead:true})
+                let xp = this.state.currentXp + this.state.monsterXPReward
+                let score = this.state.score +this.state.monsterScoreReward
+                this.setState({monsterDead:true, currentXp:xp,score:score})
+                if(this.state.currentXp >= this.state.xpToLevel){
+                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let xp = 0 + savedXP
+                    let nextXPtoLevel = this.state.xpToLevel + 5
+                    this.setState({currentXp:xp,xpToLevel:nextXPtoLevel,levelUp:true})
+                }
             }
         }else{
-            let damage = this.state.attack1damage
+            let damage = this.state.attack1damage - this.state.monsterBlock
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
@@ -137,13 +161,21 @@ class Combat extends React.Component{
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to block enemies attack! (CRIT!)` ], block:10})
                 // BLOCK 10 MEANS NO DAMAGE IN MONSTER CODE
             }else{
-            let damage = this.state.attack1damage * 2.5
+            let damage = this.state.attack2damage * 2.5 - this.state.monsterBlock
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
-            this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} for ${damage} damage! (CRIT!)` ]})
+            this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} for ${damage} damage! (CRIT!)` ]})
             if(afterAttackHealth <= 0){
-                this.setState({monsterDead:true})}
+                let xp = this.state.currentXp + this.state.monsterXPReward
+                let score = this.state.score +this.state.monsterScoreReward
+                this.setState({monsterDead:true, currentXp:xp,score:score})
+                if(this.state.currentXp >= this.state.xpToLevel){
+                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let xp = 0 + savedXP
+                    let nextXPtoLevel = this.state.xpToLevel + 5
+                    this.setState({currentXp:xp,xpToLevel:nextXPtoLevel,levelUp:true})
+                }}
             }
         }
         else if(this.state.attack2type === 'Heal'){
@@ -158,31 +190,55 @@ class Combat extends React.Component{
         }else if(this.state.attack2type === 'Block'){
             this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to block for ${this.state.attack1damage} damage!` ], block:this.state.attack2damage})
         }else if(this.state.attack2type === this.state.monsterWeaknesses){
-            let damage = this.state.attack2damage * 1.5
+            let damage = this.state.attack2damage * 1.5 - this.state.monsterBlock
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} for ${damage} damage! (EFFECTIVE!)` ]})
             if(afterAttackHealth <= 0){
-                this.setState({monsterDead:true})
+                let xp = this.state.currentXp + this.state.monsterXPReward
+                let score = this.state.score + this.state.monsterScoreReward
+                this.setState({monsterDead:true, currentXp:xp,score:score})
+                if(this.state.currentXp >= this.state.xpToLevel){
+                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let xp = 0 + savedXP
+                    let nextXPtoLevel = this.state.xpToLevel + 5
+                    this.setState({currentXp:xp,xpToLevel:nextXPtoLevel,levelUp:true})
+                }
             }
         }else if(this.state.attack2type === this.state.monsterResistances){
-            let damage = this.state.attack2damage * 0.5
+            let damage = this.state.attack2damage * 0.5 - this.state.monsterBlock
             let monsterHealth = this.state.monsterHealth
-            let afterAttackHealth = monsterHealth - damage
+            let afterAttackHealth = monsterHealth - damage 
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} for ${damage} damage! (RESISTED!)` ]})
             if(afterAttackHealth <= 0){
-                this.setState({monsterDead:true})
+                let xp = this.state.currentXp + this.state.monsterXPReward
+                let score = this.state.score +this.state.monsterScoreReward
+                this.setState({monsterDead:true, currentXp:xp,score:score})
+                if(this.state.currentXp >= this.state.xpToLevel){
+                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let xp = 0 + savedXP
+                    let nextXPtoLevel = this.state.xpToLevel + 5
+                    this.setState({currentXp:xp,xpToLevel:nextXPtoLevel,levelUp:true})
+                }
             }
         }else{
-            let damage = this.state.attack2damage
+            let damage = this.state.attack2damage - this.state.monsterBlock
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} for ${damage} damage!` ]})
             if(afterAttackHealth <= 0){
-                this.setState({monsterDead:true})
+                let xp = this.state.currentXp + this.state.monsterXPReward
+                let score = this.state.score +this.state.monsterScoreReward
+                this.setState({monsterDead:true, currentXp:xp,score:score})
+                if(this.state.currentXp >= this.state.xpToLevel){
+                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let xp = 0 + savedXP
+                    let nextXPtoLevel = this.state.xpToLevel + 5
+                    this.setState({currentXp:xp,xpToLevel:nextXPtoLevel,levelUp:true})
+                }
             }
         }
     }
@@ -192,7 +248,9 @@ class Combat extends React.Component{
     }
 
     render(){
-        // console.log(this.state.block)
+        console.log(this.state.currentXp)
+        console.log(this.state.xpToLevel)
+        console.log(this.state.levelUp)
         return(
             <div>
                 <div>
