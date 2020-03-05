@@ -58,13 +58,17 @@ class Combat extends React.Component{
     }
 
     attack1action = () => {
-        if(this.state.attack1type === this.state.monsterWeaknesses){
+        if(this.state.attack1type === 'Heal'){
+            let health = this.state.attack1damage + this.state.health
+            this.setState({health:health})
+        }
+        else if(this.state.attack1type === this.state.monsterWeaknesses){
             let damage = this.state.attack1damage * 1.5
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage! (CRIT!)` ]})
-            if(this.state.monsterHealth <=0){
+            if(afterAttackHealth <= 0){
                 this.setState({monsterDead:true})
             }
         }else if(this.state.attack1type === this.state.monsterResistances){
@@ -73,7 +77,7 @@ class Combat extends React.Component{
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage! (RESISTED!)` ]})
-            if(this.state.monsterHealth <=0){
+            if(afterAttackHealth <= 0){
                 this.setState({monsterDead:true})
             }
         }else{
@@ -82,19 +86,23 @@ class Combat extends React.Component{
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage!` ]})
-            if(this.state.monsterHealth <=0){
+            if(afterAttackHealth <= 0){
                 this.setState({monsterDead:true})
             }
         }
     }
     attack2action = () => {
-        if(this.state.attack2type === this.state.monsterWeaknesses){
+        if(this.state.attack2type === 'Heal'){
+            let health = this.state.attack2damage + this.state.health
+            this.setState({health:health})
+        }
+        else if(this.state.attack2type === this.state.monsterWeaknesses){
             let damage = this.state.attack2damage * 1.5
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage! (CRIT!)` ]})
-            if(this.state.monsterHealth <=0){
+            if(afterAttackHealth <= 0){
                 this.setState({monsterDead:true})
             }
         }else if(this.state.attack2type === this.state.monsterResistances){
@@ -103,7 +111,7 @@ class Combat extends React.Component{
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage! (RESISTANCED!)` ]})
-            if(this.state.monsterHealth <=0){
+            if(afterAttackHealth <= 0){
                 this.setState({monsterDead:true})
             }
         }else{
@@ -112,10 +120,14 @@ class Combat extends React.Component{
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage!` ]})
-            if(this.state.monsterHealth < 0){
+            if(afterAttackHealth <= 0){
                 this.setState({monsterDead:true})
             }
         }
+    }
+    nextFloor = () => {
+        let floor = this.state.floor
+        this.setState({floor:floor + 1,monsterDead:false})
     }
 
     render(){
@@ -161,9 +173,16 @@ class Combat extends React.Component{
                         <p/>
                     )}
                 </div>
-                <div>
-                    <h2>Combat Log:</h2>
-                    {this.state.combatLog}
+                    <div>
+                        <h2>Combat Log:</h2>
+                        {this.state.combatLog}
+                    <div>
+                        {this.state.monsterDead === true ? (
+                            <button onClick={this.nextFloor}>Next Floor</button>
+                        ):(
+                            null
+                        )}
+                    </div>
                     
                 
                 
