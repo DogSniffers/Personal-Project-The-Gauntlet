@@ -1,5 +1,5 @@
 // Current Classes:Goblin,Beast,Spectre
-// Current Attack Types: Slash, Blunt, Fire, Ice, Holy, Arcane, Poison,
+// Current Attack Types: Slash, Blunt, Fire, Ice, Holy, Arcane, Poison, Heal,
 
 module.exports =  [
     {
@@ -69,15 +69,15 @@ module.exports =  [
         attack2type:'Fire',
     },
     {
-        class:'',
+        class:'Priest',
         desc:``,
-        health:0,
-        attack1name:'',
-        attack1damage:0,
-        attack1type:'',
-        attack2name:'',
-        attack2damage:0,
-        attack2type:'',
+        health:18,
+        attack1name:'Smite',
+        attack1damage:4,
+        attack1type:'Holy',
+        attack2name:'Pray',
+        attack2damage:+2,
+        attack2type:'Heal',
     },
     {
         class:'',

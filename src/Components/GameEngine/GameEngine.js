@@ -9,6 +9,7 @@ class Combat extends React.Component{
             score:0,
 
             health:0,
+            maxHealth:0,
             attack1name:'',
             attack1damage:0,
             attack1type:'',
@@ -47,7 +48,7 @@ class Combat extends React.Component{
     }
 
     componentDidMount(){
-        this.setState({health:this.props.health, attack1name:this.props.attack1name, attack1damage:this.props.attack1damage, attack1type:this.props.attack1type, 
+        this.setState({health:this.props.health, maxHealth:this.props.health, attack1name:this.props.attack1name, attack1damage:this.props.attack1damage, attack1type:this.props.attack1type, 
         attack2name:this.props.attack2name, attack2damage:this.props.attack2damage, attack2type:this.props.attack2type,})
         axios.get('/api/monsters').then(res =>{
             this.setState({monsterList:res.data})
@@ -58,16 +59,38 @@ class Combat extends React.Component{
     }
 
     attack1action = () => {
-        if(this.state.attack1type === 'Heal'){
+        let random = Math.floor(Math.random() * 10)
+        console.log(random)
+        if(random === 9){
+            if(this.state.attack1type === 'Heal'){
+                this.setState({health:this.state.maxHealth})
+                this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to heal to full! (CRIT!)` ]})
+            }else{
+            let damage = this.state.attack1damage * 2.5
+            let monsterHealth = this.state.monsterHealth
+            let afterAttackHealth = monsterHealth - damage
+            this.setState({monsterHealth:afterAttackHealth})
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage! (CRIT!)` ]})
+            if(afterAttackHealth <= 0){
+                this.setState({monsterDead:true})}
+            }
+        }
+         else if(this.state.attack1type === 'Heal'){
             let health = this.state.attack1damage + this.state.health
-            this.setState({health:health})
+            if(health > this.state.maxHealth){
+                this.setState({health:this.state.maxHealth})
+                this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to heal to full!` ]})
+            }else{
+                this.setState({health:health})
+                this.setState({combatLog:[...this.state.combatLog, `Used${this.state.attack1name} to heal for ${this.state.attack1damage} health!` ]})
+            }
         }
         else if(this.state.attack1type === this.state.monsterWeaknesses){
             let damage = this.state.attack1damage * 1.5
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
-            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage! (CRIT!)` ]})
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage! (EFFECTIVE!)` ]})
             if(afterAttackHealth <= 0){
                 this.setState({monsterDead:true})
             }
@@ -92,16 +115,37 @@ class Combat extends React.Component{
         }
     }
     attack2action = () => {
-        if(this.state.attack2type === 'Heal'){
+        let random = Math.floor(Math.random() * 10)
+        if(random === 9){
+            if(this.state.attack1type === 'Heal'){
+                this.setState({health:this.state.maxHealth})
+                this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to heal to full! (CRIT!)` ]})
+            }else{
+            let damage = this.state.attack1damage * 2.5
+            let monsterHealth = this.state.monsterHealth
+            let afterAttackHealth = monsterHealth - damage
+            this.setState({monsterHealth:afterAttackHealth})
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack1name} for ${damage} damage! (CRIT!)` ]})
+            if(afterAttackHealth <= 0){
+                this.setState({monsterDead:true})}
+            }
+        }
+        else if(this.state.attack2type === 'Heal'){
             let health = this.state.attack2damage + this.state.health
-            this.setState({health:health})
+            if(health > this.state.maxHealth){
+                this.setState({health:this.state.maxHealth})
+                this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to heal to full!` ]})
+            }else{
+                this.setState({health:health})
+                this.setState({combatLog:[...this.state.combatLog, `Used${this.state.attack1name} to heal for ${this.state.attack2damage} health!` ]})
+            }
         }
         else if(this.state.attack2type === this.state.monsterWeaknesses){
             let damage = this.state.attack2damage * 1.5
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
-            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage! (CRIT!)` ]})
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage! (EFFECTIVE!)` ]})
             if(afterAttackHealth <= 0){
                 this.setState({monsterDead:true})
             }
@@ -110,7 +154,7 @@ class Combat extends React.Component{
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
             this.setState({monsterHealth:afterAttackHealth})
-            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage! (RESISTANCED!)` ]})
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.attack2name} for ${damage} damage! (RESISTED!)` ]})
             if(afterAttackHealth <= 0){
                 this.setState({monsterDead:true})
             }
@@ -140,6 +184,7 @@ class Combat extends React.Component{
                 </div>
                 <div>
                     <p>Health:{this.state.health}</p>
+                    <p>Max Health:{this.state.maxHealth}</p>
                     <p>Level:{this.state.level}</p>
                 </div>
                 <div>

@@ -66,7 +66,6 @@ class TheGauntlet extends React.Component{
                 if(classes.indexOf(random) === -1){
                     classes.push(random)
                 }
-                // console.log(classes)
             }
             let class1 = classes[0]
             let class2 = classes[1]
