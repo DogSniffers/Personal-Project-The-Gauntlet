@@ -268,6 +268,12 @@ class Combat extends React.Component{
     nextFloor = () => {
         let floor = this.state.floor
         this.setState({floor:floor + 1,monsterDead:false,combatLog:[],canAttack:true,})
+        let random = Math.floor(Math.random() * this.state.monsterList.length)
+        let stats = this.state.monsterList[random]
+        this.setState({monsterName:stats.name, monsterClass:stats.class,
+            monsterHealth:stats.health,monsterAttack1name:stats.attack1name,
+        monsterAttack1damage:stats.attack1damage,monsterAttack2name:stats.attack2name,
+        monsterAttack2damage:stats.attack2damage, monsterXPReward:stats.xpReward,monsterScoreReward:stats.scoreReward,monsterResistances:stats.resistances,monsterWeaknesses:stats.weaknesses})
     }
     levelUpHealth = () => {
         let upgradedHealth = this.state.maxHealth + 5
@@ -295,7 +301,6 @@ class Combat extends React.Component{
     }
     monsterAttack = () => {
        console.log('start')
-       console.log(this.state.block)
        console.log(this.state.attackTypeUsed)
        if(this.state.monsterDead === false){
            setTimeout(() => {
@@ -307,6 +312,9 @@ class Combat extends React.Component{
                     this.monsterDamage2()
                 }
             },1500)
+        }else{
+            console.log('hit')
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
         }
     }
 
@@ -366,7 +374,7 @@ class Combat extends React.Component{
         // console.log(this.state.currentXp)
         // console.log(this.state.xpToLevel)
         // console.log(this.state.levelUp)
-        console.log(this.state)
+        console.log(this.state.combatLog)
         return(
             <div>
                 <div>
