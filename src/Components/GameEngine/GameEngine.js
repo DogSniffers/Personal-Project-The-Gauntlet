@@ -58,8 +58,13 @@ class Combat extends React.Component{
         attack2name:this.props.attack2name, attack2damage:this.props.attack2damage, attack2type:this.props.attack2type,})
         axios.get('/api/monsters').then(res =>{
             this.setState({monsterList:res.data})
-            let spawnMonster = res.data
             var random = Math.floor(Math.random() * this.state.monsterList.length) 
+            // console.log(this.state.monsterList[random])
+            let stats = this.state.monsterList[random]
+            this.setState({monsterName:stats.name, monsterClass:stats.class,
+            monsterHealth:stats.health,monsterAttack1name:stats.attack1name,
+        monsterAttack1damage:stats.attack1damage,monsterAttack2name:stats.attack2name,
+        monsterAttack2damage:stats.attack2damage, monsterXPReward:stats.xpReward,monsterScoreReward:stats.scoreReward,monsterResistances:stats.resistances,monsterWeaknesses:stats.weaknesses})
         })
 
     }
@@ -361,6 +366,7 @@ class Combat extends React.Component{
         // console.log(this.state.currentXp)
         // console.log(this.state.xpToLevel)
         // console.log(this.state.levelUp)
+        console.log(this.state)
         return(
             <div>
                 <div>
