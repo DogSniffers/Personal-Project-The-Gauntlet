@@ -163,7 +163,7 @@ class Combat extends React.Component{
         
     }
     attack2action = () => {
-        this.setState({attackTypeUsed:this.state.attack1type,canAttack:false})
+        this.setState({attackTypeUsed:this.state.attack2type,canAttack:false})
         let random = Math.floor(Math.random() * 10)
         if(random === 0){
             this.setState({combatLog:[...this.state.combatLog, `MISSED! (CRIT FAILURE!)` ]})
@@ -203,7 +203,7 @@ class Combat extends React.Component{
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to heal for ${this.state.attack2damage} health!` ]})
             }
         }else if(this.state.attack2type === 'Block'){
-            this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to block for ${this.state.attack1damage} damage!` ], block:this.state.attack2damage})
+            this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to block for ${this.state.attack2damage} damage!` ], block:this.state.attack2damage})
         }else if(this.state.attack2type === this.state.monsterWeaknesses){
             let damage = this.state.attack2damage * 1.5 - this.state.monsterBlock
             let monsterHealth = this.state.monsterHealth
@@ -289,6 +289,8 @@ class Combat extends React.Component{
     }
     monsterAttack = () => {
        console.log('start')
+       console.log(this.state.block)
+       console.log(this.state.attackTypeUsed)
        if(this.state.monsterDead === false){
            setTimeout(() => {
                let random = Math.floor(Math.random() * 10)
@@ -303,7 +305,8 @@ class Combat extends React.Component{
     }
 
     monsterDamage1 = () => {
-        console.log('hit')
+        // console.log('hit')
+        // console.log(this.state.monsterDead)
         if(this.state.monsterDead === false){
 
             let damage = this.state.monsterAttack1damage
@@ -328,8 +331,8 @@ class Combat extends React.Component{
 
     }
     monsterDamage2 = () => {
-        console.log('hit')
-        console.log(this.state.monsterDead)
+        // console.log('hit')
+        // console.log(this.state.monsterDead)
         if(this.state.monsterDead === false){
 
             let damage = this.state.monsterAttack2damage
