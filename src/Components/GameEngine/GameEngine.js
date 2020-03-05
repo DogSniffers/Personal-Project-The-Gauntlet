@@ -83,7 +83,7 @@ class Combat extends React.Component{
                 let xp = this.state.currentXp + this.state.monsterXPReward
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
-                if(this.state.currentXp >= this.state.xpToLevel){
+                if(xp >= this.state.xpToLevel){
                     let savedXP = this.state.currentXp - this.state.xpToLevel
                     let xp = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
@@ -113,7 +113,7 @@ class Combat extends React.Component{
                 let xp = this.state.currentXp + this.state.monsterXPReward
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
-                if(this.state.currentXp >= this.state.xpToLevel){
+                if(xp >= this.state.xpToLevel){
                     let savedXP = this.state.currentXp - this.state.xpToLevel
                     let xp = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
@@ -130,7 +130,7 @@ class Combat extends React.Component{
                 let xp = this.state.currentXp + this.state.monsterXPReward
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
-                if(this.state.currentXp >= this.state.xpToLevel){
+                if(xp >= this.state.xpToLevel){
                     let savedXP = this.state.currentXp - this.state.xpToLevel
                     let xp = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
@@ -144,7 +144,15 @@ class Combat extends React.Component{
             this.setState({monsterHealth:afterAttackHealth})
             this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} for ${damage} damage!` ]})
             if(afterAttackHealth <= 0){
-                this.setState({monsterDead:true})
+                let xp = this.state.currentXp + this.state.monsterXPReward
+                let score = this.state.score +this.state.monsterScoreReward
+                this.setState({monsterDead:true, currentXp:xp,score:score})
+                if(xp >= this.state.xpToLevel){
+                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let xp = 0 + savedXP
+                    let nextXPtoLevel = this.state.xpToLevel + 5
+                    this.setState({currentXp:xp,xpToLevel:nextXPtoLevel,levelUp:true})
+                }
             }
         }
     }
@@ -170,7 +178,7 @@ class Combat extends React.Component{
                 let xp = this.state.currentXp + this.state.monsterXPReward
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
-                if(this.state.currentXp >= this.state.xpToLevel){
+                if(xp >= this.state.xpToLevel){
                     let savedXP = this.state.currentXp - this.state.xpToLevel
                     let xp = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
@@ -199,7 +207,7 @@ class Combat extends React.Component{
                 let xp = this.state.currentXp + this.state.monsterXPReward
                 let score = this.state.score + this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
-                if(this.state.currentXp >= this.state.xpToLevel){
+                if(xp >= this.state.xpToLevel){
                     let savedXP = this.state.currentXp - this.state.xpToLevel
                     let xp = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
@@ -216,7 +224,7 @@ class Combat extends React.Component{
                 let xp = this.state.currentXp + this.state.monsterXPReward
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
-                if(this.state.currentXp >= this.state.xpToLevel){
+                if(xp >= this.state.xpToLevel){
                     let savedXP = this.state.currentXp - this.state.xpToLevel
                     let xp = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
@@ -233,7 +241,7 @@ class Combat extends React.Component{
                 let xp = this.state.currentXp + this.state.monsterXPReward
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
-                if(this.state.currentXp >= this.state.xpToLevel){
+                if(xp >= this.state.xpToLevel){
                     let savedXP = this.state.currentXp - this.state.xpToLevel
                     let xp = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
