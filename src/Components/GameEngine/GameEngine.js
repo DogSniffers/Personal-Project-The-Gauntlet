@@ -7,7 +7,8 @@ class Combat extends React.Component{
         this.state ={
             floor:1,
             score:0,
-
+            
+            className:'',
             health:0,
             maxHealth:0,
             attack1name:'',
@@ -53,7 +54,7 @@ class Combat extends React.Component{
     }
 
     componentDidMount(){
-        this.setState({health:this.props.health, maxHealth:this.props.health, attack1name:this.props.attack1name, attack1damage:this.props.attack1damage, attack1type:this.props.attack1type, 
+        this.setState({ className:this.props.className,health:this.props.health, maxHealth:this.props.health, attack1name:this.props.attack1name, attack1damage:this.props.attack1damage, attack1type:this.props.attack1type, 
         attack2name:this.props.attack2name, attack2damage:this.props.attack2damage, attack2type:this.props.attack2type,})
         axios.get('/api/monsters').then(res =>{
             this.setState({monsterList:res.data})
@@ -300,7 +301,7 @@ class Combat extends React.Component{
                 }else if(random <=6){
                     this.monsterDamage2()
                 }
-            },3000)
+            },1500)
         }
     }
 
@@ -367,6 +368,7 @@ class Combat extends React.Component{
                     <h2>Score:{this.state.score}</h2>
                 </div>
                 <div>
+                <h1>{this.state.className}</h1>
                     <p>Health:{this.state.health}/{this.state.maxHealth}</p>
                     {this.state.levelUp === true ?(
                         <button onClick={this.levelUpHealth}>Upgrade Stat</button>

@@ -1,5 +1,12 @@
 // Current Classes: Goblin, Beast, Spectre, Human,
+
 // Current Attack Types: Slash, Blunt, Fire, Ice, Holy, Arcane, Poison, Heal, Block, Dark,
+
+// Attack Types Used: Slash: 4 , Blunt: 1 , Fire: 2 , Ice: 1 , Holy: 2 , Arcane: 1 , Poison: 1 , Heal: 1 , Block: 1 , Dark: 1 ,
+
+// Weaknesses: Slash: 3 , Blunt: 1 , Fire: 2, Ice: 0, Holy: 1, Arcane: 1, Poison: 3,  Dark: 0,
+
+// Resistances: Slash: 2 , Blunt: 0 , Fire: 0, Ice: 3, Holy: 0, Arcane: 5, Poison: 1,  Dark: 0,
 
 
 module.exports = [
@@ -60,7 +67,7 @@ module.exports = [
         class:'Beast',
         health:12,
         weaknesses:'Fire',
-        resistances:'Blunt',
+        resistances:'Poison',
         attack1name:'Bite',
         attack1damage:2,
         attack2name:'Spit Poison',

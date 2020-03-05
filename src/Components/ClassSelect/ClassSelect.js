@@ -49,8 +49,8 @@ class TheGauntlet extends React.Component{
             selectedClassattack2Damage:'',
             selectedClassattack2Type:'',
 
-            playerNameFirst:'TestFirst',
-            playerNameLast:'TestLast',
+            playerNameFirst:'First',
+            playerNameLast:'Last',
             playerNameNumeral:'III'
 
 
@@ -199,8 +199,7 @@ class TheGauntlet extends React.Component{
                     <h1>{this.state.playerNameFirst} {this.state.playerNameLast} the {this.state.playerNameNumeral}</h1>
                     {/* I'm going to want to pass down the selected Class Health, attacks and Damage as props down into the Combat Component
                     Everything here is temporary for nao */}
-                    <h2>{this.state.selectedClassName}</h2>
-                    <Combat health={this.state.selectedClassHealth} attack1name={this.state.selectedClassattack1Name} attack1damage={this.state.selectedClassattack1Damage} attack1type={this.state.selectedClassattack1Type}  attack2name={this.state.selectedClassattack2Name} attack2damage={this.state.selectedClassattack2Damage} attack2type={this.state.selectedClassattack2Type}></Combat>
+                    <Combat health={this.state.selectedClassHealth} className={this.state.selectedClassName} attack1name={this.state.selectedClassattack1Name} attack1damage={this.state.selectedClassattack1Damage} attack1type={this.state.selectedClassattack1Type}  attack2name={this.state.selectedClassattack2Name} attack2damage={this.state.selectedClassattack2Damage} attack2type={this.state.selectedClassattack2Type}></Combat>
                 </div>
             )}
         </div>
