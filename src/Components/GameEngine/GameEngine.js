@@ -30,6 +30,7 @@ class Combat extends React.Component{
             combatLog:[],
             turn:0,
             monsterAttackDamage:0,
+            aestheticTimer:0,
 
             monsterList:[],
             monsterName:'Test',
@@ -279,6 +280,14 @@ class Combat extends React.Component{
             this.setState({levelUpUpgrades:2, levelUp:false})
         }
     }
+    monsterAttack = () => {
+       console.log('start')
+            setTimeout(() => {
+                let random = Math.floor(Math.random() * 10)
+                console.log(random)
+                
+            },3000)
+    }
 
     render(){
         // console.log(this.state.currentXp)
@@ -311,7 +320,7 @@ class Combat extends React.Component{
                     <h2>{this.state.monsterName}</h2>
                     <p>Health:{this.state.monsterHealth}</p>
                     <div>
-                        <h2>Monster Attacks:</h2>
+                        <h2 onClick={this.monsterAttack}>Monster Attacks:</h2>
                         <p>{this.state.monsterAttack1name}</p>
                         <p>{this.state.monsterAttack2name}</p>
         
