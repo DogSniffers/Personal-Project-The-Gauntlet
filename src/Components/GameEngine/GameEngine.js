@@ -68,6 +68,9 @@ class Combat extends React.Component{
             if(this.state.attack1type === 'Heal'){
                 this.setState({health:this.state.maxHealth})
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to heal to full! (CRIT!)` ]})
+            }else if(this.state.attack1type === 'Block'){
+                    this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to block enemies attack! (CRIT!)` ]})
+                    // NEED TO CODE IN A WAY TO BLOCK ATTACKS, ILL DO THIS WHEN I ADD MONSTER COMBAT
             }else{
             let damage = this.state.attack1damage * 2.5
             let monsterHealth = this.state.monsterHealth
@@ -87,8 +90,10 @@ class Combat extends React.Component{
                 this.setState({health:health})
                 this.setState({combatLog:[...this.state.combatLog, `Used${this.state.attack1name} to heal for ${this.state.attack1damage} health!` ]})
             }
-        }
-        else if(this.state.attack1type === this.state.monsterWeaknesses){
+        }else if(this.state.attack1type === 'Block'){
+            this.setState({combatLog:[...this.state.combatLog, `Used${this.state.attack1name} to block for ${this.state.attack1damage} damage!` ]})
+
+        }else if(this.state.attack1type === this.state.monsterWeaknesses){
             let damage = this.state.attack1damage * 1.5
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
@@ -125,7 +130,9 @@ class Combat extends React.Component{
          else if(random === 9){
             if(this.state.attack1type === 'Heal'){
                 this.setState({health:this.state.maxHealth})
-                this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to heal to full! (CRIT!)` ]})
+                this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to heal to full! (CRIT!)` ]})
+            }else if(this.state.attack1type === 'Block'){
+                this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to block enemies attack! (CRIT!)` ]})
             }else{
             let damage = this.state.attack1damage * 2.5
             let monsterHealth = this.state.monsterHealth
@@ -143,10 +150,12 @@ class Combat extends React.Component{
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to heal to full!` ]})
             }else{
                 this.setState({health:health})
-                this.setState({combatLog:[...this.state.combatLog, `Used${this.state.attack1name} to heal for ${this.state.attack2damage} health!` ]})
+                this.setState({combatLog:[...this.state.combatLog, `Used${this.state.attack2name} to heal for ${this.state.attack2damage} health!` ]})
             }
-        }
-        else if(this.state.attack2type === this.state.monsterWeaknesses){
+        }else if(this.state.attack1type === 'Block'){
+            this.setState({combatLog:[...this.state.combatLog, `Used${this.state.attack2name} to block for ${this.state.attack1damage} damage!` ]})
+            // NEED TO ADD WAY TO BLOCK
+        }else if(this.state.attack2type === this.state.monsterWeaknesses){
             let damage = this.state.attack2damage * 1.5
             let monsterHealth = this.state.monsterHealth
             let afterAttackHealth = monsterHealth - damage
