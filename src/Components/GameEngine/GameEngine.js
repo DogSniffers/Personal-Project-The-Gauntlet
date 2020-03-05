@@ -61,7 +61,10 @@ class Combat extends React.Component{
     attack1action = () => {
         let random = Math.floor(Math.random() * 10)
         console.log(random)
-        if(random === 9){
+        if(random === 0){
+            this.setState({combatLog:[...this.state.combatLog, `MISSED! (CRIT FAILURE!)` ]})
+        }
+        else if(random === 9){
             if(this.state.attack1type === 'Heal'){
                 this.setState({health:this.state.maxHealth})
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to heal to full! (CRIT!)` ]})
@@ -116,7 +119,10 @@ class Combat extends React.Component{
     }
     attack2action = () => {
         let random = Math.floor(Math.random() * 10)
-        if(random === 9){
+        if(random === 0){
+            this.setState({combatLog:[...this.state.combatLog, `MISSED! (CRIT FAILURE!)` ]})
+        }
+         else if(random === 9){
             if(this.state.attack1type === 'Heal'){
                 this.setState({health:this.state.maxHealth})
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to heal to full! (CRIT!)` ]})
