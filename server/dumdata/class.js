@@ -1,4 +1,4 @@
-// Current Classes:Goblin,Beast,Spectre
+// Current Classes: Goblin, Beast, Spectre, Human,
 // Current Attack Types: Slash, Blunt, Fire, Ice, Holy, Arcane, Poison, Heal, Block, Dark,
 
 module.exports =  [
