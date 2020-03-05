@@ -318,16 +318,16 @@ class Combat extends React.Component{
             let damage = this.state.monsterAttack1damage
             if(this.state.attackTypeUsed === 'Block'){
                 if(this.state.block === 10){
-                    this.setState({combatLog:[...this.state.combatLog + `${this.state.monsterName} used ${this.state.monsterAttack1name}, but it was fully blocked!`],canAttack:true})
+                    this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack1name}, but it was fully blocked!`],canAttack:true})
                 }else{
                     let blockedDamage = damage - this.state.block
                     let health = this.state.health - blockedDamage
-                    this.setState({combatLog:[...this.state.combatLog + `${this.state.monsterName} used ${this.state.monsterAttack1name} for ${blockedDamage} damage! (${this.state.block} blocked damage.)`],health:health,canAttack:true})
+                    this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack1name} for ${blockedDamage} damage! (${this.state.block} blocked damage.)`],health:health,canAttack:true})
                 }
             }else{
                 let playerHealth = this.state.health - this.state.monsterAttack1damage
                 this.setState({health:playerHealth})
-                this.setState({combatLog:[...this.state.combatLog + `${this.state.monsterName} used ${this.state.monsterAttack1name} for ${damage} damage! `],canAttack:true})
+                this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack1name} for ${damage} damage! `],canAttack:true})
                 if(playerHealth <= 0){
                     this.setState({playerDead:true})
                 }
@@ -344,16 +344,16 @@ class Combat extends React.Component{
             let damage = this.state.monsterAttack2damage
             if(this.state.attackTypeUsed === 'Block'){
                 if(this.state.block === 10){
-                    this.setState({combatLog:[...this.state.combatLog + `${this.state.monsterName} used ${this.state.monsterAttack2name}, but it was fully blocked!`],canAttack:true})
+                    this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack2name}, but it was fully blocked!`],canAttack:true})
                 }else{
                     let blockedDamage = damage - this.state.block
                     let health = this.state.health - blockedDamage
-                    this.setState({combatLog:[...this.state.combatLog + `${this.state.monsterName} used ${this.state.monsterAttack2name} for ${blockedDamage} damage! (${this.state.block} blocked damage.)`],health:health,canAttack:true})
+                    this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack2name} for ${blockedDamage} damage! (${this.state.block} blocked damage.)`],health:health,canAttack:true})
                 }
             }else{
                 let playerHealth = this.state.health - this.state.monsterAttack2damage
                 this.setState({health:playerHealth})
-                this.setState({combatLog:[...this.state.combatLog + `${this.state.monsterName} used ${this.state.monsterAttack2name} for ${damage} damage! `],canAttack:true})
+                this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack2name} for ${damage} damage! `],canAttack:true})
                 if(playerHealth <= 0){
                     this.setState({playerDead:true})
                 }
@@ -402,9 +402,9 @@ class Combat extends React.Component{
                     <h2>{this.state.monsterName}</h2>
                     <p>Health:{this.state.monsterHealth}</p>
                     <div>
-                        <h2 onClick={this.monsterAttack}>Monster Attacks:</h2>
-                        <p>{this.state.monsterAttack1name}</p>
-                        <p>{this.state.monsterAttack2name}</p>
+                        <h2>Monster Attacks:</h2>
+                    <p>{this.state.monsterAttack1name}: {this.state.monsterAttack1damage} damage</p>
+                    <p>{this.state.monsterAttack2name}: {this.state.monsterAttack2damage} damage</p>
         
 
                     </div>
