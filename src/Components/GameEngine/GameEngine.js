@@ -159,7 +159,8 @@ class Combat extends React.Component{
                 }
             }
         }
-        this.monsterAttack()
+            this.monsterAttack()
+        
     }
     attack2action = () => {
         this.setState({attackTypeUsed:this.state.attack1type,canAttack:false})
@@ -255,7 +256,8 @@ class Combat extends React.Component{
                 }
             }
         }
-        this.monsterAttack()
+            this.monsterAttack()
+        
     }
     nextFloor = () => {
         let floor = this.state.floor
@@ -287,15 +289,17 @@ class Combat extends React.Component{
     }
     monsterAttack = () => {
        console.log('start')
-            setTimeout(() => {
-                let random = Math.floor(Math.random() * 10)
-                console.log(random)
-                if(random > 6){
-                    this.monsterDamage1()
+       if(this.state.monsterDead === false){
+           setTimeout(() => {
+               let random = Math.floor(Math.random() * 10)
+               console.log(random)
+               if(random > 6){
+                   this.monsterDamage1()
                 }else if(random <=6){
                     this.monsterDamage2()
                 }
             },3000)
+        }
     }
 
     monsterDamage1 = () => {
@@ -363,12 +367,19 @@ class Combat extends React.Component{
                     )}
                     <p>XP:{this.state.currentXp}/{this.state.xpToLevel}</p>
                     <p>Level:{this.state.level}</p>
-                    {this.state.levelUp === true ?(
+                    {this.state.playerDead === false ?(
+                        <>
+                        {this.state.levelUp === true ?(
                             <p>Level-Up Upgrades:{this.state.levelUpUpgrades}</p>
+                            
+                            ):( 
+                                null
+                                )}
+                        </>
 
-                        ):( 
-                            null
-                        )}
+                    ):(
+                        null
+                    )}
                 </div>
                 <div>
                     <h2>{this.state.monsterName}</h2>
@@ -391,11 +402,17 @@ class Combat extends React.Component{
                             null
                         )}
                     <p>Type:{this.state.attack1type}</p>
+                    {this.state.playerDead === false ? (
+                        <>
                         {this.state.canAttack === true ? (
                             <button onClick={this.attack1action}>Attack</button>
                         ):(
                             null
                         )}
+                        </>
+                    ):(
+                        null
+                    )}
                 </div>
                 <div className='attacks'>
                     <h2>{this.state.attack2name}</h2>
@@ -407,8 +424,14 @@ class Combat extends React.Component{
                             null
                         )}
                     <p>Type:{this.state.attack2type}</p>
-                    {this.state.canAttack === true ? (
-                        <button onClick={this.attack2action}>Attack</button>
+                    {this.state.playerDead === false ? (
+                        <>
+                        {this.state.canAttack === true ? (
+                            <button onClick={this.attack2action}>Attack</button>
+                        ):(
+                            null
+                        )}
+                        </>
                     ):(
                         null
                     )}
@@ -423,9 +446,6 @@ class Combat extends React.Component{
                             null
                         )}
                     </div>
-                    
-                
-                
             </div>
         </div>
         )
