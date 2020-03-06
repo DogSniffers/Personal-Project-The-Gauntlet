@@ -41,7 +41,8 @@ app.post('/api/logout', authController.logout)
 // app.delete('/api/users/:id', controller.*)
 
 // LeaderBoard Stuff:
-app.get('/api/leaderboard', leaderboardController.fetchLeaderboard)
+app.get('/api/leaderboard/byscore', leaderboardController.fetchLeaderboardByScore)
+app.get('/api/leaderboard/byfloors', leaderboardController.fetchLeaderboardByFloors)
 app.post('/api/leaderboard', leaderboardController.uploadToLeaderboard)
 
 // TheGauntlet Stuff:

@@ -13,9 +13,20 @@ class LeaderBoard extends React.Component{
         }
     }
     componentDidMount(){
-        axios.get('/api/leaderboard').then( res => {
+        axios.get('/api/leaderboard/byscore').then( res => {
             this.setState({leaderboard:res.data})}
             )}
+
+    sortByScore = () => {
+        axios.get('/api/leaderboard/byscore').then( res => {
+            this.setState({leaderboard:res.data})}
+            )}
+    sortByFloors = () => {
+        axios.get('/api/leaderboard/byfloor').then( res => {
+            this.setState({leaderboard:res.data})}
+            )}
+        
+    
 
     render(){
         return(
