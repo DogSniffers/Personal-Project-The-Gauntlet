@@ -292,7 +292,7 @@ class Combat extends React.Component{
     levelUpHealth = () => {
         let upgradedHealth = this.state.maxHealth + 5
         let levelUpUpgradesLeft = this.state.levelUpUpgrades - 1
-        this.setState({maxHealth:upgradedHealth, levelUpUpgrades:levelUpUpgradesLeft})
+        this.setState({maxHealth:upgradedHealth, levelUpUpgrades:levelUpUpgradesLeft,health:upgradedHealth,})
         if(levelUpUpgradesLeft === 0){
             this.setState({levelUpUpgrades:2, levelUp:false})
         }
@@ -322,8 +322,10 @@ class Combat extends React.Component{
                console.log(random)
                if(random > 6){
                    this.monsterDamage1()
-                }else if(random <=6){
+                }else if(random > 3){
                     this.monsterDamage2()
+                }else{
+                    this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} missed!`],canAttack:true})
                 }
             },1500)
         }else{
