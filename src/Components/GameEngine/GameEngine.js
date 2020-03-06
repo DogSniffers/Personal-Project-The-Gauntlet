@@ -296,10 +296,11 @@ class Combat extends React.Component{
             monsterAttack1damage:stats.attack1damage,
             monsterAttack2name:stats.attack2name,
             monsterAttack2damage:stats.attack2damage, 
-         monsterXPReward:stats.xpReward,
+            monsterXPReward:stats.xpReward,
             monsterScoreReward:stats.scoreReward,
             monsterResistances:stats.resistances,
-            monsterWeaknesses:stats.weaknesses})
+            monsterWeaknesses:stats.weaknesses,
+            nextFloorBoss:false})
     }
     levelUp = () => {
         let xp = this.state.currentXp + this.state.monsterXPReward
