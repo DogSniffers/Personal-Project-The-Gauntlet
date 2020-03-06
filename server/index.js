@@ -3,11 +3,14 @@ const express = require('express');
 const session = require('express-session');
 const massive = require('massive');
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
-const app = express();
-app.use(express.json())
 const authController = require('./controllers/authController')
 const gauntletController = require('./controllers/theGauntletController')
-const axios = require('axios')
+const leaderboardController = require('./controllers/leaderboardController')
+
+const app = express();
+
+app.use(express.json())
+
 
 app.use(
     session({

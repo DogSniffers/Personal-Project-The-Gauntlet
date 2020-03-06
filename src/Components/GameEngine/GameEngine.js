@@ -93,7 +93,7 @@ class Combat extends React.Component{
     attack1action = () => {
         this.setState({attackTypeUsed:this.state.attack1type,canAttack:false})
         let random = Math.floor(Math.random() * 10)
-        console.log(random)
+        // console.log(random)
         if(random === 0){
             this.setState({combatLog:[...this.state.combatLog, `MISSED! (CRIT FAILURE!)` ]})
         }
@@ -159,7 +159,7 @@ class Combat extends React.Component{
             this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} for ${damage} damage! (RESISTED!)` ]})
             if(afterAttackHealth <= 0){
                 let xp = this.state.currentXp + this.state.monsterXPReward
-                let score = this.state.score +this.state.monsterScoreReward
+                let score = this.state.score + this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
                     let savedXP = this.state.currentXp - this.state.xpToLevel
@@ -199,7 +199,7 @@ class Combat extends React.Component{
             if(this.state.attack2type === 'Heal'){
                 this.setState({health:this.state.maxHealth})
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to heal to full! (CRIT!)` ]})
-            }else if(this.state.attack1type === 'Block'){
+            }else if(this.state.attack2type === 'Block'){
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to block enemies attack! (CRIT!)` ], block:10})
                 // BLOCK 10 MEANS NO DAMAGE IN MONSTER CODE
             }else{
@@ -291,20 +291,34 @@ class Combat extends React.Component{
         this.setState({floor:floor + 1,monsterDead:false,combatLog:[],canAttack:true,})
         let random = Math.floor(Math.random() * this.state.monsterList.length)
         let stats = this.state.monsterList[random]
-        this.setState({monsterName:stats.name, monsterClass:stats.class,
-            monsterHealth:stats.health,monsterAttack1name:stats.attack1name,
-        monsterAttack1damage:stats.attack1damage,monsterAttack2name:stats.attack2name,
-        monsterAttack2damage:stats.attack2damage, monsterXPReward:stats.xpReward,monsterScoreReward:stats.scoreReward,monsterResistances:stats.resistances,monsterWeaknesses:stats.weaknesses})
+        this.setState({monsterName:stats.name, 
+            monsterClass:stats.class,
+            monsterHealth:stats.health,
+            monsterAttack1name:stats.attack1name,
+            monsterAttack1damage:stats.attack1damage,
+            monsterAttack2name:stats.attack2name,
+            monsterAttack2damage:stats.attack2damage, 
+            monsterXPReward:stats.xpReward,
+            monsterScoreReward:stats.scoreReward,
+            monsterResistances:stats.resistances,
+            monsterWeaknesses:stats.weaknesses})
     }
     nextFloorBoss = () => {
         let floor = this.state.floor
         this.setState({floor:floor + 1,monsterDead:false,combatLog:[],canAttack:true,})
         let random = Math.floor(Math.random() * this.state.bossList.length)
         let stats = this.state.bossList[random]
-        this.setState({monsterName:stats.name, monsterClass:stats.class,
-            monsterHealth:stats.health,monsterAttack1name:stats.attack1name,
-        monsterAttack1damage:stats.attack1damage,monsterAttack2name:stats.attack2name,
-        monsterAttack2damage:stats.attack2damage, monsterXPReward:stats.xpReward,monsterScoreReward:stats.scoreReward,monsterResistances:stats.resistances,monsterWeaknesses:stats.weaknesses})
+        this.setState({monsterName:stats.name, 
+            monsterClass:stats.class,
+            monsterHealth:stats.health,
+            monsterAttack1name:stats.attack1name,
+            monsterAttack1damage:stats.attack1damage,
+            monsterAttack2name:stats.attack2name,
+            monsterAttack2damage:stats.attack2damage, 
+         monsterXPReward:stats.xpReward,
+            monsterScoreReward:stats.scoreReward,
+            monsterResistances:stats.resistances,
+            monsterWeaknesses:stats.weaknesses})
     }
     levelUpHealth = () => {
         let upgradedHealth = this.state.maxHealth + 5
