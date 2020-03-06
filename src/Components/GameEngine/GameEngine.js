@@ -5,7 +5,7 @@ class Combat extends React.Component{
     constructor(props){
         super(props)
         this.state ={
-            floor:1,
+            floor:0,
             score:0,
             
             className:'',
@@ -501,13 +501,21 @@ class Combat extends React.Component{
                     <div>
                         <h2>Combat Log:</h2>
                         {this.state.combatLog}
+                    {this.state.floor === 9? (<div>
+                        {this.state.monsterDead === true ? (
+                            <button onClick={this.nextFloor}>Boss Floor</button>
+                        ):(
+                            null
+                        )}
+                    </div>
+                    ):(
                     <div>
                         {this.state.monsterDead === true ? (
                             <button onClick={this.nextFloor}>Next Floor</button>
                         ):(
                             null
                         )}
-                    </div>
+                    </div>)}
             </div>
         </div>
         )
