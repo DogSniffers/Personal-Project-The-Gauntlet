@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import LoseMessage from '../LoseMessage/LoseMessage'
 
 class Combat extends React.Component{
     constructor(props){
@@ -322,10 +323,8 @@ class Combat extends React.Component{
                console.log(random)
                if(random > 6){
                    this.monsterDamage1()
-                }else if(random > 3){
-                    this.monsterDamage2()
                 }else{
-                    this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} missed!`],canAttack:true})
+                    this.monsterDamage2()
                 }
             },1500)
         }else{
@@ -535,6 +534,14 @@ class Combat extends React.Component{
                             null
                         )}
                     </div>)}
+                    {this.state.playerDead === true ? (
+                        <div>
+                            <LoseMessage/>
+                        </div>
+
+                    ):(
+                        null
+                    )}
             </div>
         </div>
         )
