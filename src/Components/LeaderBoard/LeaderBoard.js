@@ -18,10 +18,13 @@ class LeaderBoard extends React.Component{
             )}
 
     sortByScore = () => {
+        console.log('hit')
         axios.get('/api/leaderboard/byscore').then( res => {
             this.setState({leaderboard:res.data})}
             )}
+
     sortByFloors = () => {
+        console.log('hit')
         axios.get('/api/leaderboard/byfloor').then( res => {
             this.setState({leaderboard:res.data})}
             )}
@@ -32,13 +35,15 @@ class LeaderBoard extends React.Component{
         return(
             <div>
                 <h1>LeaderBoard</h1>
+                <button onClick={() => this.sortByScore}>By Score</button>
+                <button onClick={() => this.sortByFloors}>By Floor</button>
                 {this.state.leaderboard.map(score => {
                     return(
                     <div>
-                        <p>{score.username}</p>
-                        <p>{score.points}</p>
-                        <p>{score.floors}</p>
-                        <p>{score.death}</p>
+                        <h2>{score.username}</h2>
+                        <p>Points:{score.points}</p>
+                        <p>Floors:{score.floors}</p>
+                        <p>Death:{score.death}</p>
                         </div>
                     )
                 })}

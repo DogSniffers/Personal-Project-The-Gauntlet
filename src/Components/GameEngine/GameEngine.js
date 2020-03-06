@@ -25,11 +25,10 @@ class Combat extends React.Component{
             playerDead:false,
 
             level:1,
-            currentXp:0,
+            currentXp:9,
             xpToLevel:10,
             levelUp:false,
             levelUpUpgrades:2,
-
             
             combatLog:[],
             turn:0,
@@ -115,10 +114,11 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let savedXP = xp - this.state.xpToLevel
                     let xp2 = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true})
+                    let health = this.state.maxHealth
+                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
                 }}
             }
         }
@@ -145,10 +145,11 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let savedXP = xp - this.state.xpToLevel
                     let xp2 = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true})
+                    let health = this.state.maxHealth
+                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
                 }
             }
         }else if(this.state.attack1type === this.state.monsterResistances){
@@ -162,10 +163,11 @@ class Combat extends React.Component{
                 let score = this.state.score + this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let savedXP = xp - this.state.xpToLevel
                     let xp2 = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true})
+                    let health = this.state.maxHealth
+                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
                 }
             }
         }else{
@@ -179,10 +181,11 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let savedXP = xp - this.state.xpToLevel
                     let xp2 = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true})
+                    let health = this.state.maxHealth
+                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
                 }
             }
         }
@@ -213,10 +216,11 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let savedXP = xp - this.state.xpToLevel
                     let xp2 = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true})
+                    let health = this.state.maxHealth
+                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
                 }}
             }
         }
@@ -242,10 +246,11 @@ class Combat extends React.Component{
                 let score = this.state.score + this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let savedXP = xp - this.state.xpToLevel
                     let xp2 = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true})
+                    let health = this.state.maxHealth
+                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
                 }
             }
         }else if(this.state.attack2type === this.state.monsterResistances){
@@ -259,10 +264,11 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let savedXP = xp - this.state.xpToLevel
                     let xp2 = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true})
+                    let health = this.state.maxHealth
+                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
                 }
             }
         }else{
@@ -276,10 +282,11 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let savedXP = xp - this.state.xpToLevel
                     let xp2 = 0 + savedXP
                     let nextXPtoLevel = this.state.xpToLevel + 5
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true})
+                    let health = this.state.maxHealth
+                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
                 }
             }
         }
@@ -514,46 +521,45 @@ class Combat extends React.Component{
                 <div className='attacks'>
                     <h2>{this.state.attack1name}</h2>
                     <p>Damage:{this.state.attack1damage}</p>
+                    <p>Type:{this.state.attack1type}</p>
                         {this.state.levelUp === true ?(
                             <button onClick={this.levelAttack1}>Upgrade Stat</button>
-
+                    ):(
+                        <>
+                    {this.state.playerDead === false ? (
+                            <>
+                            {this.state.canAttack === true ? (
+                                <button onClick={this.attack1action}>Attack</button>
                         ):(
                             null
                         )}
-                    <p>Type:{this.state.attack1type}</p>
-                    {this.state.playerDead === false ? (
-                        <>
-                        {this.state.canAttack === true ? (
-                            <button onClick={this.attack1action}>Attack</button>
+                            </>
                         ):(
                             null
                         )}
                         </>
-                    ):(
-                        null
                     )}
+                        
                 </div>
                 <div className='attacks'>
                     <h2>{this.state.attack2name}</h2>
                     <p>Damage:{this.state.attack2damage}</p>
+                    <p>Type:{this.state.attack2type}</p>
                         {this.state.levelUp === true ?(
                             <button onClick={this.levelAttack2}>Upgrade Stat</button>
 
                         ):( 
-                            null
-                        )}
-                    <p>Type:{this.state.attack2type}</p>
-                    {this.state.playerDead === false ? (
-                        <>
-                        {this.state.canAttack === true ? (
+                            <>
+                            {this.state.playerDead === false ? (
+                            <>
+                            {this.state.canAttack === true ? (
                             <button onClick={this.attack2action}>Attack</button>
                         ):(
-                            null
-                        )}
-                        </>
-                    ):(
-                        null
-                    )}
+                            null)}
+                            </>
+                        ):(
+                        null)}
+                    </>)}
                 </div>
                     <div>
                         <h2>Combat Log:</h2>
