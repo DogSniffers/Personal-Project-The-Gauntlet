@@ -98,7 +98,10 @@ class MonsterCreator extends React.Component{
                      <p>{this.state.monsterAttack1Type}</p>
                     <button onClick={() =>this.setState({type1List:!this.state.type1List})}>Type List</button>
                     {this.state.type1List === true ? (
-                        <div>Herro</div>
+                        <div>
+                            <button onClick={() =>this.setState({monsterAttack1Type:'Blunt'})}>Blunt</button>
+                            
+                        </div>
 
                     ):(
                         null
