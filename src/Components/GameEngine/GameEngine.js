@@ -560,7 +560,7 @@ class Combat extends React.Component{
                     {this.state.playerDead === true ? (
                         <div>
                             <LoseMessage/>
-                            <button onClick={() =>this.props.history.push('/header')}>RESTART</button>
+                            <button onClick={() =>this.props.history.push('/header')}>HOME</button>
                             <button>PUSH SCORE TO LEADERBOARD</button>
                         </div>
 
