@@ -1,0 +1,28 @@
+module.exports = [
+    {
+        name:'',
+        class:'Boss',
+        health:0,
+        weaknesses:'',
+        resistances:'',
+        attack1name:'',
+        attack1damage:0,
+        attack2name:'',
+        attack2damage:0,
+        xpReward:0,
+        scoreReward:0,
+    },
+    {
+        name:'',
+        class:'Boss',
+        health:0,
+        weaknesses:'',
+        resistances:'',
+        attack1name:'',
+        attack1damage:0,
+        attack2name:'',
+        attack2damage:0,
+        xpReward:0,
+        scoreReward:0,
+    },
+]

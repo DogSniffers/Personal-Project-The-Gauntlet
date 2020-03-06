@@ -44,4 +44,5 @@ app.post('/api/logout', authController.logout)
 // TheGauntlet Stuff:
 app.get('/api/classes', gauntletController.fetchClasses)
 app.get('/api/monsters', gauntletController.fetchMonsters)
+app.get('/api/bosses', gauntletController.fetchBosses)
 

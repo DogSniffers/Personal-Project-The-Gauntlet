@@ -47,8 +47,9 @@ class Combat extends React.Component{
             monsterResistances:'Slash',
             monsterScoreReward:20,
             monsterXPReward:10,
-
             monsterDead:false,
+
+            bossList:[],
 
         }
     }
@@ -65,6 +66,9 @@ class Combat extends React.Component{
             monsterHealth:stats.health,monsterAttack1name:stats.attack1name,
         monsterAttack1damage:stats.attack1damage,monsterAttack2name:stats.attack2name,
         monsterAttack2damage:stats.attack2damage, monsterXPReward:stats.xpReward,monsterScoreReward:stats.scoreReward,monsterResistances:stats.resistances,monsterWeaknesses:stats.weaknesses})
+        })
+        axios.get('/api/bosses').then(res => {
+            this.setState({bossList:res.data})
         })
 
     }
@@ -275,6 +279,16 @@ class Combat extends React.Component{
         monsterAttack1damage:stats.attack1damage,monsterAttack2name:stats.attack2name,
         monsterAttack2damage:stats.attack2damage, monsterXPReward:stats.xpReward,monsterScoreReward:stats.scoreReward,monsterResistances:stats.resistances,monsterWeaknesses:stats.weaknesses})
     }
+    nextFloorBoss = () => {
+        let floor = this.state.floor
+        this.setState({floor:floor + 1,monsterDead:false,combatLog:[],canAttack:true,})
+        let random = Math.floor(Math.random() * this.state.bossList.length)
+        let stats = this.state.bossList[random]
+        this.setState({monsterName:stats.name, monsterClass:stats.class,
+            monsterHealth:stats.health,monsterAttack1name:stats.attack1name,
+        monsterAttack1damage:stats.attack1damage,monsterAttack2name:stats.attack2name,
+        monsterAttack2damage:stats.attack2damage, monsterXPReward:stats.xpReward,monsterScoreReward:stats.scoreReward,monsterResistances:stats.resistances,monsterWeaknesses:stats.weaknesses})
+    }
     levelUpHealth = () => {
         let upgradedHealth = this.state.maxHealth + 5
         let levelUpUpgradesLeft = this.state.levelUpUpgrades - 1
@@ -412,6 +426,7 @@ class Combat extends React.Component{
         // console.log(this.state.xpToLevel)
         // console.log(this.state.levelUp)
         // console.log(this.state.combatLog)
+        console.log(this.state.bossList)
         return(
             <div>
                 <div>
@@ -503,7 +518,7 @@ class Combat extends React.Component{
                         {this.state.combatLog}
                     {this.state.floor === 9? (<div>
                         {this.state.monsterDead === true ? (
-                            <button onClick={this.nextFloor}>Boss Floor</button>
+                            <button onClick={this.nextFloorBoss}>Boss Floor</button>
                         ):(
                             null
                         )}
