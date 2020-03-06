@@ -337,6 +337,8 @@ class Combat extends React.Component{
         // console.log('hit')
         // console.log(this.state.monsterDead)
         if(this.state.monsterDead === false){
+            let random = Math.floor(Math.random() * 10)
+            if(random !== 0){
             let damage = this.state.monsterAttack1damage
             if(this.state.attackTypeUsed === 'Block'){
                 if(this.state.block === 10){
@@ -375,6 +377,9 @@ class Combat extends React.Component{
                 
             }
         }else{
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} missed!`],canAttack:true})
+        }
+        }else{
             this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
         }
     }
@@ -382,6 +387,8 @@ class Combat extends React.Component{
         // console.log('hit')
         // console.log(this.state.monsterDead)
         if(this.state.monsterDead === false){
+            let random = Math.floor(Math.random() * 10)
+            if(random !== 0){
 
             let damage = this.state.monsterAttack2damage
             if(this.state.attackTypeUsed === 'Block'){
@@ -418,6 +425,9 @@ class Combat extends React.Component{
                     this.setState({playerDead:true})
                 }
                 }
+            }else{
+                this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} missed!`],canAttack:true})
+            }
             }else{
                 this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
             }
