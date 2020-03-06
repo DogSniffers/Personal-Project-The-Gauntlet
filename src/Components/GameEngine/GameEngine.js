@@ -107,7 +107,7 @@ class Combat extends React.Component{
         }
          else if(this.state.attack1type === 'Heal'){
             let health = this.state.attack1damage + this.state.health
-            if(health > this.state.maxHealth){
+            if(health >= this.state.maxHealth){
                 this.setState({health:this.state.maxHealth})
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack1name} to heal to full!` ]})
             }else{
@@ -179,7 +179,7 @@ class Combat extends React.Component{
             this.setState({combatLog:[...this.state.combatLog, `MISSED! (CRIT FAILURE!)` ]})
         }
          else if(random === 9){
-            if(this.state.attack1type === 'Heal'){
+            if(this.state.attack2type === 'Heal'){
                 this.setState({health:this.state.maxHealth})
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to heal to full! (CRIT!)` ]})
             }else if(this.state.attack1type === 'Block'){
@@ -205,7 +205,7 @@ class Combat extends React.Component{
         }
         else if(this.state.attack2type === 'Heal'){
             let health = this.state.attack2damage + this.state.health
-            if(health > this.state.maxHealth){
+            if(health >= this.state.maxHealth){
                 this.setState({health:this.state.maxHealth})
                 this.setState({combatLog:[...this.state.combatLog, `Used ${this.state.attack2name} to heal to full!` ]})
             }else{
@@ -336,7 +336,6 @@ class Combat extends React.Component{
         // console.log('hit')
         // console.log(this.state.monsterDead)
         if(this.state.monsterDead === false){
-
             let damage = this.state.monsterAttack1damage
             if(this.state.attackTypeUsed === 'Block'){
                 if(this.state.block === 10){
@@ -374,8 +373,9 @@ class Combat extends React.Component{
                 }
                 
             }
+        }else{
+            this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
         }
-
     }
     monsterDamage2 = () => {
         // console.log('hit')
@@ -417,6 +417,8 @@ class Combat extends React.Component{
                     this.setState({playerDead:true})
                 }
                 }
+            }else{
+                this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
             }
             
         }
@@ -424,7 +426,7 @@ class Combat extends React.Component{
     render(){
         // console.log(this.state.currentXp)
         // console.log(this.state.xpToLevel)
-        // console.log(this.state.levelUp)
+        console.log(this.state)
         // console.log(this.state.combatLog)
         console.log(this.state.bossList)
         return(
