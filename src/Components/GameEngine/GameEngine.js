@@ -295,6 +295,15 @@ class Combat extends React.Component{
             monsterResistances:stats.resistances,
             monsterWeaknesses:stats.weaknesses})
     }
+    levelUp = () => {
+        let xp = this.state.currentXp + this.state.monsterXPReward
+        let savedXP = xp - this.state.xpToLevel
+        let xp2 = 0 + savedXP
+        let nextXPtoLevel = this.state.xpToLevel + 5
+        let health = this.state.maxHealth
+        let level = this.state.level + 1
+        this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health,level:level})
+    }
     levelUpHealth = () => {
         let upgradedHealth = this.state.maxHealth + 5
         let levelUpUpgradesLeft = this.state.levelUpUpgrades - 1
@@ -437,14 +446,7 @@ class Combat extends React.Component{
             }
             
         }
-        levelUp = () => {
-                    let savedXP = this.state.currentXp - this.state.xpToLevel
-                    let xp2 = 0 + savedXP
-                    let nextXPtoLevel = this.state.xpToLevel + 5
-                    let health = this.state.maxHealth
-                    let level = this.state.level + 1
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health,level:level})
-        }
+       
         
     render(){
         // console.log(this.state.currentXp)
