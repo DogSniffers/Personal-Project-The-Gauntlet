@@ -114,11 +114,7 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = xp - this.state.xpToLevel
-                    let xp2 = 0 + savedXP
-                    let nextXPtoLevel = this.state.xpToLevel + 5
-                    let health = this.state.maxHealth
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
+                    this.levelUp()       
                 }}
             }
         }
@@ -145,11 +141,7 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = xp - this.state.xpToLevel
-                    let xp2 = 0 + savedXP
-                    let nextXPtoLevel = this.state.xpToLevel + 5
-                    let health = this.state.maxHealth
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
+                    this.levelUp()
                 }
             }
         }else if(this.state.attack1type === this.state.monsterResistances){
@@ -163,11 +155,7 @@ class Combat extends React.Component{
                 let score = this.state.score + this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = xp - this.state.xpToLevel
-                    let xp2 = 0 + savedXP
-                    let nextXPtoLevel = this.state.xpToLevel + 5
-                    let health = this.state.maxHealth
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
+                    this.levelUp()  
                 }
             }
         }else{
@@ -181,11 +169,7 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = xp - this.state.xpToLevel
-                    let xp2 = 0 + savedXP
-                    let nextXPtoLevel = this.state.xpToLevel + 5
-                    let health = this.state.maxHealth
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
+                    this.levelUp()
                 }
             }
         }
@@ -216,11 +200,7 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = xp - this.state.xpToLevel
-                    let xp2 = 0 + savedXP
-                    let nextXPtoLevel = this.state.xpToLevel + 5
-                    let health = this.state.maxHealth
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
+                    this.levelUp()
                 }}
             }
         }
@@ -246,11 +226,7 @@ class Combat extends React.Component{
                 let score = this.state.score + this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = xp - this.state.xpToLevel
-                    let xp2 = 0 + savedXP
-                    let nextXPtoLevel = this.state.xpToLevel + 5
-                    let health = this.state.maxHealth
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
+                    this.levelUp()
                 }
             }
         }else if(this.state.attack2type === this.state.monsterResistances){
@@ -264,11 +240,7 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = xp - this.state.xpToLevel
-                    let xp2 = 0 + savedXP
-                    let nextXPtoLevel = this.state.xpToLevel + 5
-                    let health = this.state.maxHealth
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
+                    this.levelUp()
                 }
             }
         }else{
@@ -282,11 +254,7 @@ class Combat extends React.Component{
                 let score = this.state.score +this.state.monsterScoreReward
                 this.setState({monsterDead:true, currentXp:xp,score:score})
                 if(xp >= this.state.xpToLevel){
-                    let savedXP = xp - this.state.xpToLevel
-                    let xp2 = 0 + savedXP
-                    let nextXPtoLevel = this.state.xpToLevel + 5
-                    let health = this.state.maxHealth
-                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health})
+                    this.levelUp()
                 }
             }
         }
@@ -468,6 +436,14 @@ class Combat extends React.Component{
                 this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
             }
             
+        }
+        levelUp = () => {
+                    let savedXP = this.state.currentXp - this.state.xpToLevel
+                    let xp2 = 0 + savedXP
+                    let nextXPtoLevel = this.state.xpToLevel + 5
+                    let health = this.state.maxHealth
+                    let level = this.state.level + 1
+                    this.setState({currentXp:xp2,xpToLevel:nextXPtoLevel,levelUp:true,health:health,level:level})
         }
         
     render(){

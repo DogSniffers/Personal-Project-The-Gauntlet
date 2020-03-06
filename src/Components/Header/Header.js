@@ -15,6 +15,7 @@ class Header extends React.Component{
             <h1>The Gauntlet</h1>
             <button onClick={ () =>this.props.history.push('/dashboard')}>START</button>
             <button onClick={() => this.props.history.push('/leaderboard')}>LEADERBOARD</button>
+            <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
             </div>
         )
     }

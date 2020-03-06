@@ -4,6 +4,7 @@ import Auth from './Components/Auth/Auth';
 import Header from './Components/Header/Header';
 import Dashboard from './Components/Dashboard/Dashboard';
 import LeaderBoard from './Components/LeaderBoard/LeaderBoard';
+import Profile from './Components/Profile/Profile';
 
 export default (
     <Switch>
@@ -11,5 +12,6 @@ export default (
         <Route path='/dashboard' component={Dashboard}/>
         <Route path='/header' component={Header}/>
         <Route path ='/leaderboard' component={LeaderBoard}/>
+        <Route path ='/profile' component={Profile}/>
     </Switch>
 )
