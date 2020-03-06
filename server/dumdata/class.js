@@ -177,7 +177,7 @@ module.exports =  [
     {
         class:'Ice Druid',
         desc:``,
-        health:40,
+        health:35,
         attack1name:'Ice Spear',
         attack1damage:4,
         attack1type:'Ice',
@@ -188,7 +188,7 @@ module.exports =  [
     {
         class:'False Prophet',
         desc:``,
-        health:35,
+        health:30,
         attack1name:'Poisoned Sacrament',
         attack1damage:5,
         attack1type:'Poison',
@@ -204,7 +204,7 @@ module.exports =  [
         attack1damage:3,
         attack1type:'Fire',
         attack2name:'Solidify',
-        attack2damage:8,
+        attack2damage:5,
         attack2type:'Block',
     },
     // {

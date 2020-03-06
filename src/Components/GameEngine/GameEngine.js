@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import LoseMessage from '../LoseMessage/LoseMessage'
+import {withRouter} from 'react-router-dom'
 
 class Combat extends React.Component{
     constructor(props){
@@ -56,17 +57,32 @@ class Combat extends React.Component{
     }
 
     componentDidMount(){
-        this.setState({ className:this.props.className,health:this.props.health, maxHealth:this.props.health, attack1name:this.props.attack1name, attack1damage:this.props.attack1damage, attack1type:this.props.attack1type, 
-        attack2name:this.props.attack2name, attack2damage:this.props.attack2damage, attack2type:this.props.attack2type,})
+        let classInfo = this.props
+        this.setState({ className:classInfo.className,
+            health:classInfo.health, 
+            maxHealth:classInfo.health, 
+            attack1name:classInfo.attack1name, 
+            attack1damage:classInfo.attack1damage, 
+            attack1type:classInfo.attack1type, 
+            attack2name:classInfo.attack2name, 
+            attack2damage:classInfo.attack2damage, 
+            attack2type:classInfo.attack2type,})
         axios.get('/api/monsters').then(res =>{
             this.setState({monsterList:res.data})
             var random = Math.floor(Math.random() * this.state.monsterList.length) 
             // console.log(this.state.monsterList[random])
             let stats = this.state.monsterList[random]
-            this.setState({monsterName:stats.name, monsterClass:stats.class,
-            monsterHealth:stats.health,monsterAttack1name:stats.attack1name,
-        monsterAttack1damage:stats.attack1damage,monsterAttack2name:stats.attack2name,
-        monsterAttack2damage:stats.attack2damage, monsterXPReward:stats.xpReward,monsterScoreReward:stats.scoreReward,monsterResistances:stats.resistances,monsterWeaknesses:stats.weaknesses})
+            this.setState({monsterName:stats.name, 
+                monsterClass:stats.class,
+                monsterHealth:stats.health,
+                monsterAttack1name:stats.attack1name,
+                monsterAttack1damage:stats.attack1damage,
+                monsterAttack2name:stats.attack2name,
+                monsterAttack2damage:stats.attack2damage, 
+                monsterXPReward:stats.xpReward,
+                monsterScoreReward:stats.scoreReward,
+                monsterResistances:stats.resistances,
+                monsterWeaknesses:stats.weaknesses})
         })
         axios.get('/api/bosses').then(res => {
             this.setState({bossList:res.data})
@@ -389,8 +405,7 @@ class Combat extends React.Component{
         if(this.state.monsterDead === false){
             let random = Math.floor(Math.random() * 10)
             if(random !== 0){
-
-            let damage = this.state.monsterAttack2damage
+                let damage = this.state.monsterAttack2damage
             if(this.state.attackTypeUsed === 'Block'){
                 if(this.state.block === 10){
                     this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack2name}, but it was fully blocked!`],canAttack:true})
@@ -437,9 +452,9 @@ class Combat extends React.Component{
     render(){
         // console.log(this.state.currentXp)
         // console.log(this.state.xpToLevel)
-        console.log(this.state)
+        // console.log(this.state)
         // console.log(this.state.combatLog)
-        console.log(this.state.bossList)
+        // console.log(this.state.bossList)
         return(
             <div>
                 <div>
@@ -547,6 +562,8 @@ class Combat extends React.Component{
                     {this.state.playerDead === true ? (
                         <div>
                             <LoseMessage/>
+                            <button onClick={() =>this.props.history.push('/header')}>RESTART</button>
+                            <button>PUSH SCORE TO LEADERBOARD</button>
                         </div>
 
                     ):(
@@ -559,4 +576,4 @@ class Combat extends React.Component{
 
 }
 
-export default Combat
+export default withRouter(Combat)
