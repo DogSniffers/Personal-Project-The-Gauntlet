@@ -35,6 +35,8 @@ class LeaderBoard extends React.Component{
         return(
             <div>
                 <h1>LeaderBoard</h1>
+                <button onClick={() => this.props.history.push('/header')}>MAIN MENU</button>
+                <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
                 <button onClick={() => this.sortByScore}>By Score</button>
                 <button onClick={() => this.sortByFloors}>By Floor</button>
                 {this.state.leaderboard.map(score => {
@@ -47,7 +49,6 @@ class LeaderBoard extends React.Component{
                         </div>
                     )
                 })}
-                <button onClick={() => this.props.history.push('/dashboard')}>Start Run</button>
             </div>
         )
     }

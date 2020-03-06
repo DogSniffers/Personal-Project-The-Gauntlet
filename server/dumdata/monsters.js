@@ -23,6 +23,25 @@ module.exports = [
         xpReward:3,
         scoreReward:20,
     },
+    //Example Setup for multiple Weaknesses later 
+    // monsWeak = {slash,blunt}
+    // findIndex()
+        // found = monsWeak.forIndex(type => {
+            // if(found !==-1){
+
+            
+    //     if(type === mons.Weak){
+
+
+    //     }else if(type === mons.strength){
+
+    //     }else{
+
+    //     }
+    // })
+         // }else{
+            //     null
+     // }
     {
         name:'Goblin Archer',
         class:'Goblin',

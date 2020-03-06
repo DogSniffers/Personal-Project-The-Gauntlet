@@ -336,12 +336,9 @@ class Combat extends React.Component{
         }
     }
     monsterAttack = () => {
-       console.log('start')
-       console.log(this.state.attackTypeUsed)
        if(this.state.monsterDead === false){
            setTimeout(() => {
                let random = Math.floor(Math.random() * 10)
-               console.log(random)
                if(random > 6){
                    this.monsterDamage1()
                 }else{
@@ -349,7 +346,6 @@ class Combat extends React.Component{
                 }
             },1500)
         }else{
-            console.log('hit')
             this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
         }
     }
