@@ -7,7 +7,8 @@ class Combat extends React.Component{
     constructor(props){
         super(props)
         this.state ={
-            floor:0,
+            floor:1,
+            nextFloorBossFloor:false,
             score:0,
             
             className:'',
@@ -25,7 +26,7 @@ class Combat extends React.Component{
             playerDead:false,
 
             level:1,
-            currentXp:9,
+            currentXp:0,
             xpToLevel:10,
             levelUp:false,
             levelUpUpgrades:2,
@@ -262,8 +263,8 @@ class Combat extends React.Component{
         
     }
     nextFloor = () => {
-        let floor = this.state.floor
-        this.setState({floor:floor + 1,monsterDead:false,combatLog:[],canAttack:true,})
+        let floor = this.state.floor +1
+        this.setState({floor:floor,monsterDead:false,combatLog:[],canAttack:true,})
         let random = Math.floor(Math.random() * this.state.monsterList.length)
         let stats = this.state.monsterList[random]
         this.setState({monsterName:stats.name, 
@@ -277,6 +278,11 @@ class Combat extends React.Component{
             monsterScoreReward:stats.scoreReward,
             monsterResistances:stats.resistances,
             monsterWeaknesses:stats.weaknesses})
+        let floorString = floor.toString()
+        let bossFloor = floorString.endsWith('9')
+        if(bossFloor === true){
+            this.setState({nextFloorBossFloor:true})
+        }
     }
     nextFloorBoss = () => {
         let floor = this.state.floor
@@ -449,11 +455,6 @@ class Combat extends React.Component{
        
         
     render(){
-        // console.log(this.state.currentXp)
-        // console.log(this.state.xpToLevel)
-        // console.log(this.state)
-        // console.log(this.state.combatLog)
-        // console.log(this.state.bossList)
         return(
             <div>
                 <div>
@@ -542,7 +543,7 @@ class Combat extends React.Component{
                     <div>
                         <h2>Combat Log:</h2>
                         {this.state.combatLog}
-                    {this.state.floor === 9? (<div>
+                    {this.state.nextFloorBossFloor === true? (<div>
                         {this.state.monsterDead === true ? (
                             <button onClick={this.nextFloorBoss}>Boss Floor</button>
                         ):(
