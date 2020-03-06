@@ -10,6 +10,7 @@ class Combat extends React.Component{
             floor:1,
             nextFloorBossFloor:false,
             score:0,
+            userMonsters:false,
             
             className:'',
             health:0,
@@ -67,6 +68,7 @@ class Combat extends React.Component{
             attack2name:classInfo.attack2name, 
             attack2damage:classInfo.attack2damage, 
             attack2type:classInfo.attack2type,})
+            // this.props.userMonsters
         axios.get('/api/monsters').then(res =>{
             this.setState({monsterList:res.data})
             var random = Math.floor(Math.random() * this.state.monsterList.length) 
@@ -452,6 +454,7 @@ class Combat extends React.Component{
        
         
     render(){
+        console.log(this.state.userMonsters)
         return(
             <div>
                 <div>

@@ -8,6 +8,7 @@ class TheGauntlet extends React.Component{
             classList:[1,2,3],
             classClick:false,
             classSelected:false,
+            userMonsters:false,
 
             class1Name:'',
             class1Desc:'',
@@ -159,16 +160,22 @@ class TheGauntlet extends React.Component{
     classConfirm = () => {
         this.setState({classSelected:true})
     }
+    allowUserMonsters = () => {
+        this.setState({userMonsters:!this.state.userMonsters})
+    }
 
     
 
     render(){
+        console.log(this.state.userMonsters)
         return(
             <div>
                 {this.state.classSelected === false ?(
                     
                 <div>
                 <>
+                <button onClick={this.allowUserMonsters}>Allow User Created Monsters?</button>
+                <h2>Class Select</h2>
                 <div onClick={this.selectedClass1}>{this.state.class1Name}</div>
                 <div onClick={this.selectedClass2}>{this.state.class2Name}</div>
                 <div onClick={this.selectedClass3}>{this.state.class3Name}</div>
@@ -198,7 +205,8 @@ class TheGauntlet extends React.Component{
                     <h1>{this.state.playerNameFirst} {this.state.playerNameLast} the {this.state.playerNameNumeral}</h1>
                     {/* I'm going to want to pass down the selected Class Health, attacks and Damage as props down into the Combat Component
                     Everything here is temporary for nao */}
-                    <Combat health={this.state.selectedClassHealth} className={this.state.selectedClassName} attack1name={this.state.selectedClassattack1Name} attack1damage={this.state.selectedClassattack1Damage} attack1type={this.state.selectedClassattack1Type}  attack2name={this.state.selectedClassattack2Name} attack2damage={this.state.selectedClassattack2Damage} attack2type={this.state.selectedClassattack2Type}></Combat>
+                    <Combat health={this.state.selectedClassHealth} className={this.state.selectedClassName} attack1name={this.state.selectedClassattack1Name} attack1damage={this.state.selectedClassattack1Damage} attack1type={this.state.selectedClassattack1Type}  attack2name={this.state.selectedClassattack2Name} attack2damage={this.state.selectedClassattack2Damage} attack2type={this.state.selectedClassattack2Type}
+                    userMonsters={this.state.userMonsters}></Combat>
                 </div>
             )}
         </div>
