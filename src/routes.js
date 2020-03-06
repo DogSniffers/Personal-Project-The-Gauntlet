@@ -5,6 +5,7 @@ import Header from './Components/Header/Header';
 import Dashboard from './Components/Dashboard/Dashboard';
 import LeaderBoard from './Components/LeaderBoard/LeaderBoard';
 import Profile from './Components/Profile/Profile';
+import MonsterCreator from './Components/MonsterCreation/MonsterCreation';
 
 export default (
     <Switch>
@@ -13,5 +14,6 @@ export default (
         <Route path='/header' component={Header}/>
         <Route path ='/leaderboard' component={LeaderBoard}/>
         <Route path ='/profile' component={Profile}/>
+        <Route path ='/monstercreator' component={MonsterCreator}/>
     </Switch>
 )
