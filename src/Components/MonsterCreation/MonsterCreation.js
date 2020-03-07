@@ -74,17 +74,17 @@ class MonsterCreator extends React.Component{
             <div>
             <button onClick={this.createMonster}>Confirm</button>
                 <div>
-                    <p>Monster Name:</p>
+                    <h2>Monster Name:</h2>
                     <p>{this.state.monsterName}</p>
                     <input onChange={this.handleMonsterNameInput}></input>
                 </div>
                 <div>
-                    <p>Monster Class:</p>
+                    <h2>Monster Class:</h2>
                     <p>{this.state.monsterClass}</p>
                     <input onChange={this.handleMonsterClassInput}></input>
                 </div>
                 <div>
-                    <p>Monster Health:</p>
+                    <h2>Monster Health:</h2>
                     <p>{this.state.monsterHealth}</p>
                     <button onClick={() =>this.setState({healthList:!this.state.healthList})}>Health List</button>
                     {this.state.healthList === true? (
@@ -103,7 +103,7 @@ class MonsterCreator extends React.Component{
                     
                 </div>
                 <div>
-                    <p>Monster Weaknesses:</p>
+                    <h2>Monster Weaknesses:</h2>
                     <p>{this.state.monsterWeaknesses}</p>
                     <button onClick={() =>this.setState({monsterWeaknessesList:!this.state.monsterWeaknessesList})}>Type List</button>
                     {this.state.monsterWeaknessesList === true ? (
@@ -121,7 +121,7 @@ class MonsterCreator extends React.Component{
                         )}
                 </div>
                 <div>
-                    <p>Monster Resistances:</p>
+                    <h2>Monster Resistances:</h2>
                     <p>{this.state.monsterResistances}</p>
                     <button onClick={() =>this.setState({monsterResistancesList:!this.state.monsterResistancesList})}>Type List</button>
                     {this.state.monsterResistancesList === true ? (
@@ -140,12 +140,12 @@ class MonsterCreator extends React.Component{
                     
                 </div>
                 <div>
-                    <p>Monster Attack 1 Name:</p>
+                    <h2>Monster Attack 1 Name:</h2>
                     <p>{this.state.monsterAttack1Name}</p>
                     <input onChange={this.handleMonsterAttack1NameInput}></input>
                 </div>
                 <div>
-                    <p>Monster Attack 1 Type:</p>
+                    <h2>Monster Attack 1 Type:</h2>
                      <p>{this.state.monsterAttack1Type}</p>
                     <button onClick={() =>this.setState({type1List:!this.state.type1List})}>Type List</button>
                     {this.state.type1List === true ? (
@@ -168,7 +168,7 @@ class MonsterCreator extends React.Component{
                     
                 </div>
                 <div>
-                    <p>Monster Attack 1 Damage:</p>
+                    <h2>Monster Attack 1 Damage:</h2>
                     <p>{this.state.monsterAttack1Damage}</p>
                     <button onClick={() => this.setState({monsterAttack1DamageList:!this.state.monsterAttack1DamageList})}>Damage List</button>
                     {this.state.monsterAttack1DamageList === true ? (
@@ -184,12 +184,12 @@ class MonsterCreator extends React.Component{
                     )}
                 </div>
                 <div>
-                    <p>Monster Attack 2 Name:</p>
+                    <h2>Monster Attack 2 Name:</h2>
                     <p>{this.state.monsterAttack2Name}</p>
                     <input onChange={this.handleMonsterAttack2NameInput}></input>
                 </div>
                 <div>
-                    <p>Monster Attack 2 Type:</p>
+                    <h2>Monster Attack 2 Type:</h2>
                     <p>{this.state.monsterAttack2Type}</p>
                     <button onClick={() =>this.setState({type2List:!this.state.type2List})}>Type List</button>
                     {this.state.type2List === true ? (
@@ -209,7 +209,7 @@ class MonsterCreator extends React.Component{
                         )}
                         </div>
                 <div>
-                    <p>Monster Attack 2 Damage:</p>
+                    <h2>Monster Attack 2 Damage:</h2>
                     <p>{this.state.monsterAttack2Damage}</p>
                     <button onClick={() => this.setState({monsterAttack2DamageList:!this.state.monsterAttack2DamageList})}>Damage List</button>
                     {this.state.monsterAttack2DamageList === true ? (
@@ -224,7 +224,7 @@ class MonsterCreator extends React.Component{
                     )}
                 </div>
                 <div>
-                    <p>Monster XP Reward:</p>
+                    <h2>Monster XP Reward:</h2>
                     <p>{this.state.xpReward}</p>
                     <button onClick={() => this.setState({xpList:!this.state.xpList})}>XP List</button>
                     {this.state.xpList === true? (
@@ -240,7 +240,7 @@ class MonsterCreator extends React.Component{
                     )}
                 </div>
                 <div>
-                    <p>Monster Score Reward:</p>
+                    <h2>Monster Score Reward:</h2>
                     <p>{this.state.scoreReward}</p>
                     <button onClick={() => this.setState({scoreList:!this.state.scoreList})}>Score List</button> 
                     {this.state.scoreList === true? (

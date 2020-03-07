@@ -543,7 +543,8 @@ class Combat extends React.Component{
                     <div>
                         <h2>Combat Log:</h2>
                         {this.state.combatLog}
-                    {this.state.nextFloorBossFloor === true? (<div>
+                    {this.state.nextFloorBossFloor === true? (
+                    <div>
                         {this.state.monsterDead === true ? (
                             <button onClick={this.nextFloorBoss}>Boss Floor</button>
                         ):(
