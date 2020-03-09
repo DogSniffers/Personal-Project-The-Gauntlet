@@ -43,7 +43,21 @@ class Profile extends React.Component{
                     <h2>Created Monsters:</h2>
                     {this.state.monsterList.map(monster =>{
                         return(
-                            <div>{monster.name}</div>
+                            <div>
+                                <h2>{monster.name}</h2>
+                                <p>Class:{monster.class}</p>
+                                <p>Health:{monster.health}</p>
+                                <p>Weaknesses:{monster.weaknesses}</p>
+                                <p>Resistances:{monster.resistances}</p>
+                                <h3>Monster Attack 1: {monster.attack1name}</h3>
+                                <p>Type:{monster.attack1type}</p>
+                                <p>Damage:{monster.attack1damage}</p>
+                                <h3>Monster Attack 2: {monster.attack2name}</h3>
+                                <p>Type:{monster.attack2type}</p>
+                                <p>Damage:{monster.attack2damage}</p>
+                                <p>XP:{monster.xp}</p>
+                                <p>Score:{monster.score}</p>
+                            </div>
                         )
                     })}
                 </div>
