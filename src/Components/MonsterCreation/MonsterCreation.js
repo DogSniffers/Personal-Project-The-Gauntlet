@@ -158,7 +158,6 @@ class MonsterCreator extends React.Component{
                             <button onClick={() =>this.setState({monsterAttack1Type:'Poison'})}>Poison</button>
                             <button onClick={() =>this.setState({monsterAttack1Type:'Arcane'})}>Arcane</button>
                             <button onClick={() =>this.setState({monsterAttack1Type:'Heal'})}>Heal</button>
-                            <button onClick={() =>this.setState({monsterAttack1Type:'Block'})}>Block</button>
                             
                         </div>
 
@@ -202,7 +201,6 @@ class MonsterCreator extends React.Component{
                             <button onClick={() =>this.setState({monsterAttack2Type:'Poison'})}>Poison</button>
                             <button onClick={() =>this.setState({monsterAttack2Type:'Arcane'})}>Arcane</button>
                             <button onClick={() =>this.setState({monsterAttack2Type:'Heal'})}>Heal</button>
-                            <button onClick={() =>this.setState({monsterAttack2Type:'Block'})}>Block</button>
                             </div>
                             ):(
                             null

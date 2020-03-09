@@ -1,8 +1,8 @@
 module.exports = [
     {
-        name:'Lich',
+        name:'Test',
         class:'Boss',
-        health:50,
+        health:1,
         weaknesses:'Fire',
         resistances:'Ice',
         attack1name:'Drain Vitality',

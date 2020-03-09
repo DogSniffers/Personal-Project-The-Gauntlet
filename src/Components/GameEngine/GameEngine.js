@@ -7,7 +7,7 @@ class Combat extends React.Component{
     constructor(props){
         super(props)
         this.state ={
-            floor:1,
+            floor:8,
             nextFloorBossFloor:false,
             score:0,
             userMonsters:false,
@@ -82,8 +82,10 @@ class Combat extends React.Component{
                 monsterClass:stats.class,
                 monsterHealth:stats.health,
                 monsterAttack1name:stats.attack1name,
+                monsterAttack1type:stats.attack1type,
                 monsterAttack1damage:stats.attack1damage,
                 monsterAttack2name:stats.attack2name,
+                monsterAttack2type:stats.attack2type,
                 monsterAttack2damage:stats.attack2damage, 
                 monsterXPReward:stats.xpReward,
                 monsterScoreReward:stats.scoreReward,
@@ -277,8 +279,10 @@ class Combat extends React.Component{
             monsterClass:stats.class,
             monsterHealth:stats.health,
             monsterAttack1name:stats.attack1name,
+            monsterAttack1type:stats.attack1type,
             monsterAttack1damage:stats.attack1damage,
             monsterAttack2name:stats.attack2name,
+            monsterAttack2type:stats.attack2type,
             monsterAttack2damage:stats.attack2damage, 
             monsterXPReward:stats.xpReward,
             monsterScoreReward:stats.scoreReward,
@@ -300,13 +304,15 @@ class Combat extends React.Component{
             monsterHealth:stats.health,
             monsterAttack1name:stats.attack1name,
             monsterAttack1damage:stats.attack1damage,
+            monsterAttack1type:stats.attack1type,
             monsterAttack2name:stats.attack2name,
+            monsterAttack2type:stats.attack2type,
             monsterAttack2damage:stats.attack2damage, 
             monsterXPReward:stats.xpReward,
             monsterScoreReward:stats.scoreReward,
             monsterResistances:stats.resistances,
             monsterWeaknesses:stats.weaknesses,
-            nextFloorBoss:false})
+            nextFloorBossFloor:false})
     }
     levelUp = () => {
         let xp = this.state.currentXp + this.state.monsterXPReward
