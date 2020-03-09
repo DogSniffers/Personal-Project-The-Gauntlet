@@ -50,4 +50,5 @@ app.get('/api/classes', gauntletController.fetchClasses)
 app.get('/api/monsters', gauntletController.fetchMonsters)
 app.get('/api/bosses', gauntletController.fetchBosses)
 app.get('/api/usermonsters', gauntletController.fetchUserMonsters)
+app.post('/api/monstercreator', gauntletController.createMonster)
 

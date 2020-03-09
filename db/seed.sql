@@ -16,6 +16,7 @@ CREATE TABLE leaderboard (
 CREATE TABLE monsters (
     id INT REFERENCES users(id),
     name VARCHAR (240),
+    class VARCHAR (50),
     health INT,
     weaknesses VARCHAR (30),
     resistances VARCHAR (30),

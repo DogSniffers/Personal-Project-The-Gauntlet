@@ -97,8 +97,9 @@ class Combat extends React.Component{
             this.setState({bossList:res.data})
         })
         if(this.props.userMonsters === true){
+            console.log('hit')
             axios.get('/api/usermonsters').then(res => {
-                this.setState({bossList: [...this.state.bossList, res.data]})
+                this.setState({monsterList: [...this.state.monsterList, res.data]})
             })
 
         }
@@ -679,6 +680,8 @@ class Combat extends React.Component{
        
         
     render(){
+        console.log(this.props.userMonsters)
+        console.log(this.state.monsterList)
         return(
             <div>
                 <div>

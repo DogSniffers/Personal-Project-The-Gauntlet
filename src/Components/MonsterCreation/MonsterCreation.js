@@ -1,5 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import axios from 'axios'
 
 class MonsterCreator extends React.Component{
     constructor(){
@@ -59,11 +61,16 @@ class MonsterCreator extends React.Component{
         }else if(field.monsterAttack2Name === ''){
             alert('Monster Attack Name 2 is Empty!')
         }else{
-            console.log('hit')
+            var {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward} = this.state
+            var {id} = this.props.reduxState
+            axios.post('/api/monstercreator', {id,monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward}).then(res => {
+                alert('Monster Successfully Created!')
+            }).catch(err => console.log(err))
         }
     }
 
     render(){
+        console.log(this.props)
         return(
             <>
             <div>
@@ -72,7 +79,7 @@ class MonsterCreator extends React.Component{
                 <button onClick={() => this.props.history.push('/header')}>MAIN MENU</button>
             </div>
             <div>
-            <button onClick={this.createMonster}>Confirm</button>
+            <button onClick={this.createMonster}>Create Monster</button>
                 <div>
                     <h2>Monster Name:</h2>
                     <p>{this.state.monsterName}</p>
@@ -259,4 +266,10 @@ class MonsterCreator extends React.Component{
     }
 }
 
-export default withRouter(MonsterCreator)
+const mapStateToProps = reduxState =>{
+    return{
+        reduxState
+    }
+}
+
+export default connect(mapStateToProps)(withRouter(MonsterCreator))
