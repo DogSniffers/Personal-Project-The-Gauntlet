@@ -43,6 +43,7 @@ app.post('/api/logout', authController.logout)
 // LeaderBoard Stuff:
 app.get('/api/leaderboard/byscore', leaderboardController.fetchLeaderboardByScore)
 app.get('/api/leaderboard/byfloor', leaderboardController.fetchLeaderboardByFloors)
+app.post('/api/myleaderboard', leaderboardController.fetchMyLeaderboard)
 app.post('/api/leaderboard', leaderboardController.uploadToLeaderboard)
 
 // TheGauntlet Stuff:
@@ -51,4 +52,5 @@ app.get('/api/monsters', gauntletController.fetchMonsters)
 app.get('/api/bosses', gauntletController.fetchBosses)
 app.get('/api/usermonsters', gauntletController.fetchUserMonsters)
 app.post('/api/monstercreator', gauntletController.createMonster)
+app.post('api/mymonsters', gauntletController.fetchMyMonsters)
 

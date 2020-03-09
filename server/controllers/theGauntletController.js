@@ -24,6 +24,17 @@ module.exports = {
             res.sendStatus(200)
         }).catch(err => console.log(err))
     },
+    fetchMyMonsters: async (req,res) => {
+        const db = req.app.get('db')
+        const {username} = req.body
+        let data = await db.fetch_mymonsters([username])
+        if(data){
+            res.status(200).send(data)
+        }else{
+            res.sendStatus(500)
+        }
+    },
+    
     
 
 }

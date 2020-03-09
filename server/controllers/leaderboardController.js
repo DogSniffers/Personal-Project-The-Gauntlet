@@ -16,6 +16,17 @@ module.exports = {
             res.sendStatus(500)
         })
     },
+    fetchMyLeaderboard: async (req,res) => {
+        const db = req.app.get('db')
+        const {username} = req.body
+        console.log(username)
+        let response = await db.fetch_myleaderboard([username])
+            if(response){
+                res.status(201).send(response)
+            }else{
+                res.sendStatus(500)
+            }
+    },
     uploadToLeaderboard: async (req,res) => {
         const db = req.app.get('db')
         const {username, floor, score, deathMessage} = req.body
