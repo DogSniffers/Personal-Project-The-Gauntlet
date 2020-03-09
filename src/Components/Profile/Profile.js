@@ -1,5 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 class Profile extends React.Component{
     constructor(){
@@ -10,6 +11,7 @@ class Profile extends React.Component{
     }
 
     render(){
+        console.log(this.props)
         return(
             <div>
             <div>
@@ -21,7 +23,8 @@ class Profile extends React.Component{
                 </div>
             </div>
             <div>
-                <h2>Username Goes Here</h2>
+                <h2>User:{this.props.reduxState.username}</h2>
+                <h2>Total Runs:{this.props.reduxState.runs}</h2>
                 <h2>Created Monsters:</h2>
                 <h2>Recent Runs:</h2>
             </div>
@@ -31,4 +34,10 @@ class Profile extends React.Component{
     }
 }
 
-export default withRouter(Profile)
+const mapStateToProps = reduxState =>{
+    return{
+        reduxState
+    }
+}
+
+export default connect(mapStateToProps)(withRouter(Profile))

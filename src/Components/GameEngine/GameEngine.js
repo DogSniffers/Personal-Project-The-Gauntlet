@@ -696,6 +696,8 @@ class Combat extends React.Component{
                     ):(
                         null
                     )}
+                    <p>Resistances:{this.state.resistances}</p>
+                    <p>Weaknesses:{this.state.weaknesses}</p>
                     <p>XP:{this.state.currentXp}/{this.state.xpToLevel}</p>
                     <p>Level:{this.state.level}</p>
                     {this.state.playerDead === false ?(

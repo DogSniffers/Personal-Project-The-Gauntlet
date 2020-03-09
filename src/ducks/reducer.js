@@ -16,7 +16,7 @@ export default function reducer(state=initialState,action){
     const {type,payload} = action
     switch(type){
         case GET_USER:
-            return{...state, username:payload.username, id:payload.id}
+            return{...state, username:payload.username, id:payload.id, runs:payload.runs,}
         default:
             return state;
     }
