@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Combat from '../GameEngine/GameEngine'
+import {connect} from 'react-redux'
 class TheGauntlet extends React.Component{
     constructor(){
         super()
@@ -187,7 +188,6 @@ class TheGauntlet extends React.Component{
     
 
     render(){
-        console.log(this.state.userMonsters)
         return(
             <div>
                 {this.state.classSelected === false ?(
@@ -228,7 +228,7 @@ class TheGauntlet extends React.Component{
                     <h1>{this.state.playerNameFirst} {this.state.playerNameLast} the {this.state.playerNameNumeral}</h1>
                     {/* I'm going to want to pass down the selected Class Health, attacks and Damage as props down into the Combat Component
                     Everything here is temporary for nao */}
-                    <Combat health={this.state.selectedClassHealth} className={this.state.selectedClassName} attack1name={this.state.selectedClassattack1Name} attack1damage={this.state.selectedClassattack1Damage} attack1type={this.state.selectedClassattack1Type}  attack2name={this.state.selectedClassattack2Name} attack2damage={this.state.selectedClassattack2Damage} attack2type={this.state.selectedClassattack2Type} weaknesses={this.state.selectedClassWeaknesses} resistances={this.state.selectedClassResistances}
+                    <Combat health={this.state.selectedClassHealth} className={this.state.selectedClassName} attack1name={this.state.selectedClassattack1Name} attack1damage={this.state.selectedClassattack1Damage} attack1type={this.state.selectedClassattack1Type}  attack2name={this.state.selectedClassattack2Name} attack2damage={this.state.selectedClassattack2Damage} attack2type={this.state.selectedClassattack2Type} weaknesses={this.state.selectedClassWeaknesses} resistances={this.state.selectedClassResistances} reduxState={this.props.reduxState}
                     userMonsters={this.state.userMonsters}></Combat>
                 </div>
             )}
@@ -236,5 +236,10 @@ class TheGauntlet extends React.Component{
         )
     }
 }
+const mapStateToProps = reduxState =>{
+    return{
+        reduxState
+    }
+}
 
-export default TheGauntlet
+export default connect(mapStateToProps)(TheGauntlet)

@@ -26,6 +26,7 @@ class Combat extends React.Component{
             // BLOCK 9 MEANS CRIT, NO DAMAGE
             canAttack:true,
             playerDead:false,
+            deathMessage:'',
 
             level:1,
             currentXp:0,
@@ -670,12 +671,18 @@ class Combat extends React.Component{
             }
             
         }
+
+    submitScore = () => {
+        let {floors,score,deathMessage} = this.state
+
+    }
        
         
     render(){
         return(
             <div>
                 <div>
+                    <h2>{this.props.reduxState.username}</h2>
                     <h2>Floor:{this.state.floor}</h2>
                     <h2>Score:{this.state.score}</h2>
                     <button onClick={() =>this.props.history.push('/header')}>EXIT RUN</button>
@@ -808,7 +815,13 @@ class Combat extends React.Component{
         </div>
         )
     }
-
+    
 }
+// const mapStateToProps = reduxState =>{
+//     const {id} = reduxState
+//     return{
+//             id
+//         }
+//         }
 
-export default withRouter(Combat)
+export default (withRouter(Combat))
