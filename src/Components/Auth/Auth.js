@@ -38,7 +38,7 @@ class Auth extends React.Component{
     }
 
     login = () => {
-        const {email,password} = this.state
+        let {email,password} = this.state
         if(email === ''){
             alert('Email is required!')
         }else{
@@ -53,7 +53,7 @@ class Auth extends React.Component{
     }}};
 
     register= () =>{
-        const {email,password,confirmPassword,username} = this.state
+        let {email,password,confirmPassword,username} = this.state
         if(email === ''){
             alert('A valid Email is required!')
         }else{
@@ -99,4 +99,4 @@ class Auth extends React.Component{
     )
 }}
 
-export default connect(null,getUser)(withRouter(Auth))
+export default connect(null,{getUser})(withRouter(Auth))

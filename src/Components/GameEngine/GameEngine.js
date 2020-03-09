@@ -768,12 +768,14 @@ class Combat extends React.Component{
                     </>)}
                 </div>
                     <div>
-                        <h2>Combat Log:</h2>
-                        {this.state.combatLog.map(log => {
-                            return(
-                            <div>{log}</div>
-                            )
-                        })}
+                        <div className='combatLog'>
+                            <h2>Combat Log:</h2>
+                            {this.state.combatLog.map(log => {
+                                return(
+                                    <div>{log}</div>
+                                    )
+                                })}
+                        </div>
                     <div>
                     {this.state.nextFloorBossFloor === true? (
                         <div>

@@ -28,8 +28,8 @@ module.exports = {
         const runs = 0
         
         let emailRegister = await db.check_email([email])
-        email=emailRegister[0]
-        if(email){
+        emailCheck=emailRegister[0]
+        if(emailCheck){
             return res.status(400).send('Email Already in Use')
         }
         
