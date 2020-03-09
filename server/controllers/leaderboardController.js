@@ -15,14 +15,16 @@ module.exports = {
             res.sendStatus(500)
         })
     },
-    uploadToLeaderboard: (req,res) => {
+    uploadToLeaderboard: async (req,res) => {
         const db = req.app.get('db')
-        const {username, floors, score, deathMessage} = req.body
-        db.post_to_leaderboard([username,floors,score,deathMessage]).then(res => {
-            res.sendStatus(201)
-        }).catch(() => {
-            res.sendStatus(500)
-        })
+        const {username, floor, score, deathMessage} = req.body
+        console.log(typeof(floor),typeof(score))
+       let response = await db.post_to_leaderboard([username,floor,score,deathMessage])
+       if(response){
+           res.sendStatus(201)
+       }else{
+           res.sendStatus(500)
+       }
     },
 
 

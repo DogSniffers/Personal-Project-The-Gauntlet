@@ -26,7 +26,7 @@ class Combat extends React.Component{
             // BLOCK 9 MEANS CRIT, NO DAMAGE
             canAttack:true,
             playerDead:false,
-            deathMessage:'',
+            deathMessage:'Roof',
 
             level:1,
             currentXp:0,
@@ -64,7 +64,8 @@ class Combat extends React.Component{
     componentDidMount(){
         let classInfo = this.props
         this.setState({ className:classInfo.className,
-            health:classInfo.health, 
+            // health:classInfo.health, 
+            health:1, 
             maxHealth:classInfo.health,
             resistances:classInfo.resistances, 
             weaknesses:classInfo.weaknesses,
@@ -674,12 +675,16 @@ class Combat extends React.Component{
         }
 
     submitScore = () => {
-        let {floors,score,deathMessage} = this.state
-
+        let {floor,score,deathMessage} = this.state
+        let {username} = this.props.reduxState
+        axios.post('/api/leaderboard', {username,floor,score,deathMessage}).then(res =>{
+            alert('Score successfully Uploaded!')
+        }).catch(err => console.log(err))
     }
        
         
     render(){
+        console.log(this.props)
         return(
             <div>
                 <div>
@@ -808,7 +813,7 @@ class Combat extends React.Component{
                         <div>
                             <LoseMessage/>
                             <button onClick={() =>this.props.history.push('/header')}>HOME</button>
-                            <button>PUSH SCORE TO LEADERBOARD</button>
+                            <button onClick={this.submitScore}>PUSH SCORE TO LEADERBOARD</button>
                         </div>
 
                     ):(
