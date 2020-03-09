@@ -49,4 +49,5 @@ app.post('/api/leaderboard', leaderboardController.uploadToLeaderboard)
 app.get('/api/classes', gauntletController.fetchClasses)
 app.get('/api/monsters', gauntletController.fetchMonsters)
 app.get('/api/bosses', gauntletController.fetchBosses)
+app.get('/api/usermonsters', gauntletController.fetchUserMonsters)
 

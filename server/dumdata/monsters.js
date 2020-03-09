@@ -69,7 +69,7 @@ module.exports = [
         attack1type:'Blunt',
         attack1damage:3,
         attack2name:'Headbutt',
-        attack1type:'',
+        attack2type:'Blunt',
         attack2damage:3,
         xpReward:8,
         scoreReward:50,

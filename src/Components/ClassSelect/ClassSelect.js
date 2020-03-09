@@ -19,6 +19,8 @@ class TheGauntlet extends React.Component{
             class1attack2Name:'',
             class1attack2Damage:0,
             class1attack2Type:'',
+            class1weaknesses:'',
+            class1resistances:'',
 
             class2Name:'',
             class2Desc:'',
@@ -29,6 +31,8 @@ class TheGauntlet extends React.Component{
             class2attack2Name:'',
             class2attack2Damage:0,
             class2attack2Type:'',
+            class2weaknesses:'',
+            class2resistances:'',
 
             class3Name:'',
             class3Desc:'',
@@ -39,6 +43,8 @@ class TheGauntlet extends React.Component{
             class3attack2Name:'',
             class3attack2Damage:0,
             class3attack2Type:'',
+            class3weaknesses:'',
+            class3resistances:'',
 
             selectedClassName:'',
             selectedClassDesc:'',
@@ -49,6 +55,8 @@ class TheGauntlet extends React.Component{
             selectedClassattack2Name:'',
             selectedClassattack2Damage:'',
             selectedClassattack2Type:'',
+            selectedClassWeaknesses:'',
+            selectedClassResistances:'',
 
             playerNameFirst:'First',
             playerNameLast:'Last',
@@ -81,6 +89,8 @@ class TheGauntlet extends React.Component{
                 class1attack2Name:this.state.classList[class1].attack2name,
                 class1attack2Damage:this.state.classList[class1].attack2damage,
                 class1attack2Type:this.state.classList[class1].attack2type,
+                class1weaknesses:this.state.classList[class1].weaknesses,
+                class1resistances:this.state.classList[class1].resistances,
             })
         this.setState({
                 class2Name: this.state.classList[class2].class,
@@ -92,6 +102,8 @@ class TheGauntlet extends React.Component{
                 class2attack2Name:this.state.classList[class2].attack2name,
                 class2attack2Damage:this.state.classList[class2].attack2damage,
                 class2attack2Type:this.state.classList[class2].attack2type,
+                class2weaknesses:this.state.classList[class2].weaknesses,
+                class2resistances:this.state.classList[class2].resistances,
             })
         this.setState({
                 class3Name: this.state.classList[class3].class,
@@ -103,6 +115,8 @@ class TheGauntlet extends React.Component{
                 class3attack2Name:this.state.classList[class3].attack2name,
                 class3attack2Damage:this.state.classList[class3].attack2damage,
                 class3attack2Type:this.state.classList[class3].attack2type,
+                class3weaknesses:this.state.classList[class3].weaknesses,
+                class3resistances:this.state.classList[class3].resistances,
             })
             // console.log(class1,class2,class3)
             
@@ -125,6 +139,8 @@ class TheGauntlet extends React.Component{
             selectedClassattack2Name: this.state.class1attack2Name,
             selectedClassattack2Damage: this.state.class1attack2Damage,
             selectedClassattack2Type: this.state.class1attack2Type,
+            selectedClassWeaknesses: this.state.class1weaknesses,
+            selectedClassResistances: this.state.class1resistances
         })
     }
 
@@ -140,6 +156,8 @@ class TheGauntlet extends React.Component{
             selectedClassattack2Name: this.state.class2attack2Name,
             selectedClassattack2Damage: this.state.class2attack2Damage,
             selectedClassattack2Type: this.state.class2attack2Type,
+            selectedClassWeaknesses: this.state.class2weaknesses,
+            selectedClassResistances: this.state.class2resistances
         })
     }
 
@@ -155,6 +173,8 @@ class TheGauntlet extends React.Component{
             selectedClassattack2Name: this.state.class3attack2Name,
             selectedClassattack2Damage: this.state.class3attack2Damage,
             selectedClassattack2Type: this.state.class3attack2Type,
+            selectedClassWeaknesses: this.state.class3weaknesses,
+            selectedClassResistances: this.state.class3resistances
         })
     }
     classConfirm = () => {
@@ -188,6 +208,8 @@ class TheGauntlet extends React.Component{
                         <p>Class:{this.state.selectedClassName}</p>
                         <p>Desc:{this.state.selectedClassDesc}</p>
                         <p>Health: {this.state.selectedClassHealth}</p>
+                        <p>Resistances: {this.state.selectedClassResistances}</p>
+                        <p>Weaknesses: {this.state.selectedClassWeaknesses}</p>
                         <p>Attack 1:{this.state.selectedClassattack1Name}</p>
                         <p>Type:{this.state.selectedClassattack1Type}</p>
                         <p>Damage:{this.state.selectedClassattack1Damage}</p>
@@ -206,7 +228,7 @@ class TheGauntlet extends React.Component{
                     <h1>{this.state.playerNameFirst} {this.state.playerNameLast} the {this.state.playerNameNumeral}</h1>
                     {/* I'm going to want to pass down the selected Class Health, attacks and Damage as props down into the Combat Component
                     Everything here is temporary for nao */}
-                    <Combat health={this.state.selectedClassHealth} className={this.state.selectedClassName} attack1name={this.state.selectedClassattack1Name} attack1damage={this.state.selectedClassattack1Damage} attack1type={this.state.selectedClassattack1Type}  attack2name={this.state.selectedClassattack2Name} attack2damage={this.state.selectedClassattack2Damage} attack2type={this.state.selectedClassattack2Type}
+                    <Combat health={this.state.selectedClassHealth} className={this.state.selectedClassName} attack1name={this.state.selectedClassattack1Name} attack1damage={this.state.selectedClassattack1Damage} attack1type={this.state.selectedClassattack1Type}  attack2name={this.state.selectedClassattack2Name} attack2damage={this.state.selectedClassattack2Damage} attack2type={this.state.selectedClassattack2Type} weaknesses={this.state.selectedClassWeaknesses} resistances={this.state.selectedClassResistances}
                     userMonsters={this.state.userMonsters}></Combat>
                 </div>
             )}

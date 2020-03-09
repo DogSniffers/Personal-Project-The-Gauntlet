@@ -19,6 +19,9 @@ module.exports =  [
         attack2name:'Holy Water',
         attack2damage:3,
         attack2type:'Holy',
+        resistances:'Slash',
+        weaknesses:'Blunt'
+   
     },
     {
         class:'Hunter',
@@ -30,6 +33,8 @@ module.exports =  [
         attack2name:'Club',
         attack2damage:4,
         attack2type:'Blunt',
+        resistances:'Blunt',
+        weaknesses:'Slash'
     },
     {
         class:'Wizard',
@@ -41,6 +46,8 @@ module.exports =  [
         attack2name:'Ice Spike',
         attack2damage:4,
         attack2type:'Ice',
+        resistances:'Arcane',
+        weaknesses:'Slash'
     },
     {
         class:'Rogue',
@@ -52,6 +59,8 @@ module.exports =  [
         attack2name:'Poisoned-Stab',
         attack2damage:4,
         attack2type:'Poison',
+        resistances:'Slash',
+        weaknesses:'Fire'
     },
     {
         class:'Conjurer',
@@ -63,6 +72,8 @@ module.exports =  [
         attack2name:'Arcane Spear',
         attack2damage:4,
         attack2type:'Slash',
+        resistances:'Arcane',
+        weaknesses:'Slash'
     },
     {
         class:'Pyromancer',
@@ -74,6 +85,8 @@ module.exports =  [
         attack2name:'Immolate',
         attack2damage:4,
         attack2type:'Fire',
+        resistances:'Fire',
+        weaknesses:'Ice'
     },
     {
         class:'Priest',
@@ -85,6 +98,8 @@ module.exports =  [
         attack2name:'Pray',
         attack2damage:5,
         attack2type:'Heal',
+        resistances:'Holy',
+        weaknesses:'Dark'
     },
     {
         class:'Black Knight',
@@ -96,6 +111,8 @@ module.exports =  [
         attack2name:'Raise Shield',
         attack2damage:7,
         attack2type:'Block',
+        resistances:'Fire',
+        weaknesses:'Ice'
     },
     {
         class:'Diseased',
@@ -107,6 +124,8 @@ module.exports =  [
         attack2name:'Punch',
         attack2damage:4,
         attack2type:'Blunt',
+        resistances:'Poison',
+        weaknesses:'Fire'
     },
     {
         class:'Witch-Doctor',
@@ -118,6 +137,8 @@ module.exports =  [
         attack2name:'Herbal Medicine',
         attack2damage:6,
         attack2type:'Heal',
+        resistances:'Poison',
+        weaknesses:'Slash'
     },
     {
         class:'Ice Incarnate',
@@ -129,6 +150,8 @@ module.exports =  [
         attack2name:'Ice Sheet',
         attack2damage:5,
         attack2type:'Block',
+        resistances:'Ice',
+        weaknesses:'Blunt'
     },
     {
         class:'Cultist',
@@ -140,6 +163,8 @@ module.exports =  [
         attack2name:'Arcane Bow',
         attack2damage:8,
         attack2type:'Arcane',
+        resistances:'Arcane',
+        weaknesses:'Slash'
     },
     {
         class:'Paladin',
@@ -151,6 +176,8 @@ module.exports =  [
         attack2name:'Heal Spell',
         attack2damage:6,
         attack2type:'Heal',
+        resistances:'Arcane',
+        weaknesses:'Dark'
     },
     {
         class:'Demon Knight',
@@ -162,6 +189,8 @@ module.exports =  [
         attack2name:'Fire Breath',
         attack2damage:3,
         attack2type:'Fire',
+        resistances:'Fire',
+        weaknesses:'Poison'
     },
     {
         class:'Living Puppet',
@@ -173,6 +202,8 @@ module.exports =  [
         attack2name:'Restuff',
         attack2damage:6,
         attack2type:'Heal',
+        resistances:'Poison',
+        weaknesses:'Arcane'
     },
     {
         class:'Ice Druid',
@@ -184,6 +215,8 @@ module.exports =  [
         attack2name:'Ritual',
         attack2damage:4,
         attack2type:'Holy',
+        resistances:'Ice',
+        weaknesses:'Fire'
     },
     {
         class:'False Prophet',
@@ -195,6 +228,8 @@ module.exports =  [
         attack2name:'"Prayer"',
         attack2damage:5,
         attack2type:'Dark',
+        resistances:'Dark',
+        weaknesses:'Holy'
     },
     {
         class:'Fire Golem',
@@ -206,6 +241,8 @@ module.exports =  [
         attack2name:'Solidify',
         attack2damage:5,
         attack2type:'Block',
+        resistances:'Fire',
+        weaknesses:'Blunt'
     },
     // {
     //     class:'',
@@ -217,6 +254,8 @@ module.exports =  [
     //     attack2name:'',
     //     attack2damage:0,
     //     attack2type:'',
+    //     resistances:'',
+    //     weaknesses:''
     // },
     
 ]

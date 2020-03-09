@@ -1,13 +1,15 @@
 module.exports = [
     {
-        name:'Test',
+        name:'Liche',
         class:'Boss',
-        health:1,
+        health:50,
         weaknesses:'Fire',
         resistances:'Ice',
         attack1name:'Drain Vitality',
+        attack1type:'Dark',
         attack1damage:8,
         attack2name:'Freeze Blood',
+        attack2type:'Ice',
         attack2damage:8,
         xpReward:20,
         scoreReward:800,

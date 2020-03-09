@@ -12,3 +12,19 @@ CREATE TABLE leaderboard (
     score int,
     death VARCHAR (360)
 );
+
+CREATE TABLE monsters (
+    id INT REFERENCES users(id),
+    name VARCHAR (240),
+    health INT,
+    weaknesses VARCHAR (30),
+    resistances VARCHAR (30),
+    attack1name VARCHAR (120),
+    attack1type VARCHAR (30),
+    attack1damage INT,
+    attack2name VARCHAR (120),
+    attack2type VARCHAR (30),
+    attack2damage INT,
+    xp INT,
+    score INT
+);
