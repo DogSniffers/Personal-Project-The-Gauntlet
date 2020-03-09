@@ -64,8 +64,8 @@ class Combat extends React.Component{
     componentDidMount(){
         let classInfo = this.props
         this.setState({ className:classInfo.className,
-            // health:classInfo.health, 
-            health:1, 
+            health:classInfo.health, 
+            // health:1, 
             maxHealth:classInfo.health,
             resistances:classInfo.resistances, 
             weaknesses:classInfo.weaknesses,

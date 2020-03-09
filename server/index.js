@@ -42,7 +42,7 @@ app.post('/api/logout', authController.logout)
 
 // LeaderBoard Stuff:
 app.get('/api/leaderboard/byscore', leaderboardController.fetchLeaderboardByScore)
-app.get('/api/leaderboard/byfloors', leaderboardController.fetchLeaderboardByFloors)
+app.get('/api/leaderboard/byfloor', leaderboardController.fetchLeaderboardByFloors)
 app.post('/api/leaderboard', leaderboardController.uploadToLeaderboard)
 
 // TheGauntlet Stuff:

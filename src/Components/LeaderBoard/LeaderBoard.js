@@ -1,5 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 import axios from 'axios'
 
 
@@ -7,7 +8,7 @@ class LeaderBoard extends React.Component{
     constructor(){
         super()
         this.state = {
-            leaderboard:[{username:'Test',score:100,floors:20,death:'Test death text'},{username:'Test 2',score:200,floors:40,death:'Test death text'}],
+            leaderboard:[],
 
 
         }
@@ -32,14 +33,15 @@ class LeaderBoard extends React.Component{
     
 
     render(){
+        console.log(this.props)
         return(
             <div>
                 <h1>LeaderBoard</h1>
                     <button onClick={() => this.props.history.push('/header')}>MAIN MENU</button>
                     <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
                 <div>
-                    <button onClick={() => this.sortByScore}>By Score</button>
-                    <button onClick={() => this.sortByFloors}>By Floor</button>
+                    <button onClick={this.sortByScore}>By Score</button>
+                    <button onClick={this.sortByFloors}>By Floor</button>
                 </div>
                 {this.state.leaderboard.map(score => {
                     return(
@@ -48,6 +50,12 @@ class LeaderBoard extends React.Component{
                         <p>Points:{score.points}</p>
                         <p>Floors:{score.floors}</p>
                         <p>Death:{score.death}</p>
+                        {this.props.reduxState.username === score.username? (
+                            <button>DELETE</button>
+
+                        ):(
+                            null
+                        )}
                         </div>
                     )
                 })}
@@ -56,5 +64,10 @@ class LeaderBoard extends React.Component{
     }
 
 }
+const mapStateToProps = reduxState =>{
+    return{
+        reduxState
+    }
+}
 
-export default withRouter(LeaderBoard)
+export default connect(mapStateToProps)(withRouter(LeaderBoard))
