@@ -27,5 +27,6 @@ CREATE TABLE monsters (
     attack2type VARCHAR (30),
     attack2damage INT,
     xp INT,
-    score INT
+    score INT,
+    username VARCHAR (240)
 );
