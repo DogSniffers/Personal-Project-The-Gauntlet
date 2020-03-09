@@ -171,14 +171,15 @@ class TheGauntlet extends React.Component{
         return(
             <div>
                 {this.state.classSelected === false ?(
-                    
                 <div>
                 <>
                 <button onClick={this.allowUserMonsters}>Allow User Created Monsters?</button>
                 <h2>Class Select</h2>
-                <div onClick={this.selectedClass1}>{this.state.class1Name}</div>
-                <div onClick={this.selectedClass2}>{this.state.class2Name}</div>
-                <div onClick={this.selectedClass3}>{this.state.class3Name}</div>
+                <div className='classes'>
+                <div onClick={this.selectedClass1} className='classSelect'>{this.state.class1Name}</div>
+                <div onClick={this.selectedClass2} className='classSelect'>{this.state.class2Name}</div>
+                <div onClick={this.selectedClass3} className='classSelect'>{this.state.class3Name}</div>
+                </div>
             {this.state.classClick === false ? (
                 null
             ):(

@@ -35,10 +35,12 @@ class LeaderBoard extends React.Component{
         return(
             <div>
                 <h1>LeaderBoard</h1>
-                <button onClick={() => this.props.history.push('/header')}>MAIN MENU</button>
-                <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
-                <button onClick={() => this.sortByScore}>By Score</button>
-                <button onClick={() => this.sortByFloors}>By Floor</button>
+                    <button onClick={() => this.props.history.push('/header')}>MAIN MENU</button>
+                    <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
+                <div>
+                    <button onClick={() => this.sortByScore}>By Score</button>
+                    <button onClick={() => this.sortByFloors}>By Floor</button>
+                </div>
                 {this.state.leaderboard.map(score => {
                     return(
                     <div>

@@ -11,11 +11,13 @@ class Header extends React.Component{
    
     render(){
         return(
-            <div>
-            <h1>The Gauntlet</h1>
-            <button onClick={ () =>this.props.history.push('/dashboard')}>START</button>
-            <button onClick={() => this.props.history.push('/leaderboard')}>LEADERBOARD</button>
-            <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
+            <div className='header'>
+            <h1 className='theGauntlet'>The Gauntlet</h1>
+            <div className='menuButtons'>
+                <button onClick={ () =>this.props.history.push('/dashboard')}>START</button>
+                <button onClick={() => this.props.history.push('/leaderboard')}>LEADERBOARD</button>
+                <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
+            </div>
             </div>
         )
     }
