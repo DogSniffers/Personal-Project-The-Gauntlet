@@ -38,7 +38,6 @@ app.post('/api/register', authController.register)
 app.post('/api/logout', authController.logout)
 
 // app.put('/api/users/:id', controller.*)
-// app.delete('/api/users/:id', controller.*)
 
 // LeaderBoard Stuff:
 app.get('/api/leaderboard/byscore', leaderboardController.fetchLeaderboardByScore)
@@ -53,4 +52,5 @@ app.get('/api/bosses', gauntletController.fetchBosses)
 app.get('/api/usermonsters', gauntletController.fetchUserMonsters)
 app.post('/api/monstercreator', gauntletController.createMonster)
 app.post('/api/mymonsters', gauntletController.fetchMyMonsters)
+app.delete('/api/mymonsters/:id', gauntletController.deleteMonster)
 

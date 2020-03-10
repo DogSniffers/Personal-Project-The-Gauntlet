@@ -14,7 +14,7 @@ CREATE TABLE leaderboard (
 );
 
 CREATE TABLE monsters (
-    id INT REFERENCES users(id),
+    id SERIAL PRIMARY KEY,
     name VARCHAR (240),
     class VARCHAR (50),
     health INT,

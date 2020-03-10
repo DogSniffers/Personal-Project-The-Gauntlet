@@ -24,6 +24,16 @@ module.exports = {
             res.sendStatus(200)
         }).catch(err => console.log(err))
     },
+    deleteMonster: (req,res) => {
+        const {id} = req.params
+        const db = req.app.get('db')
+        console.log(id)
+        db.delete_monster([id]).then(() => {
+            res.sendStatus(201)
+        }).catch( () => {
+            res.sendStatus(500)
+        })
+    },
     fetchMyMonsters: async (req,res) => {
         const db = req.app.get('db')
         const {username} = req.body

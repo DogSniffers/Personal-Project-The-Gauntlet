@@ -22,6 +22,15 @@ class Profile extends React.Component{
         })
 
     }
+
+    deleteMonster = (monsterId) => {
+        axios.delete(`/api/mymonsters/${monsterId}`).then(res => {
+            var {username} = this.props.reduxState
+        axios.post('/api/mymonsters', {username:username}).then(res =>{
+            this.setState({monsterList:res.data})
+        })
+        })
+    }
     
 
     render(){
@@ -57,6 +66,7 @@ class Profile extends React.Component{
                                 <p>Damage:{monster.attack2damage}</p>
                                 <p>XP:{monster.xp}</p>
                                 <p>Score:{monster.score}</p>
+                                <button onClick={() => this.deleteMonster(monster.id)}>Delete</button>
                             </div>
                         )
                     })}

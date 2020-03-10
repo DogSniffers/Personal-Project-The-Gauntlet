@@ -1,0 +1,1 @@
+DELETE FROM monsters WHERE id=$1
