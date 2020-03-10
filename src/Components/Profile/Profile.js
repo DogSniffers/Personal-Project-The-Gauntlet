@@ -37,7 +37,7 @@ class Profile extends React.Component{
         return(
             <div>
             <div>
-                <h1>Profile</h1>
+                <h1 className='pageTitle'>Profile</h1>
                 <button onClick={() => this.props.history.push('/header')}>MAIN MENU</button>
                 <button onClick ={() => this.props.history.push('/leaderboard')}>LEADERBOARD</button>
                 <div>

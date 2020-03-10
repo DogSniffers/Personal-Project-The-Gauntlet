@@ -5,7 +5,6 @@ module.exports = {
         const {email,password} = req.body
         const {session} = req
         const db = req.app.get('db')
-
         let emailLogin = await db.check_email([email])
         user=emailLogin[0]
         if(!user){

@@ -13,8 +13,8 @@ class Nav extends React.Component{
 
     render(){
         return(
-            <div className='navbar'>
-            <h1>The Gauntlet</h1>
+            <div>
+            <h1 className='pageTitle'>The Gauntlet</h1>
             <button onClick={this.logout}>Logout</button>
             </div>
         )

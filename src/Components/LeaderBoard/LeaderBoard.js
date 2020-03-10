@@ -35,7 +35,7 @@ class LeaderBoard extends React.Component{
     render(){
         return(
             <div>
-                <h1>LeaderBoard</h1>
+                <h1 className='pageTitle'>LeaderBoard</h1>
                     <button onClick={() => this.props.history.push('/header')}>MAIN MENU</button>
                     <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
                 <div>

@@ -196,9 +196,9 @@ class TheGauntlet extends React.Component{
                 <button onClick={this.allowUserMonsters}>Allow User Created Monsters?</button>
                 <h2>Class Select</h2>
                 <div className='classes'>
-                <div onClick={this.selectedClass1} className='classSelect'>{this.state.class1Name}</div>
-                <div onClick={this.selectedClass2} className='classSelect'>{this.state.class2Name}</div>
-                <div onClick={this.selectedClass3} className='classSelect'>{this.state.class3Name}</div>
+                <p onClick={this.selectedClass1} className='classSelect'>{this.state.class1Name}</p>
+                <p onClick={this.selectedClass2} className='classSelect'>{this.state.class2Name}</p>
+                <p onClick={this.selectedClass3} className='classSelect'>{this.state.class3Name}</p>
                 </div>
             {this.state.classClick === false ? (
                 null

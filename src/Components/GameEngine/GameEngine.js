@@ -64,8 +64,8 @@ class Combat extends React.Component{
     componentDidMount(){
         let classInfo = this.props
         this.setState({ className:classInfo.className,
-            health:classInfo.health, 
-            // health:1, 
+            // health:classInfo.health, 
+            health:1, 
             maxHealth:classInfo.health,
             resistances:classInfo.resistances, 
             weaknesses:classInfo.weaknesses,
@@ -106,7 +106,6 @@ class Combat extends React.Component{
         }
 
     }
-
     attack1action = () => {
         this.setState({attackTypeUsed:this.state.attack1type,canAttack:false})
         let random = Math.floor(Math.random() * 10)
@@ -577,7 +576,7 @@ class Combat extends React.Component{
                 this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
             }
             
-        }
+    }
     monsterDamage2Weakness = () => {
         if(this.state.monsterDead === false){
             let random = Math.floor(Math.random() * 10)
@@ -624,7 +623,7 @@ class Combat extends React.Component{
                 this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
             }
             
-        }
+    }
     monsterDamage2Resistance = () => {
         if(this.state.monsterDead === false){
             let random = Math.floor(Math.random() * 10)
@@ -671,7 +670,7 @@ class Combat extends React.Component{
                 this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
             }
             
-        }
+    }
     submitScore = () => {
         let {floor,score,deathMessage} = this.state
         let {username} = this.props.reduxState
@@ -679,7 +678,10 @@ class Combat extends React.Component{
                 alert('Score successfully Uploaded!')
                 this.setState({scoreSubmitted:true})
             }).catch(err => console.log(err))
-        }    
+    }
+    abandonRun = () => {
+        this.setState({playerDead:true,health:0,deathMessage:'Run Abandoned!'})
+    }    
     render(){
         return(
             <div>
@@ -687,7 +689,7 @@ class Combat extends React.Component{
                     <h2>{this.props.reduxState.username}</h2>
                     <h2>Floor:{this.state.floor}</h2>
                     <h2>Score:{this.state.score}</h2>
-                    <button onClick={() =>this.props.history.push('/header')}>EXIT RUN</button>
+                    <button onClick={this.abandonRun}>ABANDON RUN</button>
                 </div>
                 <div>
                 <h1>{this.state.className}</h1>
@@ -783,7 +785,7 @@ class Combat extends React.Component{
                             <h2>Combat Log:</h2>
                             {this.state.combatLog.map(log => {
                                 return(
-                                    <div>{log}</div>
+                                    <p>{log}</p>
                                     )
                                 })}
                         </div>
@@ -805,20 +807,22 @@ class Combat extends React.Component{
                                 )}
                     </div>)}
                     </div>
+                    <div>
+
                     {this.state.playerDead === true ? (
                         <div>
                             <p>{this.state.deathMessage}</p>
-                            <button onClick={() =>this.props.history.push('/header'),this.setState({scoreSubmitted:false})}>HOME</button>
+                            <button onClick={() =>{
+                                this.props.history.push('/header')
+                                this.setState({scoreSubmitted:false})}}>HOME</button>
                             {this.state.scoreSubmitted === false? (
                                 <button onClick={this.submitScore}>PUSH SCORE TO LEADERBOARD</button>
-                            ):(
-                                null
-                            )}
-                        </div>
-
-                    ):(
-                        null
-                    )}
+                                ):(
+                                    null)}
+                                </div>
+                                ):(
+                                    null)}
+    </div>
             </div>
         </div>
         )

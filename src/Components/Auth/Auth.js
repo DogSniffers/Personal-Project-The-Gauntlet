@@ -3,6 +3,8 @@ import axios from 'axios';
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {getUser} from '../../ducks/reducer'
+import './Auth.css'
+
 
 
 class Auth extends React.Component{
@@ -76,23 +78,29 @@ class Auth extends React.Component{
         return(
             <div>
                 {this.state.loginview === true ? (
-                    <>
-                <h1>Login</h1>
-                <input placeholder='Email' onChange={this.handleEmail}></input>
-                <input placeholder='Password' onChange={this.handlePassword}></input>
-                <button onClick={this.login}>Login</button>
+                <div className='authHolders'>
+                <h1 className='pageTitle'>Login</h1>
+                <div>
+                    <input placeholder='Email' onChange={this.handleEmail} className='authInputs'></input>
+                    <input placeholder='Password' onChange={this.handlePassword} className='authInputs'></input>
+                </div>
+                <button onClick={this.login} className='buttons'>Login</button>
                 <p onClick={this.authView}>Don't have an account? Register here.</p>
-                </>
+                </div>
                 ):(
-                <>
-                <h1>Register</h1>
-                <input placeholder='Email' onChange={this.handleEmail}></input>
-                <input placeholder='Username' onChange={this.handleUsername}></input>
-                <input placeholder='Password' onChange={this.handlePassword}></input>
-                <input placeholder='Confirm Password' onChange={this.handleConfirmPassword}></input>
-                <button onClick={this.register}>Create Account</button>
+                <div className='authHolders'>
+                <h1 className='pageTitle'>Register</h1>
+                <div>
+                    <input placeholder='Email' onChange={this.handleEmail} className='authInputs'></input>
+                    <input placeholder='Username' onChange={this.handleUsername} className='authInputs'></input>
+                </div>
+                <div>
+                    <input placeholder='Password' onChange={this.handlePassword} className='authInputs'></input>
+                    <input placeholder='Confirm Password' onChange={this.handleConfirmPassword}className='authInputs'></input>
+                </div>
+                <button onClick={this.register} className='buttons'>Create Account</button>
                 <p onClick={this.authView}>Already have an account? Login here.</p>
-                </>
+                </div>
             )}    
         </div>
     )
