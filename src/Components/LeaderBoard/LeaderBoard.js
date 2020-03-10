@@ -43,22 +43,22 @@ class LeaderBoard extends React.Component{
                     <button onClick={this.sortByScore}>By Score</button>
                     <button onClick={this.sortByFloors}>By Floor</button>
                 </div>
-                {this.state.leaderboard.map(score => {
-                    return(
+                {this.state.leaderboard.length === 0 ? (
+                    <p>There aren't any LeaderBoard scores available!</p>
+                ):(
                     <div>
-                        <h2>{score.username}</h2>
-                        <p>Points:{score.points}</p>
-                        <p>Floors:{score.floors}</p>
-                        <p>Death:{score.death}</p>
-                        {this.props.reduxState.username === score.username? (
-                            <button>DELETE</button>
-
-                        ):(
-                            null
-                        )}
-                        </div>
-                    )
-                })}
+                        {this.state.leaderboard.map(score => {
+                            return(
+                            <div>
+                                <h2>{score.username}</h2>
+                                <p>Points:{score.points}</p>
+                                <p>Floors:{score.floors}</p>
+                                <p>Death:{score.death}</p>
+                            </div>
+                            )
+                        })}
+                    </div>
+                )}
             </div>
         )
     }
