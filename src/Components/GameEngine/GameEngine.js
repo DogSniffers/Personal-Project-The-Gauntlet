@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import LoseMessage from '../LoseMessage/LoseMessage'
 import {withRouter} from 'react-router-dom'
 
 class Combat extends React.Component{
@@ -10,6 +9,7 @@ class Combat extends React.Component{
             floor:1,
             nextFloorBossFloor:false,
             score:0,
+            scoreSubmitted:false,
             
             className:'',
             health:0,
@@ -381,7 +381,6 @@ class Combat extends React.Component{
             this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} has been slain!`]})
         }
     }
-
     monsterDamage1 = () => {
         // console.log('hit')
         // console.log(this.state.monsterDead)
@@ -397,7 +396,7 @@ class Combat extends React.Component{
                 this.setState({health:playerHealth})
                 this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack1name} for ${this.state.monsterAttack1damage} damage! (BLOCKED 0 DAMAGE!) `],canAttack:true})
                 if(playerHealth <= 0){
-                    this.setState({playerDead:true})
+                    this.setState({playerDead:true,deathMessage:`Slain by ${this.state.monsterName}`})
                 }
                 }else{
                     let ogHealth = this.state.health
@@ -413,7 +412,7 @@ class Combat extends React.Component{
                     }
                     this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack1name} for ${blockedDamage} damage! (${block} blocked damage.)`],health:health,canAttack:true})
                     if(health <= 0){
-                        this.setState({playerDead:true})
+                        this.setState({playerDead:true,deathMessage:`Slain by ${this.state.monsterName}`})
                     }
                 }
             }else{
@@ -421,7 +420,7 @@ class Combat extends React.Component{
                 this.setState({health:playerHealth})
                 this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack1name} for ${damage} damage! `],canAttack:true})
                 if(playerHealth <= 0){
-                    this.setState({playerDead:true})
+                    this.setState({playerDead:true,deathMessage:`Slain by ${this.state.monsterName}`})
                 }
                 
             }
@@ -545,7 +544,7 @@ class Combat extends React.Component{
                 this.setState({health:playerHealth})
                 this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack2name} for ${this.state.monsterAttack2damage} damage! (BLOCKED 0 DAMAGE!) `],canAttack:true})
                 if(playerHealth <= 0){
-                    this.setState({playerDead:true})}
+                    this.setState({playerDead:true,deathMessage:`Slain by ${this.state.monsterName}`})}
                 }else{
                     let ogHealth = this.state.health
                     let blockedDamage = damage - this.state.block
@@ -560,7 +559,7 @@ class Combat extends React.Component{
                     }
                     this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack2name} for ${blockedDamage} damage! (${block} blocked damage.)`],health:health,canAttack:true})
                     if(health <= 0){
-                        this.setState({playerDead:true})
+                        this.setState({playerDead:true,deathMessage:`Slain by ${this.state.monsterName}`})
                     }
                 }
             }else{
@@ -568,7 +567,7 @@ class Combat extends React.Component{
                 this.setState({health:playerHealth})
                 this.setState({combatLog:[...this.state.combatLog, `${this.state.monsterName} used ${this.state.monsterAttack2name} for ${damage} damage! `],canAttack:true})
                 if(playerHealth <= 0){
-                    this.setState({playerDead:true})
+                    this.setState({playerDead:true,deathMessage:`Slain by ${this.state.monsterName}`})
                 }
                 }
             }else{
@@ -673,16 +672,14 @@ class Combat extends React.Component{
             }
             
         }
-
     submitScore = () => {
         let {floor,score,deathMessage} = this.state
         let {username} = this.props.reduxState
-        axios.post('/api/leaderboard', {username,floor,score,deathMessage}).then(res =>{
-            alert('Score successfully Uploaded!')
-        }).catch(err => console.log(err))
-    }
-       
-        
+            axios.post('/api/leaderboard', {username,floor,score,deathMessage}).then(res =>{
+                alert('Score successfully Uploaded!')
+                this.setState({scoreSubmitted:true})
+            }).catch(err => console.log(err))
+        }    
     render(){
         return(
             <div>
@@ -810,9 +807,13 @@ class Combat extends React.Component{
                     </div>
                     {this.state.playerDead === true ? (
                         <div>
-                            <LoseMessage/>
-                            <button onClick={() =>this.props.history.push('/header')}>HOME</button>
-                            <button onClick={this.submitScore}>PUSH SCORE TO LEADERBOARD</button>
+                            <p>{this.state.deathMessage}</p>
+                            <button onClick={() =>this.props.history.push('/header'),this.setState({scoreSubmitted:false})}>HOME</button>
+                            {this.state.scoreSubmitted === false? (
+                                <button onClick={this.submitScore}>PUSH SCORE TO LEADERBOARD</button>
+                            ):(
+                                null
+                            )}
                         </div>
 
                     ):(
@@ -824,11 +825,5 @@ class Combat extends React.Component{
     }
     
 }
-// const mapStateToProps = reduxState =>{
-//     const {id} = reduxState
-//     return{
-//             id
-//         }
-//         }
 
 export default (withRouter(Combat))
