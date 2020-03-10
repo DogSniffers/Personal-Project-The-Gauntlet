@@ -34,7 +34,17 @@ class MonsterCreator extends React.Component{
 
             scoreReward:20,
             scoreList:false,
+
+            monsterList:[],
+            monsterEditing:false,
+            id:0,
         }
+    }
+    componentDidMount(){
+        var {username} = this.props.reduxState
+        axios.post('/api/mymonsters', {username:username}).then(res =>{
+            this.setState({monsterList:res.data})
+        })
     }
     handleMonsterNameInput = event => {
         this.setState({monsterName:event.target.value})
@@ -68,8 +78,34 @@ class MonsterCreator extends React.Component{
             }).catch(err => console.log(err))
         }
     }
+    confirmChanges = () => {
+        var {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward,id} = this.state
+
+        axios.put('/api/mymonsters/confirmchanges', {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward,id}).then(res => {
+            this.setState({monsterEditing:false,monsterName:'',monsterClass:'',monsterHealth:10,monsterWeaknesses:'Slash',monsterResistances:'Blunt',monsterAttack1Name:'',monsterAttack1Type:'Slash',monsterAttack1Damage:3, monsterAttack1DamageList:false,monsterAttack2Name:'',monsterAttack2Type:'Slash',monsterAttack2Damage:3,monsterAttack2DamageList:false,xpReward:3,scoreReward:20,healthList:false,type1List:false,type2List:false,xpList:false,scoreList:false,monsterResistancesList:false,
+            monsterWeaknessesList:false,})
+            alert('Monster successfully updated!')
+            var {username} = this.props.reduxState
+            axios.post('/api/mymonsters', {username:username}).then(res =>{
+            this.setState({monsterList:res.data})
+        })
+        }).catch(err => {
+            console.log(err)
+        })
+
+    }
+    monsterToEdit = (monsterID) => {
+        this.setState({monsterEditing:true})
+        this.state.monsterList.map((e) => {
+            if(e.id === monsterID){
+                this.setState({monsterName:e.name,monsterClass:e.class,monsterHealth:e.health,monsterWeaknesses:e.weaknesses,monsterResistances:e.resistances,monsterAttack1Name:e.attack1name,monsterAttack1Type:e.attack1type,monsterAttack1Damage:e.attack1damage,
+                monsterAttack2Name:e.attack2name,monsterAttack2Type:e.attack2type,monsterAttack2Damage:e.attack2damage,xpReward:e.xp,scoreReward:e.score,id:e.id})
+            }
+        })
+    }
 
     render(){
+        console.log(this.state)
         return(
             <>
             <div>
@@ -78,7 +114,26 @@ class MonsterCreator extends React.Component{
                 <button onClick={() => this.props.history.push('/header')}>MAIN MENU</button>
             </div>
             <div>
-            <button onClick={this.createMonster}>Create Monster</button>
+                {this.state.monsterEditing === false? (
+                    <button onClick={this.createMonster}>Create Monster</button>
+                ):(
+                    <button onClick={this.confirmChanges}>Confirm Changes</button>
+                )}
+            <div>
+                <h2>Edit Monster:</h2>
+                {this.state.monsterList.map(monster => {
+                    return(
+                        <div>
+                            <p>{monster.name}</p>
+                            {this.state.monsterEditing === false? (
+                                <button onClick={() => this.monsterToEdit(monster.id)}>EDIT</button>
+                            ):(
+                                null
+                            )}
+                        </div>
+                    )
+                })}
+            </div>
                 <div>
                     <h2>Monster Name:</h2>
                     <p>{this.state.monsterName}</p>

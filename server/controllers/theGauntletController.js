@@ -24,6 +24,15 @@ module.exports = {
             res.sendStatus(200)
         }).catch(err => console.log(err))
     },
+    editMonster: (req,res) => {
+        const{monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name,monsterAttack1Type,monsterAttack1Damage,monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward,id} = req.body
+        const db = req.app.get('db')
+        db.edit_monster([monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name,monsterAttack1Type,monsterAttack1Damage,monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward,id]).then(() =>{
+            res.sendStatus(200)
+        }).catch(() => {
+            res.sendStatus(500)
+        })
+    },
     deleteMonster: (req,res) => {
         const {id} = req.params
         const db = req.app.get('db')
@@ -44,6 +53,7 @@ module.exports = {
             res.sendStatus(500)
         }
     },
+    
     
     
 

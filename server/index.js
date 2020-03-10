@@ -53,4 +53,5 @@ app.get('/api/usermonsters', gauntletController.fetchUserMonsters)
 app.post('/api/monstercreator', gauntletController.createMonster)
 app.post('/api/mymonsters', gauntletController.fetchMyMonsters)
 app.delete('/api/mymonsters/:id', gauntletController.deleteMonster)
+app.put('/api/mymonsters/confirmchanges', gauntletController.editMonster)
 
