@@ -1,6 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import Chart from '../Chart/Chart'
 import axios from 'axios'
 
 class Profile extends React.Component{
@@ -78,6 +79,7 @@ class Profile extends React.Component{
                 </div>
                 <div>
                 <h2>Recent Runs:</h2>
+                <Chart/>
                 {this.state.runList.length === 0 ? (
                     <p>You don't have any scores on the Leaderboard!</p>
                 ):(

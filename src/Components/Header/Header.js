@@ -11,7 +11,7 @@ class Header extends React.Component{
     }
    logout = () => {
     axios.post('/api/logout').then(res =>{
-        console.log('hit')
+        this.props.history.push('/')
     })
 
    }
@@ -23,7 +23,7 @@ class Header extends React.Component{
                 <button onClick={ () =>this.props.history.push('/dashboard')}>START</button>
                 <button onClick={() => this.props.history.push('/leaderboard')}>LEADERBOARD</button>
                 <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
-                <button onClick={this.logout, () => this.props.history.push('/')}>LOGOUT</button>
+                <button onClick={this.logout}>LOGOUT</button>
             </div>
             </div>
         )

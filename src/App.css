@@ -1,10 +1,7 @@
 .App {
   text-align: center;
   font-family: Munro;
-}
-
-body {
-  background-color: black;
+  color: lawngreen;
 }
 
 input {
