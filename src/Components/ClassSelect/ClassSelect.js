@@ -180,6 +180,10 @@ class TheGauntlet extends React.Component{
     }
     classConfirm = () => {
         this.setState({classSelected:true})
+        let random = Math.floor(Math.random(5))
+        let random2 = Math.floor(Math.random(5))
+        let random3 = Math.floor(Math.random(5))
+
     }
     allowUserMonsters = () => {
         this.setState({userMonsters:!this.state.userMonsters})

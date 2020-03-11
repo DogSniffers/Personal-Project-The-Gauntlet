@@ -7,7 +7,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE leaderboard (
-    username VARCHAR (50) REFERENCES users(username),
+    userusername VARCHAR(240) REFERENCES users(username),
     floors int,
     score int,
     death VARCHAR (360)

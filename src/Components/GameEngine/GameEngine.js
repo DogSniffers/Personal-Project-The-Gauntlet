@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
+import './GameEngine.css'
 
 class Combat extends React.Component{
     constructor(props){
@@ -64,8 +65,8 @@ class Combat extends React.Component{
     componentDidMount(){
         let classInfo = this.props
         this.setState({ className:classInfo.className,
-            // health:classInfo.health, 
-            health:1, 
+            health:classInfo.health, 
+            // health:1, 
             maxHealth:classInfo.health,
             resistances:classInfo.resistances, 
             weaknesses:classInfo.weaknesses,
@@ -98,7 +99,6 @@ class Combat extends React.Component{
             this.setState({bossList:res.data})
         })
         if(this.props.userMonsters === true){
-            console.log('hit')
             axios.get('/api/usermonsters').then(res => {
                 this.setState({monsterList: [...this.state.monsterList, ...res.data]})
             })
@@ -683,13 +683,18 @@ class Combat extends React.Component{
         this.setState({playerDead:true,health:0,deathMessage:'Run Abandoned!'})
     }    
     render(){
+        console.log(this.props)
         return(
             <div>
                 <div>
                     <h2>{this.props.reduxState.username}</h2>
                     <h2>Floor:{this.state.floor}</h2>
                     <h2>Score:{this.state.score}</h2>
-                    <button onClick={this.abandonRun}>ABANDON RUN</button>
+                    {this.state.playerDead === false?(
+                        <button onClick={this.abandonRun}>ABANDON RUN</button>
+                    ):(
+                        null
+                    )}
                 </div>
                 <div>
                 <h1>{this.state.className}</h1>
@@ -723,13 +728,13 @@ class Combat extends React.Component{
                     <p>Health:{this.state.monsterHealth}</p>
                     <div>
                        <h2>Monster Attacks:</h2>
-                    <div>
-                        <h3>{this.state.monsterAttack1name}</h3> 
+                    <div className='monsterAttacks'>
+                        <h2>{this.state.monsterAttack1name}</h2> 
                         <p>{this.state.monsterAttack1damage} damage</p>
                         <p>Type:{this.state.monsterAttack1type}</p>
                     </div>
-                    <div>
-                        <h3>{this.state.monsterAttack2name} </h3>
+                    <div className='monsterAttacks'>
+                        <h2>{this.state.monsterAttack2name}</h2>
                         <p>{this.state.monsterAttack2damage} damage</p>
                         <p>Type:{this.state.monsterAttack2type}</p>
                     </div>
@@ -742,13 +747,13 @@ class Combat extends React.Component{
                     <p>Damage:{this.state.attack1damage}</p>
                     <p>Type:{this.state.attack1type}</p>
                         {this.state.levelUp === true ?(
-                            <button onClick={this.levelAttack1}>Upgrade Stat</button>
+                            <button onClick={this.levelAttack1} className='attackButtons'>Upgrade Stat</button>
                     ):(
                         <>
                     {this.state.playerDead === false ? (
                             <>
                             {this.state.canAttack === true ? (
-                                <button onClick={this.attack1action}>Attack</button>
+                                <button onClick={this.attack1action} className='attackButtons'>Attack</button>
                         ):(
                             null
                         )}
@@ -765,14 +770,14 @@ class Combat extends React.Component{
                     <p>Damage:{this.state.attack2damage}</p>
                     <p>Type:{this.state.attack2type}</p>
                         {this.state.levelUp === true ?(
-                            <button onClick={this.levelAttack2}>Upgrade Stat</button>
+                            <button onClick={this.levelAttack2} className='attackButtons'>Upgrade Stat</button>
 
                         ):( 
                             <>
                             {this.state.playerDead === false ? (
                             <>
                             {this.state.canAttack === true ? (
-                            <button onClick={this.attack2action}>Attack</button>
+                            <button onClick={this.attack2action} className='attackButtons'>Attack</button>
                         ):(
                             null)}
                             </>
@@ -782,7 +787,7 @@ class Combat extends React.Component{
                 </div>
                     <div>
                         <div className='combatLog'>
-                            <h2>Combat Log:</h2>
+                            <h2 className='combatLog'>Combat Log:</h2>
                             {this.state.combatLog.map(log => {
                                 return(
                                     <p>{log}</p>

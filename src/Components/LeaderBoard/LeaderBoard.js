@@ -2,6 +2,7 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import './LeaderBoard.css'
 
 
 class LeaderBoard extends React.Component{
@@ -19,13 +20,11 @@ class LeaderBoard extends React.Component{
             )}
 
     sortByScore = () => {
-        console.log('hit')
         axios.get('/api/leaderboard/byscore').then( res => {
             this.setState({leaderboard:res.data})}
             )}
 
     sortByFloors = () => {
-        console.log('hit')
         axios.get('/api/leaderboard/byfloor').then( res => {
             this.setState({leaderboard:res.data})}
             )}
@@ -45,12 +44,12 @@ class LeaderBoard extends React.Component{
                 {this.state.leaderboard.length === 0 ? (
                     <p>There aren't any LeaderBoard scores available!</p>
                 ):(
-                    <div>
+                    <div className='leaderboard'>
                         {this.state.leaderboard.map(score => {
                             return(
-                            <div>
+                            <div className='leaderboardScore'>
                                 <h2>{score.username}</h2>
-                                <p>Points:{score.points}</p>
+                                <p>Points:{score.score}</p>
                                 <p>Floors:{score.floors}</p>
                                 <p>Death:{score.death}</p>
                             </div>

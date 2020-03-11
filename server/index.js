@@ -36,15 +36,11 @@ massive({
 app.post('/api/login', authController.login)
 app.post('/api/register', authController.register)
 app.post('/api/logout', authController.logout)
-
-// app.put('/api/users/:id', controller.*)
-
 // LeaderBoard Stuff:
 app.get('/api/leaderboard/byscore', leaderboardController.fetchLeaderboardByScore)
 app.get('/api/leaderboard/byfloor', leaderboardController.fetchLeaderboardByFloors)
 app.post('/api/myleaderboard', leaderboardController.fetchMyLeaderboard)
 app.post('/api/leaderboard', leaderboardController.uploadToLeaderboard)
-
 // TheGauntlet Stuff:
 app.get('/api/classes', gauntletController.fetchClasses)
 app.get('/api/monsters', gauntletController.fetchMonsters)

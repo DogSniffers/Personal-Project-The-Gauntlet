@@ -1,0 +1,13 @@
+.leaderboard {
+    width: 80%;
+    height: 80%;
+    border: lawngreen solid 2px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+.leaderboardScore{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}

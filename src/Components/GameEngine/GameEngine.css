@@ -1,0 +1,22 @@
+.attacks {
+  border: lawngreen solid 2px;
+  width: 160px;
+  height: 150px;
+}
+
+.monsterAttacks {
+  border: lawngreen solid 2px;
+  width: 160px;
+  height: 120px;
+}
+
+.attackButtons {
+  width: 100%;
+}
+
+.combatLog {
+  border: lawngreen solid 2px;
+  width: 400px;
+  overflow: auto;
+}
+/*# sourceMappingURL=GameEngine.css.map */

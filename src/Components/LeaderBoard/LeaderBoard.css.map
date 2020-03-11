@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACT,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,GAAG;EACX,MAAM,EAAE,mBAAmB;EAC3B,QAAQ,EAAE,IAAI;EACd,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CACzB;;AACD,AAAA,iBAAiB,CAAA;EACb,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,WAAW,EAAE,QAAQ;CACxB",
+    "sources": [
+        "LeaderBoard.scss"
+    ],
+    "names": [],
+    "file": "LeaderBoard.css"
+}

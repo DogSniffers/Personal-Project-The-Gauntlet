@@ -2,20 +2,25 @@
     text-align: center;
     font-family: Munro;
   }
+  body {
+    background-color: black;
+  }
   input {
     width: 20%;
     box-sizing: border-box;
     padding: 5px;
-    border: black solid 2px;
+    border: green solid 1px;
+    background-color: lawngreen;
   }
   button {
-    width: 20%;
+    width: 10%;
     box-sizing: border-box;
     padding: 5px;
-    border: black solid 2px;
+    border: green solid 1px;
+    background-color: lawngreen;
   }
   h1 {
-    color:red;
+    color:greenyellow;
     font-size: 50px;
   }
   h2 {
@@ -23,17 +28,14 @@
     font-size: 30px;
   }
   h3 {
-    color: skyblue;
+    color: lawngreen;
     font-size: 25px;
-    
   }
   p {
     color: greenyellow;
     font-size: 20px;
   }
-  div {
-    background-color: black;
-  }
+  
   
   
   
