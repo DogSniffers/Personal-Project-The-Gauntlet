@@ -3,13 +3,16 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Chart from '../Chart/Chart'
 import axios from 'axios'
+// import {Bar} from 'react-chartjs-2'
 
 class Profile extends React.Component{
     constructor(){
         super()
         this.state = {
             monsterList:[],
-            runList:[]
+            runList:[],
+            displayChart:false,
+            score:[],
         }
     }
 
@@ -20,8 +23,36 @@ class Profile extends React.Component{
         })
         axios.post('/api/myleaderboard', {username:username}).then(res =>{
             this.setState({runList:res.data})
+            let score = res.data.map(e => {
+                return e.score
+            })
+            let labels = score.map((e,i) => {
+               return `Run ${i + 1}`
+            })
+            this.setState({chartData:{
+                labels: [...labels],
+                datasets:[
+                  {
+                    label:'Run Score',
+                    data:[...score],
+                    backgroundColor:[
+                      'rgba(48.6, 98.8, 0)'
+                      
+                    ]
+                  }
+                ]
+              }})
+            let floors = res.data.map(e => {
+                return e.floors
+            })
+
+            console.log(score)
+            console.log(floors)
         })
 
+        
+
+        
     }
 
     deleteMonster = (monsterId) => {
@@ -32,9 +63,13 @@ class Profile extends React.Component{
         })
         })
     }
+    displayChart = () => {
+        this.setState({displayChart:!this.state.displayChart})
+    }
     
 
     render(){
+        console.log(this.state)
         return(
             <div>
             <div>
@@ -79,7 +114,15 @@ class Profile extends React.Component{
                 </div>
                 <div>
                 <h2>Recent Runs:</h2>
-                <Chart/>
+                <button onClick={this.displayChart}>Display Chart</button>
+                {this.state.displayChart === true? (
+                    // <Chart score={this.state.score}/>
+                    <div>
+                <Chart chartData={this.state.chartData}/>
+            </div>
+                ):(
+                    null
+                )}
                 {this.state.runList.length === 0 ? (
                     <p>You don't have any scores on the Leaderboard!</p>
                 ):(

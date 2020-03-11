@@ -1,27 +1,19 @@
 import React from 'react'
 import {Bar} from 'react-chartjs-2'
+import {connect} from 'react-redux'
 
 class Chart extends React.Component{
     constructor(){
         super()
         this.state = {
-            chartData:{
-                labels:['Test','Test2','Test3'],
-                datasets:[{
-                    label:'TEST',
-                    data:[1,2,3,4]
-                }],
-                backgroundcolor:['rgba(255,99,132,0.6)']
-            }
 
         }
     }
-
     render(){
         return(
-            <div>CHART Component
+            <div>
                 <Bar 
-                data={this.state.chartData}
+                data={this.props.chartData}
                 options={{
                     maintainAspectRatio: false}}/>
             </div>
@@ -29,4 +21,10 @@ class Chart extends React.Component{
     }
 }
 
-export default Chart
+const mapStateToProps = reduxState =>{
+    return{
+        reduxState
+    }
+}
+
+export default connect(mapStateToProps)(Chart)
