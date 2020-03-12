@@ -186,8 +186,12 @@ class TheGauntlet extends React.Component{
 
     }
     allowUserMonsters = () => {
-        this.setState({userMonsters:!this.state.userMonsters})
+        this.setState({userMonsters:true})
     }
+    dontAllowUserMonsters = () => {
+        this.setState({userMonsters:false})
+    }
+
 
     
 
@@ -197,7 +201,11 @@ class TheGauntlet extends React.Component{
                 {this.state.classSelected === false ?(
                 <div>
                 <>
-                <button onClick={this.allowUserMonsters}>Allow User Created Monsters?</button>
+                {this.state.userMonsters === false?(
+                    <button onClick={this.allowUserMonsters}>Don't Allow User Created Monsters</button>
+                    ):(
+                    <button onClick={this.dontAllowUserMonsters}>Allow User Created Monsters</button>
+                )}
                 <h2>Class Select</h2>
                 <div className='classes'>
                 <p onClick={this.selectedClass1} className='classSelect'>{this.state.class1Name}</p>

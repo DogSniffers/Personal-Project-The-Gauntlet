@@ -11,8 +11,8 @@ module.exports = [
         attack2name:'Freeze Blood',
         attack2type:'Ice',
         attack2damage:8,
-        xpReward:20,
-        scoreReward:800,
+        xpreward:20,
+        scorereward:800,
     },
     // {
     //     name:'',
@@ -24,7 +24,7 @@ module.exports = [
     //     attack1damage:0,
     //     attack2name:'',
     //     attack2damage:0,
-    //     xpReward:0,
-    //     scoreReward:0,
+    //     xpreward:0,
+    //     scorereward:0,
     // },
 ]

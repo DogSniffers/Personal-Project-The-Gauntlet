@@ -90,8 +90,8 @@ class Combat extends React.Component{
                 monsterAttack2name:stats.attack2name,
                 monsterAttack2type:stats.attack2type,
                 monsterAttack2damage:stats.attack2damage, 
-                monsterXPReward:stats.xpReward,
-                monsterScoreReward:stats.scoreReward,
+                monsterXPReward:stats.xpreward,
+                monsterScoreReward:stats.scorereward,
                 monsterResistances:stats.resistances,
                 monsterWeaknesses:stats.weaknesses})
         })
@@ -292,8 +292,8 @@ class Combat extends React.Component{
             monsterAttack2name:stats.attack2name,
             monsterAttack2type:stats.attack2type,
             monsterAttack2damage:stats.attack2damage, 
-            monsterXPReward:stats.xpReward,
-            monsterScoreReward:stats.scoreReward,
+            monsterXPReward:stats.xpreward,
+            monsterScoreReward:stats.scorereward,
             monsterResistances:stats.resistances,
             monsterWeaknesses:stats.weaknesses})
         let floorString = floor.toString()
@@ -316,8 +316,8 @@ class Combat extends React.Component{
             monsterAttack2name:stats.attack2name,
             monsterAttack2type:stats.attack2type,
             monsterAttack2damage:stats.attack2damage, 
-            monsterXPReward:stats.xpReward,
-            monsterScoreReward:stats.scoreReward,
+            monsterXPReward:stats.xpreward,
+            monsterScoreReward:stats.scorereward,
             monsterResistances:stats.resistances,
             monsterWeaknesses:stats.weaknesses,
             nextFloorBossFloor:false})
@@ -683,7 +683,7 @@ class Combat extends React.Component{
         this.setState({playerDead:true,health:0,deathMessage:'Run Abandoned!'})
     }    
     render(){
-        console.log(this.props)
+        console.log(this.state.monsterList)
         return(
             <div>
                 <div>

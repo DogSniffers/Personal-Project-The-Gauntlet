@@ -29,16 +29,16 @@ class Profile extends React.Component{
             let labels = score.map((e,i) => {
                return `Run ${i + 1}`
             })
+            let colors = score.map(e => {
+                return 'rgba(48.6, 98.8, 0)'
+            })
             this.setState({chartData:{
                 labels: [...labels],
                 datasets:[
                   {
                     label:'Run Score',
                     data:[...score],
-                    backgroundColor:[
-                      'rgba(48.6, 98.8, 0)'
-                      
-                    ]
+                    backgroundColor:[...colors],
                   }
                 ]
               }})

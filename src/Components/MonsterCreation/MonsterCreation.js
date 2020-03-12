@@ -30,10 +30,10 @@ class MonsterCreator extends React.Component{
             monsterResistancesList:false,
             monsterWeaknessesList:false,
 
-            xpReward:3,
+            xpreward:3,
             xpList:false,
 
-            scoreReward:20,
+            scorereward:20,
             scoreList:false,
 
             monsterList:[],
@@ -72,9 +72,9 @@ class MonsterCreator extends React.Component{
         }else if(field.monsterAttack2Name === ''){
             alert('Monster Attack Name 2 is Empty!')
         }else{
-            var {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward} = this.state
+            var {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpreward,scorereward} = this.state
             var {username} = this.props.reduxState
-            axios.post('/api/monstercreator', {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward,username}).then(res => {
+            axios.post('/api/monstercreator', {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpreward,scorereward,username}).then(res => {
                 alert('Monster Successfully Created!')
                 
                 
@@ -82,10 +82,10 @@ class MonsterCreator extends React.Component{
         }
     }
     confirmChanges = () => {
-        var {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward,id} = this.state
+        var {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpreward,scorereward,id} = this.state
 
-        axios.put('/api/mymonsters/confirmchanges', {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward,id}).then(res => {
-            this.setState({monsterEditing:false,monsterName:'',monsterClass:'',monsterHealth:10,monsterWeaknesses:'Slash',monsterResistances:'Blunt',monsterAttack1Name:'',monsterAttack1Type:'Slash',monsterAttack1Damage:3, monsterAttack1DamageList:false,monsterAttack2Name:'',monsterAttack2Type:'Slash',monsterAttack2Damage:3,monsterAttack2DamageList:false,xpReward:3,scoreReward:20,healthList:false,type1List:false,type2List:false,xpList:false,scoreList:false,monsterResistancesList:false,
+        axios.put('/api/mymonsters/confirmchanges', {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpreward,scorereward,id}).then(res => {
+            this.setState({monsterEditing:false,monsterName:'',monsterClass:'',monsterHealth:10,monsterWeaknesses:'Slash',monsterResistances:'Blunt',monsterAttack1Name:'',monsterAttack1Type:'Slash',monsterAttack1Damage:3, monsterAttack1DamageList:false,monsterAttack2Name:'',monsterAttack2Type:'Slash',monsterAttack2Damage:3,monsterAttack2DamageList:false,xpreward:3,scorereward:20,healthList:false,type1List:false,type2List:false,xpList:false,scoreList:false,monsterResistancesList:false,
             monsterWeaknessesList:false,})
             alert('Monster successfully updated!')
             var {username} = this.props.reduxState
@@ -102,7 +102,7 @@ class MonsterCreator extends React.Component{
         this.state.monsterList.map((e) => {
             if(e.id === monsterID){
                 this.setState({monsterName:e.name,monsterClass:e.class,monsterHealth:e.health,monsterWeaknesses:e.weaknesses,monsterResistances:e.resistances,monsterAttack1Name:e.attack1name,monsterAttack1Type:e.attack1type,monsterAttack1Damage:e.attack1damage,
-                monsterAttack2Name:e.attack2name,monsterAttack2Type:e.attack2type,monsterAttack2Damage:e.attack2damage,xpReward:e.xp,scoreReward:e.score,id:e.id})
+                monsterAttack2Name:e.attack2name,monsterAttack2Type:e.attack2type,monsterAttack2Damage:e.attack2damage,xpreward:e.xpreward,scorereward:e.score,id:e.id})
             }
         })
     }
@@ -284,15 +284,15 @@ class MonsterCreator extends React.Component{
                 </div>
                 <div>
                     <h3>Monster XP Reward:</h3>
-                    <p>{this.state.xpReward}</p>
+                    <p>{this.state.xpreward}</p>
                     <button onClick={() => this.setState({xpList:!this.state.xpList})}>XP List</button>
                     {this.state.xpList === true? (
                         <div>
-                        <button onClick={() =>this.setState({xpReward:3})}>3</button>
-                        <button onClick={() =>this.setState({xpReward:5})}>5</button>
-                        <button onClick={() =>this.setState({xpReward:8})}>8</button>
-                        <button onClick={() =>this.setState({xpReward:12})}>12</button>
-                        <button onClick={() =>this.setState({xpReward:15})}>15</button>
+                        <button onClick={() =>this.setState({xpreward:3})}>3</button>
+                        <button onClick={() =>this.setState({xpreward:5})}>5</button>
+                        <button onClick={() =>this.setState({xpreward:8})}>8</button>
+                        <button onClick={() =>this.setState({xpreward:12})}>12</button>
+                        <button onClick={() =>this.setState({xpreward:15})}>15</button>
                         </div>
                     ):(
                         null
@@ -300,15 +300,15 @@ class MonsterCreator extends React.Component{
                 </div>
                 <div>
                     <h3>Monster Score Reward:</h3>
-                    <p>{this.state.scoreReward}</p>
+                    <p>{this.state.scorereward}</p>
                     <button onClick={() => this.setState({scoreList:!this.state.scoreList})}>Score List</button> 
                     {this.state.scoreList === true? (
                         <div>
-                        <button onClick={() =>this.setState({scoreReward:20})}>20</button>
-                        <button onClick={() =>this.setState({scoreReward:40})}>40</button>
-                        <button onClick={() =>this.setState({scoreReward:60})}>60</button>
-                        <button onClick={() =>this.setState({scoreReward:80})}>80</button>
-                        <button onClick={() =>this.setState({scoreReward:100})}>100</button>
+                        <button onClick={() =>this.setState({scorereward:20})}>20</button>
+                        <button onClick={() =>this.setState({scorereward:40})}>40</button>
+                        <button onClick={() =>this.setState({scorereward:60})}>60</button>
+                        <button onClick={() =>this.setState({scorereward:80})}>80</button>
+                        <button onClick={() =>this.setState({scorereward:100})}>100</button>
                         </div>
                     ):(
                         null

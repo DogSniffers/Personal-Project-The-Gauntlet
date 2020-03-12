@@ -15,7 +15,11 @@ class Chart extends React.Component{
                 <Bar 
                 data={this.props.chartData}
                 options={{
-                    maintainAspectRatio: false}}/>
+                    maintainAspectRatio: false,
+                    color:['rgba(48.6, 98.8, 0)']
+                }}
+                    />
+                    
             </div>
         )
     }
