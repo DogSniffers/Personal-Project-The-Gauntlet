@@ -4,13 +4,17 @@
   color: lawngreen;
 }
 
+body {
+  background-color: black;
+}
+
 input {
   width: 20%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 5px;
   border: green solid 1px;
-  background-color: #7cfc00;
+  background-color: lawngreen;
 }
 
 button {

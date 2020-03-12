@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Chart from '../Chart/Chart'
 import axios from 'axios'
-// import {Bar} from 'react-chartjs-2'
+import './Profile.css'
 
 class Profile extends React.Component{
     constructor(){
@@ -32,6 +32,7 @@ class Profile extends React.Component{
             let colors = score.map(e => {
                 return 'rgba(48.6, 98.8, 0)'
             })
+            let color = 'rgba(90.0, 98.8, 0)'
             this.setState({chartData:{
                 labels: [...labels],
                 datasets:[
@@ -39,6 +40,7 @@ class Profile extends React.Component{
                     label:'Run Score',
                     data:[...score],
                     backgroundColor:[...colors],
+                    fontColor:['rgba(90.0, 98.8, 0)']
                   }
                 ]
               }})
@@ -117,9 +119,9 @@ class Profile extends React.Component{
                 <button onClick={this.displayChart}>Display Chart</button>
                 {this.state.displayChart === true? (
                     // <Chart score={this.state.score}/>
-                    <div>
-                <Chart chartData={this.state.chartData}/>
-            </div>
+                    <div className='chart'>
+                        <Chart chartData={this.state.chartData} className='chart'/>
+                    </div>
                 ):(
                     null
                 )}
