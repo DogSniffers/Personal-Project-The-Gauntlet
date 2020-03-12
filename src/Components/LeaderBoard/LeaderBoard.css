@@ -4,6 +4,7 @@
   overflow: auto;
   position: fixed;
   left: 150px;
+  top: 110px;
 }
 
 .leaderboardScore {
@@ -17,14 +18,17 @@
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border-bottom: greenyellow 2px solid;
 }
 
 .leaderboardContent {
-  width: 150px;
+  width: 20%;
   border-right: greenyellow 2px solid;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 /*# sourceMappingURL=LeaderBoard.css.map */

@@ -10,8 +10,18 @@ function TitleChange() {
   return (
     <div>
       <p>{title}</p>
+      <p>Change Page Title</p>
+      <button onClick={() => setTitle('The Gauntlet')}>
+        The Gauntlet
+      </button>
       <button onClick={() => setTitle('What a Horrible Night to Have a Curse')}>
-        Change Page Title
+        What a Horrible Night...
+      </button>
+      <button onClick={() => setTitle('Bad Game')}>
+        Bad Game
+      </button>
+      <button onClick={() => setTitle('No gods or kings. Only man.')}>
+      No gods or kings...
       </button>
     </div>
   );

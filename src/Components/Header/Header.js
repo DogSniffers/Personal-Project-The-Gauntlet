@@ -7,7 +7,7 @@ class Header extends React.Component{
     constructor(){
         super()
         this.state = {
-
+            titleChange:false
         }
     }
    logout = () => {
@@ -26,7 +26,12 @@ class Header extends React.Component{
                 <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
                 <button onClick={this.logout}>LOGOUT</button>
             </div>
-            <TitleChange/>
+            <button onClick={() => this.setState({titleChange:!this.state.titleChange})}>Title Change Options</button>
+            {this.state.titleChange === true? (
+                <TitleChange/>
+            ):(
+                null
+            )}
             </div>
         )
     }
