@@ -76,7 +76,7 @@ class Auth extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className='bigboidiv'>
                 {this.state.loginview === true ? (
                 <div className='authHolders'>
                 <h1 className='pageTitle'>Login</h1>

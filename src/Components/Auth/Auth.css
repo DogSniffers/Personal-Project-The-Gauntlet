@@ -1,1 +1,14 @@
-/* No CSS *//*# sourceMappingURL=Auth.css.map */
+.bigboidiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.authHolders {
+  border: greenyellow 2px solid;
+  width: 650px;
+}
+/*# sourceMappingURL=Auth.css.map */

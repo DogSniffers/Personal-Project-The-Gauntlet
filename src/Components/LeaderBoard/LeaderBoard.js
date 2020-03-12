@@ -48,10 +48,16 @@ class LeaderBoard extends React.Component{
                         {this.state.leaderboard.map(score => {
                             return(
                             <div className='leaderboardScore'>
-                                <h2>{score.username}</h2>
-                                <p>Points:{score.score}</p>
-                                <p>Floors:{score.floors}</p>
-                                <p>Death:{score.death}</p>
+                                <div className='leaderboardContent'>
+                                    <h2>User:{score.username}</h2>
+                                </div>
+                                <div className='leaderboardContent'>
+                                    <p>Points:{score.score}</p>
+                                </div>
+                                <div className='leaderboardContent'>
+                                    <p>Floors:{score.floors}</p>
+                                </div>
+                                <p className='deathMessageLeaderboard'>Death:{score.death}</p>
                             </div>
                             )
                         })}
