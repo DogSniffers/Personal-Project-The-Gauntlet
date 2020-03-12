@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Combat from '../GameEngine/GameEngine'
 import {connect} from 'react-redux'
+
 class TheGauntlet extends React.Component{
     constructor(){
         super()

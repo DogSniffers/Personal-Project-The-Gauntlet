@@ -1,6 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import axios from 'axios'
+import TitleChange from '../TitleChange/TitleChange'
 
 class Header extends React.Component{
     constructor(){
@@ -25,6 +26,7 @@ class Header extends React.Component{
                 <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
                 <button onClick={this.logout}>LOGOUT</button>
             </div>
+            <TitleChange/>
             </div>
         )
     }

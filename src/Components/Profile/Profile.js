@@ -84,7 +84,6 @@ class Profile extends React.Component{
             </div>
             <div>
                 <h2>User:{this.props.reduxState.username}</h2>
-                <h2>Total Runs:{this.props.reduxState.runs}</h2>
                 <div>
                     <h2>Created Monsters:</h2>
                     {this.state.monsterList.length === 0 ? (
@@ -105,8 +104,8 @@ class Profile extends React.Component{
                                         <h3>Monster Attack 2: {monster.attack2name}</h3>
                                         <p>Type:{monster.attack2type}</p>
                                         <p>Damage:{monster.attack2damage}</p>
-                                        <p>XP:{monster.xp}</p>
-                                        <p>Score:{monster.score}</p>
+                                        <p>XP:{monster.xpreward}</p>
+                                        <p>Score:{monster.scorereward}</p>
                                         <button onClick={() => this.deleteMonster(monster.id)}>Delete</button>
                                     </div>
                                 )
