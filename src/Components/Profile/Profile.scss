@@ -1,4 +1,28 @@
+.profileHolders{
+    display: flex;
+    justify-content: space-around;
+}
 .chart{
     background-color: lawngreen;
     border:green solid 2px;
+}
+.createdMonsters{
+    border: green solid 2px;
+    width: 250px;
+}
+.monsterListProfile{
+    border: green solid 2px;
+}
+.deleteButtonMonster{
+    width: 50%;
+}
+.recentRuns{
+    border: green solid 2px;
+    width: 250px;
+}
+.displayChartButton{
+    width: 50%;
+}
+.runScores{
+    border: green solid 2px;
 }

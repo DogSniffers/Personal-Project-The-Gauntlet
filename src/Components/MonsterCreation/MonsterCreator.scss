@@ -1,8 +1,16 @@
-.displayBoxs{
+.monsterCreator{
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    width: 50%;
-    height: 30%;
-}
+    align-items: center;
 
+}
+.createBoxs{
+    border: green solid 2px;
+    width: 250px;
+}
+.typeButtons{
+    width: 20%;
+}
+.listButtons{
+    width: 20%;
+}

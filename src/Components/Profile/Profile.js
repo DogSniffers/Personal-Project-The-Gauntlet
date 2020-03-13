@@ -32,7 +32,6 @@ class Profile extends React.Component{
             let colors = score.map(e => {
                 return 'rgba(48.6, 98.8, 0)'
             })
-            let color = 'rgba(90.0, 98.8, 0)'
             this.setState({chartData:{
                 labels: [...labels],
                 datasets:[
@@ -44,12 +43,6 @@ class Profile extends React.Component{
                   }
                 ]
               }})
-            let floors = res.data.map(e => {
-                return e.floors
-            })
-
-            console.log(score)
-            console.log(floors)
         })
 
         
@@ -82,17 +75,19 @@ class Profile extends React.Component{
                     <button onClick={() => this.props.history.push('/monstercreator')}>MONSTER CREATOR</button>
                 </div>
             </div>
-            <div>
+            <div className='monsterCreator'>
                 <h2>User:{this.props.reduxState.username}</h2>
-                <div>
+                <div className='profileHolders'>
+
+                <div className='createdMonsters'>
                     <h2>Created Monsters:</h2>
                     {this.state.monsterList.length === 0 ? (
                         <p>You have no created monsters!</p>
-                    ):(
-                        <div>
+                        ):(
+                            <div>
                             {this.state.monsterList.map(monster =>{
                                 return(
-                                    <div>
+                                    <div className='monsterListProfile'>
                                         <h2>{monster.name}</h2>
                                         <p>Class:{monster.class}</p>
                                         <p>Health:{monster.health}</p>
@@ -106,16 +101,16 @@ class Profile extends React.Component{
                                         <p>Damage:{monster.attack2damage}</p>
                                         <p>XP:{monster.xpreward}</p>
                                         <p>Score:{monster.scorereward}</p>
-                                        <button onClick={() => this.deleteMonster(monster.id)}>Delete</button>
+                                        <button onClick={() => this.deleteMonster(monster.id)} className='deleteButtonMonster'>Delete</button>
                                     </div>
                                 )
                             })}
                         </div>
                     )}
                 </div>
-                <div>
+                <div className='recentRuns'>
                 <h2>Recent Runs:</h2>
-                <button onClick={this.displayChart}>Display Chart</button>
+                <button onClick={this.displayChart} className='displayChartButton'>Display Chart</button>
                 {this.state.displayChart === true? (
                     // <Chart score={this.state.score}/>
                     <div className='chart'>
@@ -123,23 +118,25 @@ class Profile extends React.Component{
                     </div>
                 ):(
                     null
-                )}
+                    )}
                 {this.state.runList.length === 0 ? (
                     <p>You don't have any scores on the Leaderboard!</p>
-                ):(
-                    <div>
+                    ):(
+                        <div>
                         {this.state.runList.map(run => {
                             return(
-                            <div>
+                                <div className='runScores'>
                                 <p>Floors:{run.floors}</p>
                                 <p>Score:{run.score}</p>
-                                <p>Death Message:{run.deathMessage}</p>
+                                <p>Death Message:</p>
+                                <p>{run.death}</p>
                             </div>
                             )
                         })}
                     </div>
                 )}
                 </div>
+            </div>
             </div>
             </div>
         )

@@ -10,8 +10,6 @@ class LeaderBoard extends React.Component{
         super()
         this.state = {
             leaderboard:[],
-
-
         }
     }
     componentDidMount(){
@@ -49,7 +47,7 @@ class LeaderBoard extends React.Component{
                             return(
                             <div className='leaderboardScore'>
                                 <div className='leaderboardContent'>
-                                    <h2>User:{score.username}</h2>
+                                    <h2>{score.username}</h2>
                                 </div>
                                 <div className='leaderboardContent'>
                                     <p>Points:{score.score}</p>

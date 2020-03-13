@@ -61,7 +61,6 @@ class Combat extends React.Component{
 
         }
     }
-
     componentDidMount(){
         let classInfo = this.props
         this.setState({ className:classInfo.className,
@@ -831,8 +830,6 @@ class Combat extends React.Component{
             </div>
         </div>
         )
-    }
-    
+    }   
 }
-
 export default (withRouter(Combat))

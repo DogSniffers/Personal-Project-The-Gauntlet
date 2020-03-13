@@ -108,7 +108,6 @@ class MonsterCreator extends React.Component{
     }
 
     render(){
-        console.log(this.state)
         return(
             <>
             <div>
@@ -122,6 +121,7 @@ class MonsterCreator extends React.Component{
                 ):(
                     <button onClick={this.confirmChanges}>Confirm Changes</button>
                 )}
+                {this.state.monsterList.length !== 0?(
             <div>
                 <h2>Edit Monster:</h2>
                 {this.state.monsterList.map(monster => {
@@ -137,21 +137,25 @@ class MonsterCreator extends React.Component{
                     )
                 })}
             </div>
-            <div className='displayBoxs'>
-                <div>
+                ):(
+                    null
+
+                )}
+            <div className='monsterCreator'>
+                <div className='createBoxs'>
                     <h3>Monster Name:</h3>
                     <p>{this.state.monsterName}</p>
                     <input onChange={this.handleMonsterNameInput} maxLength='20'></input>
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Class:</h3>
                     <p>{this.state.monsterClass}</p>
                     <input onChange={this.handleMonsterClassInput} maxLength='20'></input>
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Health:</h3>
                     <p>{this.state.monsterHealth}</p>
-                    <button onClick={() =>this.setState({healthList:!this.state.healthList})}>Health List</button>
+                    <button onClick={() =>this.setState({healthList:!this.state.healthList})} className='listButtons'>Health List</button>
                     {this.state.healthList === true? (
                         <div>
                         <button onClick={() =>this.setState({monsterHealth:10})}>10</button>
@@ -167,61 +171,61 @@ class MonsterCreator extends React.Component{
                     )}
                     
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Weaknesses:</h3>
                     <p>{this.state.monsterWeaknesses}</p>
-                    <button onClick={() =>this.setState({monsterWeaknessesList:!this.state.monsterWeaknessesList})}>Type List</button>
+                    <button onClick={() =>this.setState({monsterWeaknessesList:!this.state.monsterWeaknessesList})} className='listButtons'>Type List</button>
                     {this.state.monsterWeaknessesList === true ? (
                         <div>
-                            <button onClick={() =>this.setState({monsterWeaknesses:'Slash'})}>Slash</button>
-                            <button onClick={() =>this.setState({monsterWeaknesses:'Blunt'})}>Blunt</button>
-                            <button onClick={() =>this.setState({monsterWeaknesses:'Fire'})}>Fire</button>
-                            <button onClick={() =>this.setState({monsterWeaknesses:'Holy'})}>Holy</button>
-                            <button onClick={() =>this.setState({monsterWeaknesses:'Dark'})}>Dark</button>
-                            <button onClick={() =>this.setState({monsterWeaknesses:'Poison'})}>Poison</button>
-                            <button onClick={() =>this.setState({monsterWeaknesses:'Arcane'})}>Arcane</button>
+                            <button onClick={() =>this.setState({monsterWeaknesses:'Slash'})} className='typeButtons'>Slash</button>
+                            <button onClick={() =>this.setState({monsterWeaknesses:'Blunt'})} className='typeButtons'>Blunt</button>
+                            <button onClick={() =>this.setState({monsterWeaknesses:'Fire'})} className='typeButtons'>Fire</button>
+                            <button onClick={() =>this.setState({monsterWeaknesses:'Holy'})} className='typeButtons'>Holy</button>
+                            <button onClick={() =>this.setState({monsterWeaknesses:'Dark'})} className='typeButtons'>Dark</button>
+                            <button onClick={() =>this.setState({monsterWeaknesses:'Poison'})} className='typeButtons'>Poison</button>
+                            <button onClick={() =>this.setState({monsterWeaknesses:'Arcane'})} className='typeButtons'>Arcane</button>
                         </div>
                             ):(
                             null
                         )}
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Resistances:</h3>
                     <p>{this.state.monsterResistances}</p>
-                    <button onClick={() =>this.setState({monsterResistancesList:!this.state.monsterResistancesList})}>Type List</button>
+                    <button onClick={() =>this.setState({monsterResistancesList:!this.state.monsterResistancesList})} className='listButtons'>Type List</button>
                     {this.state.monsterResistancesList === true ? (
                         <div>
-                            <button onClick={() =>this.setState({monsterResistances:'Slash'})}>Slash</button>
-                            <button onClick={() =>this.setState({monsterResistances:'Blunt'})}>Blunt</button>
-                            <button onClick={() =>this.setState({monsterResistances:'Fire'})}>Fire</button>
-                            <button onClick={() =>this.setState({monsterResistances:'Holy'})}>Holy</button>
-                            <button onClick={() =>this.setState({monsterResistances:'Dark'})}>Dark</button>
-                            <button onClick={() =>this.setState({monsterResistances:'Poison'})}>Poison</button>
-                            <button onClick={() =>this.setState({monsterResistances:'Arcane'})}>Arcane</button>
+                            <button onClick={() =>this.setState({monsterResistances:'Slash'})} className='typeButtons'>Slash</button>
+                            <button onClick={() =>this.setState({monsterResistances:'Blunt'})} className='typeButtons'>Blunt</button>
+                            <button onClick={() =>this.setState({monsterResistances:'Fire'})} className='typeButtons'>Fire</button>
+                            <button onClick={() =>this.setState({monsterResistances:'Holy'})} className='typeButtons'>Holy</button>
+                            <button onClick={() =>this.setState({monsterResistances:'Dark'})} className='typeButtons'>Dark</button>
+                            <button onClick={() =>this.setState({monsterResistances:'Poison'})} className='typeButtons'>Poison</button>
+                            <button onClick={() =>this.setState({monsterResistances:'Arcane'})} className='typeButtons'>Arcane</button>
                         </div>
                             ):(
                             null
                         )}
                     
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Attack 1 Name:</h3>
                     <p>{this.state.monsterAttack1Name}</p>
                     <input onChange={this.handleMonsterAttack1NameInput} maxLength='20'></input>
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Attack 1 Type:</h3>
                      <p>{this.state.monsterAttack1Type}</p>
-                    <button onClick={() =>this.setState({type1List:!this.state.type1List})}>Type List</button>
+                    <button onClick={() =>this.setState({type1List:!this.state.type1List})} className='listButtons'>Type List</button>
                     {this.state.type1List === true ? (
                         <div>
-                            <button onClick={() =>this.setState({monsterAttack1Type:'Slash'})}>Slash</button>
-                            <button onClick={() =>this.setState({monsterAttack1Type:'Blunt'})}>Blunt</button>
-                            <button onClick={() =>this.setState({monsterAttack1Type:'Fire'})}>Fire</button>
-                            <button onClick={() =>this.setState({monsterAttack1Type:'Holy'})}>Holy</button>
-                            <button onClick={() =>this.setState({monsterAttack1Type:'Dark'})}>Dark</button>
-                            <button onClick={() =>this.setState({monsterAttack1Type:'Poison'})}>Poison</button>
-                            <button onClick={() =>this.setState({monsterAttack1Type:'Arcane'})}>Arcane</button>    
+                            <button onClick={() =>this.setState({monsterAttack1Type:'Slash'})} className='typeButtons'>Slash</button>
+                            <button onClick={() =>this.setState({monsterAttack1Type:'Blunt'})} className='typeButtons'>Blunt</button>
+                            <button onClick={() =>this.setState({monsterAttack1Type:'Fire'})} className='typeButtons'>Fire</button>
+                            <button onClick={() =>this.setState({monsterAttack1Type:'Holy'})} className='typeButtons'>Holy</button>
+                            <button onClick={() =>this.setState({monsterAttack1Type:'Dark'})} className='typeButtons'>Dark</button>
+                            <button onClick={() =>this.setState({monsterAttack1Type:'Poison'})} className='typeButtons'>Poison</button>
+                            <button onClick={() =>this.setState({monsterAttack1Type:'Arcane'})} className='typeButtons'>Arcane</button>    
                         </div>
 
                     ):(
@@ -229,10 +233,10 @@ class MonsterCreator extends React.Component{
                     )}
                     
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Attack 1 Damage:</h3>
                     <p>{this.state.monsterAttack1Damage}</p>
-                    <button onClick={() => this.setState({monsterAttack1DamageList:!this.state.monsterAttack1DamageList})}>Damage List</button>
+                    <button onClick={() => this.setState({monsterAttack1DamageList:!this.state.monsterAttack1DamageList})} className='listButtons'>Damage List</button>
                     {this.state.monsterAttack1DamageList === true ? (
                         <div>
                         <button onClick={() =>this.setState({monsterAttack1Damage:3})}>3</button>
@@ -245,32 +249,32 @@ class MonsterCreator extends React.Component{
                         null
                     )}
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Attack 2 Name:</h3>
                     <p>{this.state.monsterAttack2Name}</p>
                     <input onChange={this.handleMonsterAttack2NameInput} maxLength='20'></input>
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Attack 2 Type:</h3>
                     <p>{this.state.monsterAttack2Type}</p>
-                    <button onClick={() =>this.setState({type2List:!this.state.type2List})}>Type List</button>
+                    <button onClick={() =>this.setState({type2List:!this.state.type2List})} className='listButtons'>Type List</button>
                     {this.state.type2List === true ? (
                         <div>
-                            <button onClick={() =>this.setState({monsterAttack2Type:'Slash'})}>Slash</button>
-                            <button onClick={() =>this.setState({monsterAttack2Type:'Blunt'})}>Blunt</button>
-                            <button onClick={() =>this.setState({monsterAttack2Type:'Fire'})}>Fire</button>
-                            <button onClick={() =>this.setState({monsterAttack2Type:'Holy'})}>Holy</button>
-                            <button onClick={() =>this.setState({monsterAttack2Type:'Dark'})}>Dark</button>
-                            <button onClick={() =>this.setState({monsterAttack2Type:'Poison'})}>Poison</button>
-                            <button onClick={() =>this.setState({monsterAttack2Type:'Arcane'})}>Arcane</button>
+                            <button onClick={() =>this.setState({monsterAttack2Type:'Slash'})} className='typeButtons'>Slash</button>
+                            <button onClick={() =>this.setState({monsterAttack2Type:'Blunt'})} className='typeButtons'>Blunt</button>
+                            <button onClick={() =>this.setState({monsterAttack2Type:'Fire'})} className='typeButtons'>Fire</button>
+                            <button onClick={() =>this.setState({monsterAttack2Type:'Holy'})} className='typeButtons'>Holy</button>
+                            <button onClick={() =>this.setState({monsterAttack2Type:'Dark'})} className='typeButtons'>Dark</button>
+                            <button onClick={() =>this.setState({monsterAttack2Type:'Poison'})} className='typeButtons'>Poison</button>
+                            <button onClick={() =>this.setState({monsterAttack2Type:'Arcane'})} className='typeButtons'>Arcane</button>
                             </div>
                             ):(
                             null
                         )}
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Attack 2 Damage:</h3>
                     <p>{this.state.monsterAttack2Damage}</p>
-                    <button onClick={() => this.setState({monsterAttack2DamageList:!this.state.monsterAttack2DamageList})}>Damage List</button>
+                    <button onClick={() => this.setState({monsterAttack2DamageList:!this.state.monsterAttack2DamageList})} className='listButtons'>Damage List</button>
                     {this.state.monsterAttack2DamageList === true ? (
                         <div>
                         <button onClick={() =>this.setState({monsterAttack2Damage:3})}>3</button>
@@ -282,10 +286,10 @@ class MonsterCreator extends React.Component{
                         null
                     )}
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster XP Reward:</h3>
                     <p>{this.state.xpreward}</p>
-                    <button onClick={() => this.setState({xpList:!this.state.xpList})}>XP List</button>
+                    <button onClick={() => this.setState({xpList:!this.state.xpList})} className='listButtons'>XP List</button>
                     {this.state.xpList === true? (
                         <div>
                         <button onClick={() =>this.setState({xpreward:3})}>3</button>
@@ -298,10 +302,10 @@ class MonsterCreator extends React.Component{
                         null
                     )}
                 </div>
-                <div>
+                <div className='createBoxs'>
                     <h3>Monster Score Reward:</h3>
                     <p>{this.state.scorereward}</p>
-                    <button onClick={() => this.setState({scoreList:!this.state.scoreList})}>Score List</button> 
+                    <button onClick={() => this.setState({scoreList:!this.state.scoreList})} className='listButtons'>Score List</button> 
                     {this.state.scoreList === true? (
                         <div>
                         <button onClick={() =>this.setState({scorereward:20})}>20</button>
