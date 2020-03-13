@@ -685,17 +685,17 @@ class Combat extends React.Component{
         console.log(this.state.monsterList)
         return(
             <div>
-                <div>
+                <div className='user'>
                     <h2>{this.props.reduxState.username}</h2>
                     <h2>Floor:{this.state.floor}</h2>
                     <h2>Score:{this.state.score}</h2>
                     {this.state.playerDead === false?(
-                        <button onClick={this.abandonRun}>ABANDON RUN</button>
+                        <button onClick={this.abandonRun} className='abandonRun'>ABANDON RUN</button>
                     ):(
                         null
                     )}
                 </div>
-                <div>
+                <div className='userClass'>
                 <h1>{this.state.className}</h1>
                     <p>Health:{this.state.health}/{this.state.maxHealth}</p>
                     {this.state.levelUp === true ?(
@@ -722,20 +722,24 @@ class Combat extends React.Component{
                         null
                     )}
                 </div>
-                <div>
+                <div className='monster'>
                     <h1>{this.state.monsterName}</h1>
                     <p>Health:{this.state.monsterHealth}</p>
-                    <div>
-                       <h2>Monster Attacks:</h2>
-                    <div className='monsterAttacks'>
-                        <h2>{this.state.monsterAttack1name}</h2> 
-                        <p>{this.state.monsterAttack1damage} damage</p>
-                        <p>Type:{this.state.monsterAttack1type}</p>
+                    <p>Resistances:{this.state.monsterResistances}</p>
+                    <p>Weaknesses:{this.state.monsterWeaknesses}</p>
+                            <h2>Monster Attacks:</h2>
+                    <div className='monsterAttackBox'>
+                        <div>
+                        <div className='monsterAttacks'>
+                            <h2>{this.state.monsterAttack1name}</h2> 
+                            <p>{this.state.monsterAttack1damage} damage</p>
+                            <p>Type:{this.state.monsterAttack1type}</p>
                     </div>
                     <div className='monsterAttacks'>
                         <h2>{this.state.monsterAttack2name}</h2>
                         <p>{this.state.monsterAttack2damage} damage</p>
                         <p>Type:{this.state.monsterAttack2type}</p>
+                    </div>
                     </div>
         
 

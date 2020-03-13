@@ -3,6 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {getUser} from '../../ducks/reducer'
+import AuthTitle from '../AuthTitle/AuthTitle'
 import './Auth.css'
 
 
@@ -77,6 +78,7 @@ class Auth extends React.Component{
     render(){
         return(
             <div className='bigboidiv'>
+                <AuthTitle/>
                 {this.state.loginview === true ? (
                 <div className='authHolders'>
                 <h1 className='pageTitle'>Login</h1>

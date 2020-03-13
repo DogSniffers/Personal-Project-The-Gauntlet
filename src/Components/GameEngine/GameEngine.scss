@@ -1,7 +1,28 @@
+.user{
+    border: green solid 2px;
+    width: 230px;
+}
+.abandonRun{
+    width: 100%;
+}
+.userClass{
+    border: green solid 2px;
+    width: 230px;
+}
+.monster{
+    border: green solid 2px;
+    width: 400px;
+}
 .attacks {
     border: lawngreen solid 2px;
     width: 160px;
     height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+.monsterAttackBox{
+    // display: flex;
+    flex-direction: row;
 }
 .monsterAttacks {
     border: lawngreen solid 2px;
