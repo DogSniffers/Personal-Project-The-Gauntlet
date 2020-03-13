@@ -681,7 +681,6 @@ class Combat extends React.Component{
         this.setState({playerDead:true,health:0,deathMessage:'Run Abandoned!'})
     }    
     render(){
-        console.log(this.state.monsterList)
         return(
             <div>
                 <div className='user'>
@@ -792,7 +791,7 @@ class Combat extends React.Component{
                 
                     <div>
                         <div className='combatLog'>
-                            <h2 className='combatLog'>Combat Log:</h2>
+                            <h2>Combat Log:</h2>
                             {this.state.combatLog.map(log => {
                                 return(
                                     <p>{log}</p>

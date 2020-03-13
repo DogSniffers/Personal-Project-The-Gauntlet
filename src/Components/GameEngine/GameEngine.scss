@@ -1,6 +1,9 @@
 .user{
     border: green solid 2px;
     width: 230px;
+    position: fixed;
+    top: 10px;
+    right: 0;
 }
 .abandonRun{
     width: 100%;
@@ -8,10 +11,16 @@
 .userClass{
     border: green solid 2px;
     width: 320px;
+    position: fixed;
+    top:130px;
+    left:532px;
 }
 .monster{
     border: green solid 2px;
     width: 400px;
+    position: fixed;
+    top: 130px;
+    right: 0;
 }
 .attacks {
     border: lawngreen solid 2px;
@@ -46,6 +55,9 @@
     border: lawngreen solid 2px;
     width: 400px;
     overflow: auto;
+    position: fixed;
+    top: 130px;
+    left: 0;
 }
 .floorButton{
     width: 100%;
