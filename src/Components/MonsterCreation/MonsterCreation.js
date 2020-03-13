@@ -222,6 +222,7 @@ class MonsterCreator extends React.Component{
                             <button onClick={() =>this.setState({monsterAttack1Type:'Slash'})} className='typeButtons'>Slash</button>
                             <button onClick={() =>this.setState({monsterAttack1Type:'Blunt'})} className='typeButtons'>Blunt</button>
                             <button onClick={() =>this.setState({monsterAttack1Type:'Fire'})} className='typeButtons'>Fire</button>
+                            <button onClick={() =>this.setState({monsterAttack1Type:'Ice'})} className='typeButtons'>Ice</button>
                             <button onClick={() =>this.setState({monsterAttack1Type:'Holy'})} className='typeButtons'>Holy</button>
                             <button onClick={() =>this.setState({monsterAttack1Type:'Dark'})} className='typeButtons'>Dark</button>
                             <button onClick={() =>this.setState({monsterAttack1Type:'Poison'})} className='typeButtons'>Poison</button>
@@ -263,6 +264,7 @@ class MonsterCreator extends React.Component{
                             <button onClick={() =>this.setState({monsterAttack2Type:'Slash'})} className='typeButtons'>Slash</button>
                             <button onClick={() =>this.setState({monsterAttack2Type:'Blunt'})} className='typeButtons'>Blunt</button>
                             <button onClick={() =>this.setState({monsterAttack2Type:'Fire'})} className='typeButtons'>Fire</button>
+                            <button onClick={() =>this.setState({monsterAttack2Type:'Ice'})} className='typeButtons'>Ice</button>
                             <button onClick={() =>this.setState({monsterAttack2Type:'Holy'})} className='typeButtons'>Holy</button>
                             <button onClick={() =>this.setState({monsterAttack2Type:'Dark'})} className='typeButtons'>Dark</button>
                             <button onClick={() =>this.setState({monsterAttack2Type:'Poison'})} className='typeButtons'>Poison</button>

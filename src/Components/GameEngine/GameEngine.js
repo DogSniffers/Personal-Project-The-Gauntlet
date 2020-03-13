@@ -78,7 +78,6 @@ class Combat extends React.Component{
         axios.get('/api/monsters').then(res =>{
             this.setState({monsterList:res.data})
             var random = Math.floor(Math.random() * this.state.monsterList.length) 
-            // console.log(this.state.monsterList[random])
             let stats = this.state.monsterList[random]
             this.setState({monsterName:stats.name, 
                 monsterClass:stats.class,
@@ -699,7 +698,7 @@ class Combat extends React.Component{
                 <h1>{this.state.className}</h1>
                     <p>Health:{this.state.health}/{this.state.maxHealth}</p>
                     {this.state.levelUp === true ?(
-                        <button onClick={this.levelUpHealth}>Upgrade Stat</button>
+                        <button onClick={this.levelUpHealth} className='attackButtons'>Upgrade Stat</button>
 
                     ):(
                         null
@@ -721,49 +720,27 @@ class Combat extends React.Component{
                     ):(
                         null
                     )}
-                </div>
-                <div className='monster'>
-                    <h1>{this.state.monsterName}</h1>
-                    <p>Health:{this.state.monsterHealth}</p>
-                    <p>Resistances:{this.state.monsterResistances}</p>
-                    <p>Weaknesses:{this.state.monsterWeaknesses}</p>
-                            <h2>Monster Attacks:</h2>
-                    <div className='monsterAttackBox'>
-                        <div>
-                        <div className='monsterAttacks'>
-                            <h2>{this.state.monsterAttack1name}</h2> 
-                            <p>{this.state.monsterAttack1damage} damage</p>
-                            <p>Type:{this.state.monsterAttack1type}</p>
-                    </div>
-                    <div className='monsterAttacks'>
-                        <h2>{this.state.monsterAttack2name}</h2>
-                        <p>{this.state.monsterAttack2damage} damage</p>
-                        <p>Type:{this.state.monsterAttack2type}</p>
-                    </div>
-                    </div>
-        
+                    <div className='userAttacks'>
 
-                    </div>
-                </div>
-                <div className='attacks'>
+                    <div className='attacks'>
                     <h2>{this.state.attack1name}</h2>
                     <p>Damage:{this.state.attack1damage}</p>
                     <p>Type:{this.state.attack1type}</p>
                         {this.state.levelUp === true ?(
                             <button onClick={this.levelAttack1} className='attackButtons'>Upgrade Stat</button>
-                    ):(
-                        <>
+                            ):(
+                                <>
                     {this.state.playerDead === false ? (
-                            <>
+                        <>
                             {this.state.canAttack === true ? (
                                 <button onClick={this.attack1action} className='attackButtons'>Attack</button>
-                        ):(
-                            null
-                        )}
+                                ):(
+                                    null
+                                    )}
                             </>
                         ):(
                             null
-                        )}
+                            )}
                         </>
                     )}
                         
@@ -774,20 +751,45 @@ class Combat extends React.Component{
                     <p>Type:{this.state.attack2type}</p>
                         {this.state.levelUp === true ?(
                             <button onClick={this.levelAttack2} className='attackButtons'>Upgrade Stat</button>
-
-                        ):( 
-                            <>
+                            ):( 
+                                <>
                             {this.state.playerDead === false ? (
-                            <>
+                                <>
                             {this.state.canAttack === true ? (
-                            <button onClick={this.attack2action} className='attackButtons'>Attack</button>
-                        ):(
-                            null)}
+                                <button onClick={this.attack2action} className='attackButtons'>Attack</button>
+                                ):(
+                                    null)}
                             </>
                         ):(
-                        null)}
+                            null)}
                     </>)}
+                    </div>
                 </div>
+                </div>
+                <div className='monster'>
+                    <h1>{this.state.monsterName}</h1>
+                    <p>Health:{this.state.monsterHealth}</p>
+                    <p>Resistances:{this.state.monsterResistances}</p>
+                    <p>Weaknesses:{this.state.monsterWeaknesses}</p>
+                            <h2>Monster Attacks:</h2>
+                    <div className='monsterAttackBox'>
+                        <div>
+                        <div className='userAttacks'>
+                            <h2>{this.state.monsterAttack1name}</h2> 
+                            <p>{this.state.monsterAttack1damage} damage</p>
+                            <p>Type:{this.state.monsterAttack1type}</p>
+                    </div>
+                    <div className='userAttacks'>
+                        <h2>{this.state.monsterAttack2name}</h2>
+                        <p>{this.state.monsterAttack2damage} damage</p>
+                        <p>Type:{this.state.monsterAttack2type}</p>
+                    </div>
+                    </div>
+        
+
+                    </div>
+                </div>
+                
                     <div>
                         <div className='combatLog'>
                             <h2 className='combatLog'>Combat Log:</h2>
@@ -796,12 +798,10 @@ class Combat extends React.Component{
                                     <p>{log}</p>
                                     )
                                 })}
-                        </div>
-                    <div>
-                    {this.state.nextFloorBossFloor === true? (
+                                {this.state.nextFloorBossFloor === true? (
                         <div>
                         {this.state.monsterDead === true ? (
-                            <button onClick={this.nextFloorBoss}>Boss Floor</button>
+                            <button onClick={this.nextFloorBoss} className='floorButton'>Boss Floor</button>
                             ):(
                                 null
                                 )}
@@ -809,28 +809,26 @@ class Combat extends React.Component{
                     ):(
                         <div>
                         {this.state.monsterDead === true ? (
-                            <button onClick={this.nextFloor}>Next Floor</button>
+                            <button onClick={this.nextFloor} className='floorButton'>Next Floor</button>
                             ):(
-                                null
-                                )}
-                    </div>)}
-                    </div>
-                    <div>
-
+                            null)}
+                        </div>)}
+                <div>
                     {this.state.playerDead === true ? (
                         <div>
                             <p>{this.state.deathMessage}</p>
                             <button onClick={() =>{
                                 this.props.history.push('/header')
-                                this.setState({scoreSubmitted:false})}}>HOME</button>
+                                this.setState({scoreSubmitted:false})}} className='dead'>HOME</button>
                             {this.state.scoreSubmitted === false? (
-                                <button onClick={this.submitScore}>PUSH SCORE TO LEADERBOARD</button>
+                                <button onClick={this.submitScore} className='dead'>PUSH SCORE TO LEADERBOARD</button>
                                 ):(
                                     null)}
                                 </div>
                                 ):(
                                     null)}
     </div>
+                    </div>
             </div>
         </div>
         )
