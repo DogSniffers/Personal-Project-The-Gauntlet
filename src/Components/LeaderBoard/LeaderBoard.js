@@ -32,30 +32,30 @@ class LeaderBoard extends React.Component{
     render(){
         return(
             <div>
-                <h1 className='pageTitle'>LeaderBoard</h1>
-                    <button onClick={() => this.props.history.push('/header')}>MAIN MENU</button>
-                    <button onClick={() => this.props.history.push('/profile')}>PROFILE</button>
+                <h1 className={`${this.props.color}pageTitle`}>LeaderBoard</h1>
+                    <button onClick={() => this.props.history.push('/header')} className={`${this.props.color}button`}>MAIN MENU</button>
+                    <button onClick={() => this.props.history.push('/profile')} className={`${this.props.color}button`}>PROFILE</button>
                 <div>
-                    <button onClick={this.sortByScore}>By Score</button>
-                    <button onClick={this.sortByFloors}>By Floor</button>
+                    <button onClick={this.sortByScore} className={`${this.props.color}button`}>By Score</button>
+                    <button onClick={this.sortByFloors} className={`${this.props.color}button`}>By Floor</button>
                 </div>
                 {this.state.leaderboard.length === 0 ? (
                     <p>There aren't any LeaderBoard scores available!</p>
-                ):(
-                    <div className='leaderboard'>
+                ):( 
+                    <div className={`${this.props.color}leaderboard`}>
                         {this.state.leaderboard.map(score => {
                             return(
-                            <div className='leaderboardScore'>
-                                <div className='leaderboardContent'>
-                                    <h2>{score.username}</h2>
+                            <div className={`${this.props.color}leaderboardScore`}>
+                                <div className={`${this.props.color}leaderboardContent`}>
+                                    <h2 className={`${this.props.color}username`}>{score.username}</h2>
                                 </div>
-                                <div className='leaderboardContent'>
-                                    <p>Points:{score.score}</p>
+                                <div className={`${this.props.color}leaderboardContent`}>
+                                    <p className={`${this.props.color}ptag`}>Points:{score.score}</p>
                                 </div>
-                                <div className='leaderboardContent'>
-                                    <p>Floors:{score.floors}</p>
+                                <div className={`${this.props.color}leaderboardContent`}>
+                                    <p className={`${this.props.color}ptag`}>Floors:{score.floors}</p>
                                 </div>
-                                <p className='deathMessageLeaderboard'>Death:{score.death}</p>
+                                <p className={`${this.props.color}deathMessageLeaderboard`}>Death:{score.death}</p>
                             </div>
                             )
                         })}
@@ -68,7 +68,8 @@ class LeaderBoard extends React.Component{
 }
 const mapStateToProps = reduxState =>{
     return{
-        reduxState
+        reduxState,
+        color: reduxState.colorReducer.color
     }
 }
 

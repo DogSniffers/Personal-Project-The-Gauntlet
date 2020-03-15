@@ -1,4 +1,20 @@
-.leaderboard {
+.greenpageTitle {
+  color: green;
+}
+
+.redpageTitle {
+  color: red;
+}
+
+.bluepageTitle {
+  color: blue;
+}
+
+.yellowpageTitle {
+  color: yellow;
+}
+
+.greenleaderboard {
   width: 80%;
   border: lawngreen solid 2px;
   overflow: auto;
@@ -7,7 +23,52 @@
   top: 110px;
 }
 
-.leaderboardScore {
+.redleaderboard {
+  width: 80%;
+  border: red solid 2px;
+  overflow: auto;
+  position: fixed;
+  left: 150px;
+  top: 110px;
+}
+
+.blueleaderboard {
+  width: 80%;
+  border: blue solid 2px;
+  overflow: auto;
+  position: fixed;
+  left: 150px;
+  top: 110px;
+}
+
+.yellowleaderboard {
+  width: 80%;
+  border: yellow solid 2px;
+  overflow: auto;
+  position: fixed;
+  left: 150px;
+  top: 110px;
+}
+
+.redbutton {
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.bluebutton {
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowbutton {
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+}
+
+.greenleaderboardScore {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,11 +85,122 @@
   border-bottom: greenyellow 2px solid;
 }
 
-.leaderboardContent {
+.redleaderboardScore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: red 2px solid;
+}
+
+.blueleaderboardScore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: blue 2px solid;
+}
+
+.yellowleaderboardScore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: yellow 2px solid;
+}
+
+.redptag {
+  color: red;
+}
+
+.blueptag {
+  color: blue;
+}
+
+.yellowptag {
+  color: yellow;
+}
+
+.greenleaderboardContent {
   width: 20%;
   border-right: greenyellow 2px solid;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+
+.redleaderboardContent {
+  width: 20%;
+  border-right: red 2px solid;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.blueleaderboardContent {
+  width: 20%;
+  border-right: blue 2px solid;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.yellowleaderboardContent {
+  width: 20%;
+  border-right: yellow 2px solid;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.redusername {
+  color: red;
+}
+
+.blueusername {
+  color: blue;
+}
+
+.yellowusername {
+  color: yellow;
+}
+
+.reddeathMessageLeaderboard {
+  color: red;
+}
+
+.bluedeathMessageLeaderboard {
+  color: blue;
+}
+
+.yellowdeathMessageLeaderboard {
+  color: yellow;
 }
 /*# sourceMappingURL=LeaderBoard.css.map */
