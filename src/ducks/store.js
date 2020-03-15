@@ -1,6 +1,12 @@
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
 import reducer from './reducer';
+import colorReducer from './colorReducer'
 
-export default createStore(reducer);
+const rootReducer = combineReducers({
+    reducer,
+    colorReducer
+})
+
+export default createStore(rootReducer);
 
 

@@ -1,0 +1,28 @@
+@mixin redBorderColors(){
+    border-color: crimson;
+    border-style: solid;
+}
+@mixin redTitle(){
+    color: red;
+}
+@mixin redButtons(){
+    color:red;
+    background-color: coral;
+    border: crimson solid 1px;
+
+}
+@mixin blueButtons(){
+    color: blue;
+    background-color: lightblue;
+    border: darkblue solid 1px;
+}
+@mixin yellowButtons(){
+    color: orange;
+    background-color: yellow;
+    border: orange solid 1px;
+}
+@mixin redInputs(){
+    border-color: crimson;
+    border-style: solid;
+    background-color: coral;
+}

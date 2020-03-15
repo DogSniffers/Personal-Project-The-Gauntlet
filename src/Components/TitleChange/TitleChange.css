@@ -1,0 +1,34 @@
+.greentitle {
+  color: green;
+}
+
+.redtitle {
+  color: red;
+}
+
+.yellowtitle {
+  color: yellow;
+}
+
+.bluetitle {
+  color: blue;
+}
+
+.redbutton {
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.bluebutton {
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowbutton {
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+}
+/*# sourceMappingURL=TitleChange.css.map */

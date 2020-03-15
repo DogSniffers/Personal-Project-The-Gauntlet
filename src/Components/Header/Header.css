@@ -1,0 +1,30 @@
+.redHeader {
+  color: red;
+}
+
+.blueHeader {
+  color: blue;
+}
+
+.yellowHeader {
+  color: yellow;
+}
+
+.redButton {
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.blueButton {
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowButton {
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+}
+/*# sourceMappingURL=Header.css.map */

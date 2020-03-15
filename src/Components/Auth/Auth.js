@@ -80,25 +80,25 @@ class Auth extends React.Component{
             <div className='bigboidiv'>
                 <AuthTitle/>
                 {this.state.loginview === true ? (
-                <div className='authHolders'>
-                <h1 className='pageTitle'>Login</h1>
+                <div className={`${this.props.color}authHolders`}>
+                <h1 className={`${this.props.color}pageTitle`}>Login</h1>
                 <div>
-                    <input placeholder='Email' onChange={this.handleEmail} className='authInputs'></input>
-                    <input placeholder='Password' onChange={this.handlePassword} className='authInputs'></input>
+                    <input placeholder='Email' onChange={this.handleEmail} className={`${this.props.color}Input`}></input>
+                    <input placeholder='Password' onChange={this.handlePassword} className={`${this.props.color}Input`}></input>
                 </div>
                 <button onClick={this.login} className='buttons'>Login</button>
                 <p onClick={this.authView}>Don't have an account? Register here.</p>
                 </div>
                 ):(
-                <div className='authHolders'>
-                <h1 className='pageTitle'>Register</h1>
+                <div className={`${this.props.color}authHolders`}>
+                <h1 className={`${this.props.color}pageTitle`}>Register</h1>
                 <div>
-                    <input placeholder='Email' onChange={this.handleEmail} className='authInputs'></input>
-                    <input placeholder='Username' onChange={this.handleUsername} className='authInputs'></input>
+                    <input placeholder='Email' onChange={this.handleEmail} className={`${this.props.color}Input`}></input>
+                    <input placeholder='Username' onChange={this.handleUsername} className={`${this.props.color}Input`}></input>
                 </div>
                 <div>
-                    <input placeholder='Password' onChange={this.handlePassword} className='authInputs'></input>
-                    <input placeholder='Confirm Password' onChange={this.handleConfirmPassword}className='authInputs'></input>
+                    <input placeholder='Password' onChange={this.handlePassword} className={`${this.props.color}Input`}></input>
+                    <input placeholder='Confirm Password' onChange={this.handleConfirmPassword}className={`${this.props.color}Input`}></input>
                 </div>
                 <button onClick={this.register} className='buttons'>Create Account</button>
                 <p onClick={this.authView}>Already have an account? Login here.</p>
@@ -107,5 +107,11 @@ class Auth extends React.Component{
         </div>
     )
 }}
+const mapStateToProps = (reduxState) => {
+    return (
+        {color: reduxState.colorReducer.color}
+    )
 
-export default connect(null,{getUser})(withRouter(Auth))
+}
+
+export default connect(mapStateToProps,{getUser})(withRouter(Auth))

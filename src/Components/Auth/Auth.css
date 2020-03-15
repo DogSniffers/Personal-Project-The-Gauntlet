@@ -7,8 +7,25 @@
           justify-content: center;
 }
 
-.authHolders {
+.greenauthHolders {
   border: greenyellow 2px solid;
   width: 650px;
+}
+
+.redauthHolders {
+  border: crimson 2px solid;
+  width: 650px;
+}
+
+.redauthHolders {
+  border-color: crimson;
+  border-style: solid;
+  width: 650px;
+}
+
+.redInput {
+  border: crimson 1px solid;
+  background-color: coral;
+  color: red;
 }
 /*# sourceMappingURL=Auth.css.map */

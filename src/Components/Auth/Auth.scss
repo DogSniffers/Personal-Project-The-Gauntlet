@@ -1,9 +1,27 @@
+@import '../../Sass/mixin';
+
 .bigboidiv{
     display: flex;
     justify-content: center;
 }
 
-.authHolders{
+.greenauthHolders{
     border: greenyellow 2px solid;
     width: 650px;
+}
+.redauthHolders{
+    border: crimson 2px solid;
+    width: 650px;
+}
+.redauthHolders{
+    @include redBorderColors();
+
+    width: 650px;
+}
+.redInput{
+    @include redInput();
+}
+.redpageTitle {
+    @include redTitle();
+    color: red
 }

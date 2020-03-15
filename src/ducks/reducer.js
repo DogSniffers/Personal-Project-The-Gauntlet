@@ -1,6 +1,7 @@
 const initialState = {
     username:'',
-    id:null
+    id:null,
+    runs:0
 }
 
 const GET_USER = 'GET_USER';
