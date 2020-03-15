@@ -26,3 +26,13 @@
     border-style: solid;
     background-color: coral;
 }
+@mixin blueInputs(){
+    border-color: darkblue;
+    border-style: solid;
+    background-color: lightblue;
+}
+@mixin yellowInputs(){
+    border-color: orangered;
+    border-style: solid;
+    background-color: lightyellow;
+}

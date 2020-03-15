@@ -11,16 +11,145 @@
           align-items: center;
 }
 
-.createBoxs {
+.redpageTitle {
+  color: red;
+}
+
+.bluepageTitle {
+  color: blue;
+}
+
+.yellowpageTitle {
+  color: yellow;
+}
+
+.redh3 {
+  color: crimson;
+}
+
+.blueh3 {
+  color: darkblue;
+}
+
+.yellowh3 {
+  color: orange;
+}
+
+.redptag {
+  color: orangered;
+}
+
+.blueptag {
+  color: lightblue;
+}
+
+.yellowptag {
+  color: lightyellow;
+}
+
+.greencreateBoxs {
   border: green solid 2px;
   width: 250px;
 }
 
-.typeButtons {
+.redcreateBoxs {
+  border: red solid 2px;
+  width: 250px;
+}
+
+.bluecreateBoxs {
+  border: blue solid 2px;
+  width: 250px;
+}
+
+.yellowcreateBoxs {
+  border: yellow solid 2px;
+  width: 250px;
+}
+
+.redbutton {
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.bluebutton {
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowbutton {
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+}
+
+.redinput {
+  border-color: orangered;
+  border-style: solid;
+  background-color: lightyellow;
+}
+
+.blueinput {
+  border-color: darkblue;
+  border-style: solid;
+  background-color: lightblue;
+}
+
+.yellowinput {
+  border-color: orangered;
+  border-style: solid;
+  background-color: lightyellow;
+}
+
+.greentypeButtons {
   width: 20%;
 }
 
-.listButtons {
+.redtypeButtons {
   width: 20%;
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.bluetypeButtons {
+  width: 20%;
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowtypeButtons {
+  width: 20%;
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+}
+
+.greenlistButtons {
+  width: 20%;
+}
+
+.redlistButtons {
+  width: 20%;
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.bluelistButtons {
+  width: 20%;
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowlistButtons {
+  width: 20%;
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
 }
 /*# sourceMappingURL=MonsterCreator.css.map */

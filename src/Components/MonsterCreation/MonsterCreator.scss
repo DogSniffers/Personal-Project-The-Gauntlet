@@ -1,16 +1,100 @@
+@import '../../Sass/mixin';
+
 .monsterCreator{
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
-.createBoxs{
+.redpageTitle{
+    color: red;
+}
+.bluepageTitle{
+    color: blue;
+}
+.yellowpageTitle{
+    color: yellow;
+}
+.redh3{
+    color: crimson;
+}
+.blueh3{
+    color: darkblue;
+}
+.yellowh3{
+    color: orange;
+}
+.redptag{
+    color:orangered;
+}
+.blueptag{
+    color: lightblue;
+}
+.yellowptag{
+    color: lightyellow;
+}
+.greencreateBoxs{
     border: green solid 2px;
     width: 250px;
 }
-.typeButtons{
+.redcreateBoxs{
+    border: red solid 2px;
+    width: 250px;
+}
+.bluecreateBoxs{
+    border: blue solid 2px;
+    width: 250px;
+}
+.yellowcreateBoxs{
+    border: yellow solid 2px;
+    width: 250px;
+}
+.redbutton{
+    @include redButtons();
+}
+.bluebutton{
+    @include blueButtons();
+}
+.yellowbutton{
+    @include yellowButtons();
+}
+.redinput{
+    @include yellowInputs();
+}
+.blueinput{
+    @include blueInputs();
+}
+.yellowinput{
+    @include yellowInputs();
+}
+.greentypeButtons{
     width: 20%;
 }
-.listButtons{
+.redtypeButtons{
+    width: 20%;
+    @include redButtons();
+}
+.bluetypeButtons{
+    width: 20%;
+    @include blueButtons();
+}
+.yellowtypeButtons{
+    width: 20%;
+    @include yellowButtons();
+}
+.greenlistButtons{
     width: 20%;
 }
+.redlistButtons{
+    width: 20%;
+    @include redButtons();
+}
+.bluelistButtons{
+    width: 20%;
+    @include blueButtons();
+}
+.yellowlistButtons{
+    width: 20%;
+    @include yellowButtons();
+}
+
