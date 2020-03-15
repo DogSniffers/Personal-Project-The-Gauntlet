@@ -1,3 +1,15 @@
+.redpageTitle {
+  color: red;
+}
+
+.bluepageTitle {
+  color: blue;
+}
+
+.yellowpageTitle {
+  color: yellow;
+}
+
 .profileHolders {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6,34 +18,203 @@
       justify-content: space-around;
 }
 
-.chart {
+.greenrecentRuns {
+  border: green solid 2px;
+}
+
+.redrecentRuns {
+  border: red solid 2px;
+}
+
+.bluerecentRuns {
+  border: blue solid 2px;
+}
+
+.yellowrecentRuns {
+  border: yellow solid 2px;
+}
+
+.greenchart {
   background-color: lawngreen;
   border: green solid 2px;
 }
 
-.createdMonsters {
+.redchart {
+  background-color: orangered;
+  border: red solid 2px;
+}
+
+.bluechart {
+  background-color: lightblue;
+  border: blue solid 2px;
+}
+
+.yellowchart {
+  background-color: lightyellow;
+  border: yellow solid 2px;
+}
+
+.greencreatedMonsters {
   border: green solid 2px;
   width: 250px;
 }
 
-.monsterListProfile {
+.redcreatedMonsters {
+  border: red solid 2px;
+  width: 250px;
+}
+
+.bluecreatedMonsters {
+  border: blue solid 2px;
+  width: 250px;
+}
+
+.yellowcreatedMonsters {
+  border: yellow solid 2px;
+  width: 250px;
+}
+
+.redtitle {
+  color: crimson;
+}
+
+.bluetitle {
+  color: darkblue;
+}
+
+.yellowtitle {
+  color: orange;
+}
+
+.redmonsterinfo {
+  color: orangered;
+}
+
+.bluemonsterinfo {
+  color: lightblue;
+}
+
+.yellowmonsterinfo {
+  color: lightyellow;
+}
+
+.greenmonsterListProfile {
   border: green solid 2px;
 }
 
-.deleteButtonMonster {
+.redmonsterListProfile {
+  border: red solid 2px;
+}
+
+.bluemonsterListProfile {
+  border: blue solid 2px;
+}
+
+.yellowmonsterListProfile {
+  border: yellow solid 2px;
+}
+
+.greendeleteButtonMonster {
   width: 50%;
 }
 
-.recentRuns {
+.reddeleteButtonMonster {
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+  width: 50%;
+}
+
+.bluedeleteButtonMonster {
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+  width: 50%;
+}
+
+.yellowdeleteButtonMonster {
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+  width: 50%;
+}
+
+.greenrecentRuns {
   border: green solid 2px;
   width: 250px;
 }
 
-.displayChartButton {
+.redrecentRuns {
+  border: red solid 2px;
+  width: 250px;
+}
+
+.bluerecentRuns {
+  border: blue solid 2px;
+  width: 250px;
+}
+
+.yellowrecentRuns {
+  border: yellow solid 2px;
+  width: 250px;
+}
+
+.redbutton {
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.bluebutton {
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowbutton {
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+}
+
+.greendisplayChartButton {
   width: 50%;
 }
 
-.runScores {
+.reddisplayChartButton {
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+  width: 50%;
+}
+
+.bluedisplayChartButton {
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+  width: 50%;
+}
+
+.yellowdisplayChartButton {
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+  width: 50%;
+}
+
+.greenrunScores {
   border: green solid 2px;
+}
+
+.redrunScores {
+  border: red solid 2px;
+}
+
+.bluerunScores {
+  border: blue solid 2px;
+}
+
+.yellowrunScores {
+  border: yellow solid 2px;
 }
 /*# sourceMappingURL=Profile.css.map */

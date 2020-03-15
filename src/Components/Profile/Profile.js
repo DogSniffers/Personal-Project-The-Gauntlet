@@ -17,7 +17,7 @@ class Profile extends React.Component{
     }
 
     componentDidMount(){
-        var {username} = this.props.reduxState
+        var {username} = this.props.reduxState.reducer
         axios.post('/api/mymonsters', {username:username}).then(res =>{
             this.setState({monsterList:res.data})
         })
@@ -64,72 +64,72 @@ class Profile extends React.Component{
     
 
     render(){
-        console.log(this.state)
+        console.log(this.props)
         return(
             <div>
             <div>
-                <h1 className='pageTitle'>Profile</h1>
-                <button onClick={() => this.props.history.push('/header')}>MAIN MENU</button>
-                <button onClick ={() => this.props.history.push('/leaderboard')}>LEADERBOARD</button>
+                <h1 className={`${this.props.color}pageTitle`}>Profile</h1>
+                <button onClick={() => this.props.history.push('/header')}className={`${this.props.color}button`}>MAIN MENU</button>
+                <button onClick ={() => this.props.history.push('/leaderboard')}className={`${this.props.color}button`}>LEADERBOARD</button>
                 <div>
-                    <button onClick={() => this.props.history.push('/monstercreator')}>MONSTER CREATOR</button>
+                    <button onClick={() => this.props.history.push('/monstercreator')}className={`${this.props.color}button`}>MONSTER CREATOR</button>
                 </div>
             </div>
-            <div className='monsterCreator'>
-                <h2>User:{this.props.reduxState.username}</h2>
-                <div className='profileHolders'>
+            <div>
+                <h2 className={`${this.props.color}title`}>User:{this.props.reduxState.reducer.username}</h2>
+                <div className={`profileHolders`}>
 
-                <div className='createdMonsters'>
-                    <h2>Created Monsters:</h2>
+                <div className={`${this.props.color}createdMonsters`}>
+                    <h2 className={`${this.props.color}title`}>Created Monsters:</h2>
                     {this.state.monsterList.length === 0 ? (
-                        <p>You have no created monsters!</p>
+                        <p className={`${this.props.color}monsterinfo`}>You have no created monsters!</p>
                         ):(
                             <div>
                             {this.state.monsterList.map(monster =>{
                                 return(
-                                    <div className='monsterListProfile'>
-                                        <h2>{monster.name}</h2>
-                                        <p>Class:{monster.class}</p>
-                                        <p>Health:{monster.health}</p>
-                                        <p>Weaknesses:{monster.weaknesses}</p>
-                                        <p>Resistances:{monster.resistances}</p>
-                                        <h3>Monster Attack 1: {monster.attack1name}</h3>
-                                        <p>Type:{monster.attack1type}</p>
-                                        <p>Damage:{monster.attack1damage}</p>
-                                        <h3>Monster Attack 2: {monster.attack2name}</h3>
-                                        <p>Type:{monster.attack2type}</p>
-                                        <p>Damage:{monster.attack2damage}</p>
-                                        <p>XP:{monster.xpreward}</p>
-                                        <p>Score:{monster.scorereward}</p>
-                                        <button onClick={() => this.deleteMonster(monster.id)} className='deleteButtonMonster'>Delete</button>
+                                    <div className={`${this.props.color}monsterListProfile`}>
+                                        <h2 className={`${this.props.color}monsterinfo`}>{monster.name}</h2>
+                                        <p className={`${this.props.color}monsterinfo`}>Class:{monster.class}</p>
+                                        <p className={`${this.props.color}monsterinfo`}>Health:{monster.health}</p>
+                                        <p className={`${this.props.color}monsterinfo`}>Weaknesses:{monster.weaknesses}</p>
+                                        <p> className={`${this.props.color}monsterinfo`}Resistances:{monster.resistances}</p>
+                                        <h3 className={`${this.props.color}monsterinfo`}>Monster Attack 1: {monster.attack1name}</h3>
+                                        <p className={`${this.props.color}monsterinfo`}>Type:{monster.attack1type}</p>
+                                        <p className={`${this.props.color}monsterinfo`}>Damage:{monster.attack1damage}</p>
+                                        <h3 className={`${this.props.color}monsterinfo`}>Monster Attack 2: {monster.attack2name}</h3>
+                                        <p className={`${this.props.color}monsterinfo`}>Type:{monster.attack2type}</p>
+                                        <p className={`${this.props.color}monsterinfo`}>Damage:{monster.attack2damage}</p>
+                                        <p className={`${this.props.color}monsterinfo`}>XP:{monster.xpreward}</p>
+                                        <p className={`${this.props.color}monsterinfo`}>Score:{monster.scorereward}</p>
+                                        <button onClick={() => this.deleteMonster(monster.id)} className={`${this.props.color}deleteButtonMonster`}>Delete</button>
                                     </div>
                                 )
                             })}
                         </div>
                     )}
                 </div>
-                <div className='recentRuns'>
-                <h2>Recent Runs:</h2>
-                <button onClick={this.displayChart} className='displayChartButton'>Display Chart</button>
+                <div className={`${this.props.color}recentRuns`}>
+                <h2 className={`${this.props.color}title`}>Recent Runs:</h2>
+                <button onClick={this.displayChart} className={`${this.props.color}displayChartButton`}>Display Chart</button>
                 {this.state.displayChart === true? (
                     // <Chart score={this.state.score}/>
-                    <div className='chart'>
-                        <Chart chartData={this.state.chartData} className='chart'/>
+                    <div className={`${this.props.color}chart`}>
+                        <Chart chartData={this.state.chartData} className={`${this.props.color}chart`}/>
                     </div>
                 ):(
                     null
                     )}
                 {this.state.runList.length === 0 ? (
-                    <p>You don't have any scores on the Leaderboard!</p>
+                    <p className={`${this.props.color}monsterinfo`}>You don't have any scores on the Leaderboard!</p>
                     ):(
                         <div>
                         {this.state.runList.map(run => {
                             return(
-                                <div className='runScores'>
-                                <p>Floors:{run.floors}</p>
-                                <p>Score:{run.score}</p>
-                                <p>Death Message:</p>
-                                <p>{run.death}</p>
+                                <div className={`${this.props.color}runScores`}>
+                                <p className={`${this.props.color}monsterinfo`}>Floors:{run.floors}</p>
+                                <p className={`${this.props.color}monsterinfo`}>Score:{run.score}</p>
+                                <p className={`${this.props.color}monsterinfo`}>Death Message:</p>
+                                <p className={`${this.props.color}monsterinfo`}>{run.death}</p>
                             </div>
                             )
                         })}
@@ -146,7 +146,9 @@ class Profile extends React.Component{
 
 const mapStateToProps = reduxState =>{
     return{
-        reduxState
+        reduxState,
+        color: reduxState.colorReducer.color
+
     }
 }
 
