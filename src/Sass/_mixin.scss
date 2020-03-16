@@ -5,6 +5,22 @@
 @mixin redTitle(){
     color: red;
 }
+@mixin greenBorder(){
+    border: darkgreen solid 2px;
+    background-color: greenyellow;
+}
+@mixin redBorder(){
+    border: crimson solid 2px;
+    background-color: orangered;
+}
+@mixin blueBorder(){
+    border: darkblue solid 2px;
+    background-color: lightblue;
+}
+@mixin yellowBorder(){
+    border: orange solid 2px;
+    background-color: lightyellow;
+}
 @mixin redButtons(){
     color:red;
     background-color: coral;

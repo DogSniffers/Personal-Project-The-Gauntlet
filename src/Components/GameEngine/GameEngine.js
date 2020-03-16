@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 import './GameEngine.css'
+import { connect } from 'react-redux'
 
 class Combat extends React.Component{
     constructor(props){
@@ -681,35 +682,42 @@ class Combat extends React.Component{
         this.setState({playerDead:true,health:0,deathMessage:'Run Abandoned!'})
     }    
     render(){
+        console.log(this.props)
+        console.log(`${this.props.color}border`)
         return(
             <div>
-                <div className='user'>
-                    <h2>{this.props.reduxState.username}</h2>
-                    <h2>Floor:{this.state.floor}</h2>
-                    <h2>Score:{this.state.score}</h2>
+            <div classname={`${this.props.color}Border`}>
+                <div className={`user`}>
+
+                    <h2 className={`${this.props.color}userInfo`}>
+                        {this.props.reduxState.username}
+                    </h2>
+                    <h2 className={`${this.props.color}userInfo`}>Floor:{this.state.floor}</h2>
+                    <h2 className={`${this.props.color}userInfo`}>Score:{this.state.score}</h2>
                     {this.state.playerDead === false?(
-                        <button onClick={this.abandonRun} className='abandonRun'>ABANDON RUN</button>
-                    ):(
-                        null
-                    )}
+                        <button onClick={this.abandonRun} className={`${this.props.color}abandonRun`}>ABANDON RUN</button>
+                        ):(
+                            null
+                            )}
+                    </div>
                 </div>
-                <div className='userClass'>
-                <h1>{this.state.className}</h1>
-                    <p>Health:{this.state.health}/{this.state.maxHealth}</p>
+                <div className={`${this.props.color}userClass`}>
+                <h1 className={`${this.props.color}title`}>{this.state.className}</h1>
+                    <p className={`${this.props.color}info`}>Health:{this.state.health}/{this.state.maxHealth}</p>
                     {this.state.levelUp === true ?(
-                        <button onClick={this.levelUpHealth} className='attackButtons'>Upgrade Stat</button>
+                        <button onClick={this.levelUpHealth} className={`${this.props.color}attackButtons`}>Upgrade Stat</button>
 
                     ):(
                         null
                     )}
-                    <p>Resistances:{this.state.resistances}</p>
-                    <p>Weaknesses:{this.state.weaknesses}</p>
-                    <p>XP:{this.state.currentXp}/{this.state.xpToLevel}</p>
-                    <p>Level:{this.state.level}</p>
+                    <p className={`${this.props.color}info`}>Resistances:{this.state.resistances}</p>
+                    <p className={`${this.props.color}info`}>Weaknesses:{this.state.weaknesses}</p>
+                    <p className={`${this.props.color}info`}>XP:{this.state.currentXp}/{this.state.xpToLevel}</p>
+                    <p className={`${this.props.color}info`}>Level:{this.state.level}</p>
                     {this.state.playerDead === false ?(
                         <>
                         {this.state.levelUp === true ?(
-                            <p>Level-Up Upgrades:{this.state.levelUpUpgrades}</p>
+                            <p className={`${this.props.color}title`}>Level-Up Upgrades:{this.state.levelUpUpgrades}</p>
                             
                             ):( 
                                 null
@@ -721,18 +729,18 @@ class Combat extends React.Component{
                     )}
                     <div className='userAttacks'>
 
-                    <div className='attacks'>
-                    <h2>{this.state.attack1name}</h2>
-                    <p>Damage:{this.state.attack1damage}</p>
-                    <p>Type:{this.state.attack1type}</p>
+                    <div className={`${this.props.color}attacks`}>
+                    <h2 className={`${this.props.color}title`}>{this.state.attack1name}</h2>
+                    <p className={`${this.props.color}info`}>Damage:{this.state.attack1damage}</p>
+                    <p className={`${this.props.color}info`}>Type:{this.state.attack1type}</p>
                         {this.state.levelUp === true ?(
-                            <button onClick={this.levelAttack1} className='attackButtons'>Upgrade Stat</button>
+                            <button onClick={this.levelAttack1} className={`${this.props.color}attackButtons`}>Upgrade Stat</button>
                             ):(
                                 <>
                     {this.state.playerDead === false ? (
                         <>
                             {this.state.canAttack === true ? (
-                                <button onClick={this.attack1action} className='attackButtons'>Attack</button>
+                                <button onClick={this.attack1action} className={`${this.props.color}attackButtons`}>Attack</button>
                                 ):(
                                     null
                                     )}
@@ -744,18 +752,18 @@ class Combat extends React.Component{
                     )}
                         
                 </div>
-                <div className='attacks'>
-                    <h2>{this.state.attack2name}</h2>
-                    <p>Damage:{this.state.attack2damage}</p>
-                    <p>Type:{this.state.attack2type}</p>
+                <div className={`${this.props.color}attacks`}>
+                    <h2 className={`${this.props.color}title`}>{this.state.attack2name}</h2>
+                    <p className={`${this.props.color}info`}>Damage:{this.state.attack2damage}</p>
+                    <p className={`${this.props.color}info`}>Type:{this.state.attack2type}</p>
                         {this.state.levelUp === true ?(
-                            <button onClick={this.levelAttack2} className='attackButtons'>Upgrade Stat</button>
+                            <button onClick={this.levelAttack2} className={`${this.props.color}attackButtons`}>Upgrade Stat</button>
                             ):( 
                                 <>
                             {this.state.playerDead === false ? (
                                 <>
                             {this.state.canAttack === true ? (
-                                <button onClick={this.attack2action} className='attackButtons'>Attack</button>
+                                <button onClick={this.attack2action} className={`${this.props.color}attackButtons`}>Attack</button>
                                 ):(
                                     null)}
                             </>
@@ -765,23 +773,23 @@ class Combat extends React.Component{
                     </div>
                 </div>
                 </div>
-                <div className='monster'>
-                    <h1>{this.state.monsterName}</h1>
-                    <p>Health:{this.state.monsterHealth}</p>
-                    <p>Resistances:{this.state.monsterResistances}</p>
-                    <p>Weaknesses:{this.state.monsterWeaknesses}</p>
-                            <h2>Monster Attacks:</h2>
+                <div className={`${this.props.color}monster`}>
+                    <h1 className={`${this.props.color}title`}>{this.state.monsterName}</h1>
+                    <p className={`${this.props.color}info`}>Health:{this.state.monsterHealth}</p>
+                    <p className={`${this.props.color}info`}>Resistances:{this.state.monsterResistances}</p>
+                    <p className={`${this.props.color}info`}>Weaknesses:{this.state.monsterWeaknesses}</p>
+                            <h2 className={`${this.props.color}title`}>Monster Attacks:</h2>
                     <div className='monsterAttackBox'>
                         <div>
-                        <div className='userAttacks'>
-                            <h2>{this.state.monsterAttack1name}</h2> 
-                            <p>{this.state.monsterAttack1damage} damage</p>
-                            <p>Type:{this.state.monsterAttack1type}</p>
+                        <div className={`${this.props.color}userAttacks`}>
+                            <h2 className={`${this.props.color}title`}>{this.state.monsterAttack1name}</h2> 
+                            <p className={`${this.props.color}info`}>{this.state.monsterAttack1damage} damage</p>
+                            <p className={`${this.props.color}info`}>Type:{this.state.monsterAttack1type}</p>
                     </div>
-                    <div className='userAttacks'>
-                        <h2>{this.state.monsterAttack2name}</h2>
-                        <p>{this.state.monsterAttack2damage} damage</p>
-                        <p>Type:{this.state.monsterAttack2type}</p>
+                    <div className={`${this.props.color}userAttacks`}>
+                        <h2 className={`${this.props.color}title`}>{this.state.monsterAttack2name}</h2>
+                        <p className={`${this.props.color}info`}>{this.state.monsterAttack2damage} damage</p>
+                        <p className={`${this.props.color}info`}>Type:{this.state.monsterAttack2type}</p>
                     </div>
                     </div>
         
@@ -790,17 +798,17 @@ class Combat extends React.Component{
                 </div>
                 
                     <div>
-                        <div className='combatLog'>
-                            <h2>Combat Log:</h2>
+                        <div className={`${this.props.color}combatLog`}>
+                            <h2 className={`${this.props.color}title`}>Combat Log:</h2>
                             {this.state.combatLog.map(log => {
                                 return(
-                                    <p>{log}</p>
+                                    <p className={`${this.props.color}info`}>{log}</p>
                                     )
                                 })}
                                 {this.state.nextFloorBossFloor === true? (
                         <div>
                         {this.state.monsterDead === true ? (
-                            <button onClick={this.nextFloorBoss} className='floorButton'>Boss Floor</button>
+                            <button onClick={this.nextFloorBoss} className={`${this.props.color}floorButton`}>Boss Floor</button>
                             ):(
                                 null
                                 )}
@@ -808,19 +816,19 @@ class Combat extends React.Component{
                     ):(
                         <div>
                         {this.state.monsterDead === true ? (
-                            <button onClick={this.nextFloor} className='floorButton'>Next Floor</button>
+                            <button onClick={this.nextFloor} className={`${this.props.color}floorButton`}>Next Floor</button>
                             ):(
                             null)}
                         </div>)}
                 <div>
                     {this.state.playerDead === true ? (
                         <div>
-                            <p>{this.state.deathMessage}</p>
+                            <p className={`${this.props.color}info`}>{this.state.deathMessage}</p>
                             <button onClick={() =>{
                                 this.props.history.push('/header')
-                                this.setState({scoreSubmitted:false})}} className='dead'>HOME</button>
+                                this.setState({scoreSubmitted:false})}} className={`${this.props.color}dead`}>HOME</button>
                             {this.state.scoreSubmitted === false? (
-                                <button onClick={this.submitScore} className='dead'>PUSH SCORE TO LEADERBOARD</button>
+                                <button onClick={this.submitScore} className={`${this.props.color}dead`}>PUSH SCORE TO LEADERBOARD</button>
                                 ):(
                                     null)}
                                 </div>
@@ -833,4 +841,11 @@ class Combat extends React.Component{
         )
     }   
 }
-export default (withRouter(Combat))
+const mapStateToProps = reduxState =>{
+    return{
+        reduxState,
+        color: reduxState.colorReducer.color
+
+    }
+}
+export default connect(mapStateToProps)(withRouter(Combat))

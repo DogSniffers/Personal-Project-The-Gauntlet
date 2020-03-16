@@ -1,16 +1,70 @@
 .user {
-  border: green solid 2px;
   width: 230px;
   position: fixed;
   top: 10px;
   right: 0;
 }
 
-.abandonRun {
+.greenBorder {
+  border-style: solid;
+  border-color: darkgreen;
+}
+
+.redBorder {
+  border: crimson solid 2px;
+  background-color: orangered;
+}
+
+.blueBorder {
+  border: darkblue solid 2px;
+}
+
+.yellowBorder {
+  border: orangered solid 2px;
+}
+
+.greenuserInfo {
+  color: darkgreen;
+}
+
+.reduserInfo {
+  color: crimson;
+}
+
+.blueuserInfo {
+  color: darkblue;
+}
+
+.yellowuserInfo {
+  color: orange;
+}
+
+.greenabandonRun {
   width: 100%;
 }
 
-.userClass {
+.redabandonRun {
+  width: 100%;
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.blueabandonRun {
+  width: 100%;
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowabandonRun {
+  width: 100%;
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+}
+
+.greenuserClass {
   border: green solid 2px;
   width: 320px;
   position: fixed;
@@ -18,7 +72,47 @@
   left: 532px;
 }
 
-.monster {
+.reduserClass {
+  border: crimson solid 2px;
+  width: 320px;
+  position: fixed;
+  top: 130px;
+  left: 532px;
+}
+
+.blueuserClass {
+  border: darkblue solid 2px;
+  width: 320px;
+  position: fixed;
+  top: 130px;
+  left: 532px;
+}
+
+.yellowuserClass {
+  border: orange solid 2px;
+  width: 320px;
+  position: fixed;
+  top: 130px;
+  left: 532px;
+}
+
+.greeninfo {
+  color: greenyellow;
+}
+
+.redinfo {
+  color: red;
+}
+
+.blueinfo {
+  color: blue;
+}
+
+.yellowinfo {
+  color: yellow;
+}
+
+.greenmonster {
   border: green solid 2px;
   width: 400px;
   position: fixed;
@@ -26,8 +120,71 @@
   right: 0;
 }
 
-.attacks {
+.redmonster {
+  border: crimson solid 2px;
+  width: 400px;
+  position: fixed;
+  top: 130px;
+  right: 0;
+}
+
+.bluemonster {
+  border: darkblue solid 2px;
+  width: 400px;
+  position: fixed;
+  top: 130px;
+  right: 0;
+}
+
+.yellowmonster {
+  border: orangered solid 2px;
+  width: 400px;
+  position: fixed;
+  top: 130px;
+  right: 0;
+}
+
+.greenattacks {
   border: lawngreen solid 2px;
+  width: 160px;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.redattacks {
+  border: crimson solid 2px;
+  width: 160px;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.blueattacks {
+  border: darkblue solid 2px;
+  width: 160px;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.yellowattacks {
+  border: orangered solid 2px;
   width: 160px;
   height: 150px;
   display: -webkit-box;
@@ -65,11 +222,32 @@
   height: 120px;
 }
 
-.attackButtons {
+.greenattackButtons {
   width: 100%;
 }
 
-.combatLog {
+.redattackButtons {
+  width: 100%;
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.blueattackButtons {
+  width: 100%;
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowattackButtons {
+  width: 100%;
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+}
+
+.greencombatLog {
   border: lawngreen solid 2px;
   width: 400px;
   overflow: auto;
@@ -78,8 +256,56 @@
   left: 0;
 }
 
-.floorButton {
+.redcombatLog {
+  border: crimson solid 2px;
+  width: 400px;
+  overflow: auto;
+  position: fixed;
+  top: 130px;
+  left: 0;
+}
+
+.bluecombatLog {
+  border: darkblue solid 2px;
+  width: 400px;
+  overflow: auto;
+  position: fixed;
+  top: 130px;
+  left: 0;
+}
+
+.yellowcombatLog {
+  border: orangered solid 2px;
+  width: 400px;
+  overflow: auto;
+  position: fixed;
+  top: 130px;
+  left: 0;
+}
+
+.greenfloorButton {
   width: 100%;
+}
+
+.redfloorButton {
+  width: 100%;
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.bluefloorButton {
+  width: 100%;
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowfloorButton {
+  width: 100%;
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
 }
 
 .dead {

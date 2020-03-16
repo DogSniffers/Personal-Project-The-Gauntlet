@@ -1,35 +1,148 @@
+@import '../../Sass/mixin';
+
 .user{
-    border: green solid 2px;
     width: 230px;
     position: fixed;
     top: 10px;
     right: 0;
 }
-.abandonRun{
+.greenBorder{
+    border-style: solid;
+     border-color: darkgreen;
+}
+.redBorder{
+    @include redBorder();
+}
+.blueBorder{
+    border: darkblue solid 2px;
+}
+.yellowBorder{
+    border: orangered solid 2px;
+}
+.greenuserInfo{
+    color: darkgreen;
+}
+.reduserInfo{
+    color: crimson;
+}
+.blueuserInfo{
+    color: darkblue;
+}
+.yellowuserInfo{
+    color: orange;
+}
+.greenabandonRun{
     width: 100%;
 }
-.userClass{
+.redabandonRun{
+    width: 100%;
+    @include redButtons();
+}
+.blueabandonRun{
+    width: 100%;
+    @include blueButtons();
+}
+.yellowabandonRun{
+    width: 100%;
+    @include yellowButtons();
+}
+.greenuserClass{
     border: green solid 2px;
     width: 320px;
     position: fixed;
     top:130px;
     left:532px;
 }
-.monster{
+.reduserClass{
+    border: crimson solid 2px;
+    width: 320px;
+    position: fixed;
+    top:130px;
+    left:532px;
+}
+.blueuserClass{
+    border: darkblue solid 2px;
+    width: 320px;
+    position: fixed;
+    top:130px;
+    left:532px;
+}
+.yellowuserClass{
+    border: orange solid 2px;
+    width: 320px;
+    position: fixed;
+    top:130px;
+    left:532px;
+}
+.greeninfo{
+    color: greenyellow;
+}
+.redinfo{
+    color: red;
+}
+.blueinfo{
+    color: blue;
+}
+.yellowinfo{
+    color: yellow;
+}
+.greenmonster{
     border: green solid 2px;
     width: 400px;
     position: fixed;
     top: 130px;
     right: 0;
 }
-.attacks {
+.redmonster{
+    border: crimson solid 2px;
+    width: 400px;
+    position: fixed;
+    top: 130px;
+    right: 0;
+}
+.bluemonster{
+    border: darkblue solid 2px;
+    width: 400px;
+    position: fixed;
+    top: 130px;
+    right: 0;
+}
+.yellowmonster{
+    border: orangered solid 2px;
+    width: 400px;
+    position: fixed;
+    top: 130px;
+    right: 0;
+}
+.greenattacks{
     border: lawngreen solid 2px;
     width: 160px;
     height: 150px;
     display: flex;
     flex-direction: column;
 }
-.userAttacks {
+.redattacks{
+    border: crimson solid 2px;
+    width: 160px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+.blueattacks{
+    border: darkblue solid 2px;
+    width: 160px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+.yellowattacks{
+    border: orangered solid 2px;
+    width: 160px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+.userAttacks{
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
@@ -48,10 +161,22 @@
 //     flex-direction: row;
 //     width: 100%;
 // }
-.attackButtons {
+.greenattackButtons {
     width: 100%;
 }
-.combatLog {
+.redattackButtons {
+    width: 100%;
+    @include redButtons();
+}
+.blueattackButtons {
+    width: 100%;
+    @include blueButtons();
+}
+.yellowattackButtons {
+    width: 100%;
+    @include yellowButtons();
+}
+.greencombatLog {
     border: lawngreen solid 2px;
     width: 400px;
     overflow: auto;
@@ -59,9 +184,57 @@
     top: 130px;
     left: 0;
 }
-.floorButton{
+.redcombatLog {
+    border: crimson solid 2px;
+    width: 400px;
+    overflow: auto;
+    position: fixed;
+    top: 130px;
+    left: 0;
+}
+.bluecombatLog {
+    border: darkblue solid 2px;
+    width: 400px;
+    overflow: auto;
+    position: fixed;
+    top: 130px;
+    left: 0;
+}
+.yellowcombatLog {
+    border: orangered solid 2px;
+    width: 400px;
+    overflow: auto;
+    position: fixed;
+    top: 130px;
+    left: 0;
+}
+.greenfloorButton{
     width: 100%;
 }
-.dead{
+.redfloorButton{
+    width: 100%;
+    @include redButtons();
+}
+.bluefloorButton{
+    width: 100%;
+    @include blueButtons();
+}
+.yellowfloorButton{
+    width: 100%;
+    @include yellowButtons();
+}
+.greendead{
     width: 50%;
+}
+.reddead{
+    width: 50%;
+    @include redButtons();
+}
+.bluedead{
+    width: 50%;
+    @include blueButtons();
+}
+.yellowdead{
+    width: 50%;
+    @include yellowButtons();
 }
