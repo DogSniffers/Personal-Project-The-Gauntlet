@@ -17,6 +17,16 @@
   width: 650px;
 }
 
+.blueauthHolders {
+  border: darkblue 2px solid;
+  width: 650px;
+}
+
+.yellowauthHolders {
+  border: orangered 2px solid;
+  width: 650px;
+}
+
 .redauthHolders {
   border-color: crimson;
   border-style: solid;
@@ -24,8 +34,65 @@
 }
 
 .redInput {
-  border: crimson 1px solid;
+  border-color: crimson;
+  border-style: solid;
   background-color: coral;
+}
+
+.blueInput {
+  border-color: darkblue;
+  border-style: solid;
+  background-color: lightblue;
+}
+
+.yellowInput {
+  border-color: orangered;
+  border-style: solid;
+  background-color: lightyellow;
+}
+
+.redpageTitle {
   color: red;
+  color: red;
+}
+
+.bluepageTitle {
+  color: red;
+  color: blue;
+}
+
+.yellowpageTitle {
+  color: red;
+  color: yellow;
+}
+
+.redbuttons {
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.bluebuttons {
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowbuttons {
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+}
+
+.redinfo {
+  color: red;
+}
+
+.blueinfo {
+  color: lightblue;
+}
+
+.yellowinfo {
+  color: lightyellow;
 }
 /*# sourceMappingURL=Auth.css.map */

@@ -13,15 +13,55 @@
     border: crimson 2px solid;
     width: 650px;
 }
+.blueauthHolders{
+    border: darkblue 2px solid;
+    width: 650px;
+}
+.yellowauthHolders{
+    border: orangered 2px solid;
+    width: 650px;
+}
 .redauthHolders{
     @include redBorderColors();
 
     width: 650px;
 }
 .redInput{
-    @include redInput();
+    @include redInputs();
+}
+.blueInput{
+    @include blueInputs();
+}
+.yellowInput{
+    @include yellowInputs();
 }
 .redpageTitle {
     @include redTitle();
     color: red
+}
+.bluepageTitle {
+    @include redTitle();
+    color: blue
+}
+.yellowpageTitle {
+    @include redTitle();
+    color: yellow
+}
+.redbuttons{
+    @include redButtons();
+}
+.bluebuttons{
+    @include blueButtons();
+}
+.yellowbuttons{
+    @include yellowButtons();
+}
+.redinfo{
+    color: red;
+}
+.blueinfo{
+    color: lightblue;
+}
+.yellowinfo{
+    color: lightyellow;
 }

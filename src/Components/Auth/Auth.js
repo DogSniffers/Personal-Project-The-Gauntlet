@@ -86,8 +86,8 @@ class Auth extends React.Component{
                     <input placeholder='Email' onChange={this.handleEmail} className={`${this.props.color}Input`}></input>
                     <input placeholder='Password' onChange={this.handlePassword} className={`${this.props.color}Input`}></input>
                 </div>
-                <button onClick={this.login} className='buttons'>Login</button>
-                <p onClick={this.authView}>Don't have an account? Register here.</p>
+                <button onClick={this.login} className={`${this.props.color}buttons`}>Login</button>
+                <p onClick={this.authView} className={`${this.props.color}info`}>Don't have an account? Register here.</p>
                 </div>
                 ):(
                 <div className={`${this.props.color}authHolders`}>
@@ -100,8 +100,8 @@ class Auth extends React.Component{
                     <input placeholder='Password' onChange={this.handlePassword} className={`${this.props.color}Input`}></input>
                     <input placeholder='Confirm Password' onChange={this.handleConfirmPassword}className={`${this.props.color}Input`}></input>
                 </div>
-                <button onClick={this.register} className='buttons'>Create Account</button>
-                <p onClick={this.authView}>Already have an account? Login here.</p>
+                <button onClick={this.register} className={`${this.props.color}buttons`}>Create Account</button>
+                <p onClick={this.authView} className={`${this.props.color}info`}>Already have an account? Login here.</p>
                 </div>
             )}    
         </div>
