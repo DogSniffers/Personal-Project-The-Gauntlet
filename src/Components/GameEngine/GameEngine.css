@@ -308,7 +308,28 @@
   border: orange solid 1px;
 }
 
-.dead {
+.greendead {
   width: 50%;
+}
+
+.reddead {
+  width: 50%;
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.bluedead {
+  width: 50%;
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowdead {
+  width: 50%;
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
 }
 /*# sourceMappingURL=GameEngine.css.map */

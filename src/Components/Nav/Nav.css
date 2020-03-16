@@ -1,0 +1,30 @@
+.redtitle {
+  color: red;
+}
+
+.bluetitle {
+  color: darkblue;
+}
+
+.yellowtitle {
+  color: orangered;
+}
+
+.redbutton {
+  color: red;
+  background-color: coral;
+  border: crimson solid 1px;
+}
+
+.bluebotton {
+  color: blue;
+  background-color: lightblue;
+  border: darkblue solid 1px;
+}
+
+.yellowbutton {
+  color: orange;
+  background-color: yellow;
+  border: orange solid 1px;
+}
+/*# sourceMappingURL=Nav.css.map */

@@ -1,0 +1,20 @@
+@import '../../Sass/mixin';
+
+.redtitle{
+    color: red;
+}
+.bluetitle{
+    color: darkblue;
+}
+.yellowtitle{
+    color: orangered;
+}
+.redbutton{
+    @include redButtons();
+}
+.bluebotton{
+    @include blueButtons();
+}
+.yellowbutton{
+    @include yellowButtons();
+}
