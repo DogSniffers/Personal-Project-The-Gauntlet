@@ -1,0 +1,78 @@
+.classes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.greenclassSelect {
+  border: darkgreen solid 2px;
+  color: darkgreen;
+  background-color: lightgreen;
+  width: 240px;
+}
+
+.redclassSelect {
+  border: crimson solid 2px;
+  color: crimson;
+  background-color: orangered;
+  width: 240px;
+}
+
+.blueclassSelect {
+  border: darkblue solid 2px;
+  color: darkblue;
+  background-color: lightblue;
+  width: 240px;
+}
+
+.yellowclassSelect {
+  border: darkgoldenrod solid 2px;
+  color: darkgoldenrod;
+  background-color: lightyellow;
+  width: 240px;
+}
+
+.selectedClassHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.greenselectedClass {
+  border: darkgreen solid 2px;
+  color: darkgreen;
+  background-color: lightgreen;
+  width: 200px;
+}
+
+.redselectedClass {
+  border: crimson solid 2px;
+  color: crimson;
+  background-color: orangered;
+  width: 200px;
+}
+
+.blueselectedClass {
+  border: darkblue solid 2px;
+  color: darkblue;
+  background-color: lightblue;
+  width: 200px;
+}
+
+.yellowselectedClass {
+  border: darkgoldenrod solid 2px;
+  color: darkgoldenrod;
+  background-color: lightyellow;
+  width: 200px;
+}
+/*# sourceMappingURL=ClassSelect.css.map */
