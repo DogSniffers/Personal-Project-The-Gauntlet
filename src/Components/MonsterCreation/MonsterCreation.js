@@ -71,7 +71,7 @@ class MonsterCreator extends React.Component{
             alert('Monster Attack Name 2 is Empty!')
         }else{
             var {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpreward,scorereward} = this.state
-            var {username} = this.props.reduxState
+            var {username} = this.props.reduxState.reducer
             axios.post('/api/monstercreator', {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name, monsterAttack1Type, monsterAttack1Damage, monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpreward,scorereward,username}).then(res => {
                 alert('Monster Successfully Created!')
                 

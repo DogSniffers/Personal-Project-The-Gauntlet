@@ -19,8 +19,8 @@ module.exports = {
     },
     createMonster: (req,res) => {
         const db = req.app.get('db')
-        const {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name,monsterAttack1Type,monsterAttack1Damage,monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward,username} = req.body
-        db.create_monster([monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name,monsterAttack1Type,monsterAttack1Damage,monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpReward,scoreReward,username]).then(() => {
+        const {monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name,monsterAttack1Type,monsterAttack1Damage,monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpreward,scorereward,username} = req.body
+        db.create_monster([monsterName,monsterClass,monsterHealth,monsterWeaknesses,monsterResistances,monsterAttack1Name,monsterAttack1Type,monsterAttack1Damage,monsterAttack2Name,monsterAttack2Type,monsterAttack2Damage,xpreward,scorereward,username]).then(() => {
             res.sendStatus(200)
         }).catch(err => console.log(err))
     },

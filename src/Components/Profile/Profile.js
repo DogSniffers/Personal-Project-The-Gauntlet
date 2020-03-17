@@ -92,7 +92,7 @@ class Profile extends React.Component{
                                         <p className={`${this.props.color}monsterinfo`}>Class:{monster.class}</p>
                                         <p className={`${this.props.color}monsterinfo`}>Health:{monster.health}</p>
                                         <p className={`${this.props.color}monsterinfo`}>Weaknesses:{monster.weaknesses}</p>
-                                        <p> className={`${this.props.color}monsterinfo`}Resistances:{monster.resistances}</p>
+                                        <p className={`${this.props.color}monsterinfo`}>Resistances:{monster.resistances}</p>
                                         <h3 className={`${this.props.color}monsterinfo`}>Monster Attack 1: {monster.attack1name}</h3>
                                         <p className={`${this.props.color}monsterinfo`}>Type:{monster.attack1type}</p>
                                         <p className={`${this.props.color}monsterinfo`}>Damage:{monster.attack1damage}</p>
