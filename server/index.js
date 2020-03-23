@@ -6,6 +6,7 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 const authController = require('./controllers/authController')
 const gauntletController = require('./controllers/theGauntletController')
 const leaderboardController = require('./controllers/leaderboardController')
+const path = require('path')
 
 const app = express();
 
@@ -50,4 +51,12 @@ app.post('/api/monstercreator', gauntletController.createMonster)
 app.post('/api/mymonsters', gauntletController.fetchMyMonsters)
 app.delete('/api/mymonsters/:id', gauntletController.deleteMonster)
 app.put('/api/mymonsters/confirmchanges', gauntletController.editMonster)
+
+
+app.use(express.static(__dirname + '/../build'))
+
+app.get('*', (req,res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+
+})
 
