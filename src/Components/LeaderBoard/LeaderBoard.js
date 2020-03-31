@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import './LeaderBoard.css'
+import LeaderBoardTitle from '../LeaderBoardTitle/LeaderBoardTitle'
 
 
 class LeaderBoard extends React.Component{
@@ -32,6 +33,7 @@ class LeaderBoard extends React.Component{
     render(){
         return(
             <div>
+                <LeaderBoardTitle/>
                 <h1 className={`${this.props.color}pageTitle`}>LeaderBoard</h1>
                     <button onClick={() => this.props.history.push('/header')} className={`${this.props.color}button`}>MAIN MENU</button>
                     <button onClick={() => this.props.history.push('/profile')} className={`${this.props.color}button`}>PROFILE</button>

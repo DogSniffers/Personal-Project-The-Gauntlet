@@ -5,6 +5,7 @@ import TitleChange from '../TitleChange/TitleChange'
 import {connect} from 'react-redux'
 import {setColor} from '../../ducks/colorReducer'
 import './Header.css'
+import GauntletTitle from '../GauntletTitle/GauntletTitle'
 
 class Header extends React.Component{
     constructor(){
@@ -19,12 +20,18 @@ class Header extends React.Component{
         this.props.history.push('/')
     })
 
-   }
+   };
+  
+
+  
+  
+  
     render(){
         console.log(this.props)
         return(
             <div>
             <h1 className={`${this.props.color}Header`}>The Gauntlet</h1>
+            <GauntletTitle/>
             <div>
                 <button onClick={ () =>this.props.history.push('/dashboard')} className={`${this.props.color}Button`}>START</button>
                 <button onClick={() => this.props.history.push('/leaderboard')} className={`${this.props.color}Button`}>LEADERBOARD</button>

@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import Chart from '../Chart/Chart'
 import axios from 'axios'
 import './Profile.css'
+import ProfileTitle from '../ProfileTitle/ProfileTitle'
 
 class Profile extends React.Component{
     constructor(){
@@ -67,6 +68,7 @@ class Profile extends React.Component{
         console.log(this.props)
         return(
             <div>
+                <ProfileTitle/>
             <div>
                 <h1 className={`${this.props.color}pageTitle`}>Profile</h1>
                 <button onClick={() => this.props.history.push('/header')}className={`${this.props.color}button`}>MAIN MENU</button>

@@ -8,7 +8,7 @@ class Combat extends React.Component{
     constructor(props){
         super(props)
         this.state ={
-            floor:1,
+            floor:9,
             nextFloorBossFloor:false,
             score:0,
             scoreSubmitted:false,
