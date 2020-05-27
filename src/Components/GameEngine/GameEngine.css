@@ -66,34 +66,34 @@
 
 .greenuserClass {
   border: green solid 2px;
-  width: 320px;
-  position: fixed;
-  top: 130px;
-  left: 532px;
+  width: 22.22222222222222vw;
+  position: relative;
+  top: 30px;
+  left: 39%;
 }
 
 .reduserClass {
   border: crimson solid 2px;
-  width: 320px;
-  position: fixed;
-  top: 130px;
-  left: 532px;
+  width: 22.22222222222222vw;
+  position: relative;
+  top: 30px;
+  left: 39%;
 }
 
 .blueuserClass {
   border: darkblue solid 2px;
-  width: 320px;
-  position: fixed;
-  top: 130px;
-  left: 532px;
+  width: 22.22222222222222vw;
+  position: relative;
+  top: 30px;
+  left: 39%;
 }
 
 .yellowuserClass {
   border: orange solid 2px;
-  width: 320px;
-  position: fixed;
-  top: 130px;
-  left: 532px;
+  width: 22.22222222222222vw;
+  position: relative;
+  top: 30px;
+  left: 39%;
 }
 
 .greeninfo {
@@ -110,6 +110,11 @@
 
 .yellowinfo {
   color: yellow;
+}
+
+.bluefloorInfo {
+  border: darkblue solid 2px;
+  background-color: lightblue;
 }
 
 .greenmonster {
@@ -130,10 +135,11 @@
 
 .bluemonster {
   border: darkblue solid 2px;
-  width: 400px;
-  position: fixed;
-  top: 130px;
-  right: 0;
+  width: 27.77777777777778vw;
+  position: relative;
+  top: -325px;
+  left: 70%;
+  padding-bottom: 5px;
 }
 
 .yellowmonster {
@@ -146,7 +152,7 @@
 
 .greenattacks {
   border: lawngreen solid 2px;
-  width: 160px;
+  width: 11.11111111111111vw;
   height: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -155,11 +161,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: auto;
 }
 
 .redattacks {
   border: crimson solid 2px;
-  width: 160px;
+  width: 11.11111111111111vw;
   height: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -168,11 +175,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: auto;
 }
 
 .blueattacks {
   border: darkblue solid 2px;
-  width: 160px;
+  width: 11.11111111111111vw;
   height: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -181,11 +189,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: auto;
 }
 
 .yellowattacks {
   border: orangered solid 2px;
-  width: 160px;
+  width: 11.11111111111111vw;
   height: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -194,6 +203,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: auto;
 }
 
 .userAttacks {
@@ -226,11 +236,21 @@
   width: 100%;
 }
 
+.greenattackButtons:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
 .redattackButtons {
   width: 100%;
   color: red;
   background-color: coral;
   border: crimson solid 1px;
+}
+
+.redattackButtons:hover {
+  background-color: red;
+  cursor: pointer;
 }
 
 .blueattackButtons {
@@ -240,11 +260,21 @@
   border: darkblue solid 1px;
 }
 
+.blueattackButtons:hover {
+  background-color: #9ccddd;
+  cursor: pointer;
+}
+
 .yellowattackButtons {
   width: 100%;
   color: orange;
   background-color: yellow;
   border: orange solid 1px;
+}
+
+.yellowattackButtons:hover {
+  background-color: gold;
+  cursor: pointer;
 }
 
 .greencombatLog {
@@ -267,11 +297,12 @@
 
 .bluecombatLog {
   border: darkblue solid 2px;
-  width: 400px;
+  width: 27.77777777777778vw;
+  height: 200px;
   overflow: auto;
-  position: fixed;
-  top: 130px;
-  left: 0;
+  position: relative;
+  top: -84.13793103448276vh;
+  left: 10%;
 }
 
 .yellowcombatLog {

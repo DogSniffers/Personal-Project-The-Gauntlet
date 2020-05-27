@@ -692,13 +692,15 @@ class Combat extends React.Component{
                     <h2 className={`${this.props.color}userInfo`}>
                         {this.props.reduxState.username}
                     </h2>
-                    <h2 className={`${this.props.color}userInfo`}>Floor:{this.state.floor}</h2>
-                    <h2 className={`${this.props.color}userInfo`}>Score:{this.state.score}</h2>
+                    <div className={`${this.props.color}floorInfo`}>
+                        <h2 className={`${this.props.color}userInfo`}>Floor:{this.state.floor}</h2>
+                        <h2 className={`${this.props.color}userInfo`}>Score:{this.state.score}</h2>
                     {this.state.playerDead === false?(
                         <button onClick={this.abandonRun} className={`${this.props.color}abandonRun`}>ABANDON RUN</button>
                         ):(
                             null
                             )}
+                    </div>
                     </div>
                 </div>
                 <div className={`${this.props.color}userClass`}>
@@ -834,8 +836,8 @@ class Combat extends React.Component{
                                 </div>
                                 ):(
                                     null)}
-    </div>
                     </div>
+                </div>
             </div>
         </div>
         )

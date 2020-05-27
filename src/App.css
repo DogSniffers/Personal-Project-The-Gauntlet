@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   font-family: Munro;
-  color: lawngreen;
+  color: darkgreen;
 }
 
 body {
@@ -29,7 +29,7 @@ button {
 }
 
 h1 {
-  color: greenyellow;
+  color: darkgreen;
   font-size: 50px;
 }
 
@@ -44,7 +44,7 @@ h3 {
 }
 
 p {
-  color: greenyellow;
+  color: darkgreen;
   font-size: 20px;
 }
 /*# sourceMappingURL=App.css.map */

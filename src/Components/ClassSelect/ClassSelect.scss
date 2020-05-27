@@ -6,30 +6,29 @@
     flex-direction: row;
 }
 
-
 .greenclassSelect{
     border: darkgreen solid 2px;
     color: darkgreen;
     background-color: green;
-    width: 240px;
+    width: 16.666666666666668vw;
 }
 .redclassSelect{
     border: crimson solid 2px;
     color: crimson;
     background-color: orangered;
-    width: 240px;
+    width: 16.666666666666668vw;
 }
 .blueclassSelect{
     border: darkblue solid 2px;
     color: darkblue;
     background-color: lightblue;
-    width: 240px;
+    width: 16.666666666666668vw;
 }
 .yellowclassSelect{
     border: darkgoldenrod solid 2px;
     color: darkgoldenrod;
     background-color: lightyellow;
-    width: 240px;
+    width: 16.666666666666668vw;
 }
 .selectedClassHolder{
     display: flex;
@@ -56,30 +55,19 @@
 .yellowselectedClass{
     border: darkgoldenrod solid 2px;
     color: darkgoldenrod;
-    background-color: lightyellow;
+    background-color: orange;
     width: 200px;
 }
-.greenbuttonSelectedClass{
+.greenbuttonclass{
     @include greenButtons();
 }
-.redbuttonSelectedClass{
+.redbuttonclass{
     @include redButtons();
 }
-.bluebuttonSelectedClass{
+.bluebuttonclass{
     @include blueButtons();
 }
-.yellowbuttonSelectedClass{
+.yellowbuttonclass{
     @include yellowButtons();
-}
-.greenclassInfo{
-    color: darkgreen;
-}
-.redclassInfo{
-    color: crimson;
-}
-.blueclassInfo{
-    color: darkblue;
-}
-.yellowclassInfo{
-    color: darkgoldenrod;
+    font-size: 20px;
 }

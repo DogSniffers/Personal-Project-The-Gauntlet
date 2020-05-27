@@ -205,9 +205,12 @@ class TheGauntlet extends React.Component{
                 <div>
                 <>
                 {this.state.userMonsters === false?(
-                    <button onClick={this.allowUserMonsters} className={`${this.props.color}button`}>Don't Allow User Created Monsters</button>
+                    <button onClick={this.allowUserMonsters} className={`${this.props.color}button`}>Allow User Created Monsters</button>
                     ):(
-                    <button onClick={this.dontAllowUserMonsters} className={`${this.props.color}button`}>Allow User Created Monsters</button>
+                    <>
+                        <h2>*User Created Monsters Enabled*</h2>
+                        <button onClick={this.dontAllowUserMonsters} className={`${this.props.color}button`}>Disable User Created Monsters</button>
+                    </>
                 )}
                 <h2 className={`${this.props.color}title`}>Class Select</h2>
                 <div className='classes'>
@@ -220,20 +223,20 @@ class TheGauntlet extends React.Component{
             ):(
                 <div className={`selectedClassHolder`}>
                     <div className={`${this.props.color}selectedClass`}>
-                        <p className={`${this.props.color}classInfo`}>Class:{this.state.selectedClassName}</p>
-                        <p className={`${this.props.color}classInfo`}>Desc:{this.state.selectedClassDesc}</p>
-                        <p className={`${this.props.color}classInfo`}>Health: {this.state.selectedClassHealth}</p>
-                        <p className={`${this.props.color}classInfo`}>Resistances: {this.state.selectedClassResistances}</p>
-                        <p className={`${this.props.color}classInfo`}>Weaknesses: {this.state.selectedClassWeaknesses}</p>
-                        <p className={`${this.props.color}classInfo`}>Attack 1:{this.state.selectedClassattack1Name}</p>
-                        <p className={`${this.props.color}classInfo`}>Type:{this.state.selectedClassattack1Type}</p>
-                        <p className={`${this.props.color}classInfo`}>Damage:{this.state.selectedClassattack1Damage}</p>
-                        <p className={`${this.props.color}classInfo`}>Attack 2:{this.state.selectedClassattack2Name}</p>
-                        <p className={`${this.props.color}classInfo`}>Damage:{this.state.selectedClassattack2Damage}</p>
-                        <p className={`${this.props.color}classInfo`}>Type:{this.state.selectedClassattack2Type}</p>
+                        <p className={`${this.state.color}`}>Class:{this.state.selectedClassName}</p>
+                        <p>Desc:{this.state.selectedClassDesc}</p>
+                        <p>Health: {this.state.selectedClassHealth}</p>
+                        <p>Resistances: {this.state.selectedClassResistances}</p>
+                        <p>Weaknesses: {this.state.selectedClassWeaknesses}</p>
+                        <p>Attack 1:{this.state.selectedClassattack1Name}</p>
+                        <p>Type:{this.state.selectedClassattack1Type}</p>
+                        <p>Damage:{this.state.selectedClassattack1Damage}</p>
+                        <p>Attack 2:{this.state.selectedClassattack2Name}</p>
+                        <p>Damage:{this.state.selectedClassattack2Damage}</p>
+                        <p>Type:{this.state.selectedClassattack2Type}</p>
                     </div>
                 <button onClick={this.classConfirm} 
-                className={`${this.props.color}buttonSelectedClass`}>Confirm?</button>
+                className={`${this.props.color}button`}>Confirm?</button>
                 </div>
             )
             }
@@ -242,8 +245,6 @@ class TheGauntlet extends React.Component{
             ):(
                 <div>
                     <h1 className={`${this.props.color}title`}>{this.state.playerNameFirst} {this.state.playerNameLast} the {this.state.playerNameNumeral}</h1>
-                    {/* I'm going to want to pass down the selected Class Health, attacks and Damage as props down into the Combat Component
-                    Everything here is temporary for nao */}
                     <Combat health={this.state.selectedClassHealth} className={this.state.selectedClassName} attack1name={this.state.selectedClassattack1Name} attack1damage={this.state.selectedClassattack1Damage} attack1type={this.state.selectedClassattack1Type}  attack2name={this.state.selectedClassattack2Name} attack2damage={this.state.selectedClassattack2Damage} attack2type={this.state.selectedClassattack2Type} weaknesses={this.state.selectedClassWeaknesses} resistances={this.state.selectedClassResistances} reduxState={this.props.reduxState}
                     userMonsters={this.state.userMonsters}
                     color={this.props.color}></Combat>
