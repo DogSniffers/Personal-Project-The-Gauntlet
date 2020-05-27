@@ -687,8 +687,6 @@ class Combat extends React.Component{
         return(
             <div>
             <div classname={`${this.props.color}Border`}>
-                <div className={`user`}>
-
                     <h2 className={`${this.props.color}userInfo`}>
                         {this.props.reduxState.username}
                     </h2>
@@ -700,7 +698,6 @@ class Combat extends React.Component{
                         ):(
                             null
                             )}
-                    </div>
                     </div>
                 </div>
                 <div className={`${this.props.color}userClass`}>

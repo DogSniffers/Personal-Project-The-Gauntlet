@@ -1,11 +1,5 @@
 @import '../../Sass/mixin';
 
-.user{
-    width: 230px;
-    position: fixed;
-    top: 10px;
-    right: 0;
-}
 .greenBorder{
     border-style: solid;
      border-color: darkgreen;
@@ -47,28 +41,28 @@
     @include yellowButtons();
 }
 .greenuserClass{
-    border: green solid 2px;
+    @include greenBorder();
     width: 22.22222222222222vw;
     position: relative;
     top:30px;
     left:39%;
 }
 .reduserClass{
-    border: crimson solid 2px;
+    @include redBorder();
     width: 22.22222222222222vw;
     position: relative;
     top:30px;
     left:39%;
 }
 .blueuserClass{
-    border: darkblue solid 2px;
+    @include blueBorder();
     width: 22.22222222222222vw;
     position: relative;
     top:30px;
     left:39%;
 }
 .yellowuserClass{
-    border: orange solid 2px;
+    @include yellowBorder();
     width: 22.22222222222222vw;
     position: relative;
     top:30px;
@@ -87,30 +81,48 @@
     color: yellow;
 }
 .greenfloorInfo{
-
+    @include greenBorder();
+    position: relative;
+    width: 17.36111111111111vw;
+    top:330px;
+    left:10%;
 }
 .redfloorInfo{
-
+    @include redBorder();
+    position: relative;
+    width: 17.36111111111111vw;
+    top:330px;
+    left:10%;
 }
 .bluefloorInfo{
- @include blueBorder()
+ @include blueBorder();
+ position: relative;
+ width: 17.36111111111111vw;
+ top:330px;
+ left:10%;
 }
 .yellowfloorInfo{
-
+    @include yellowBorder();
+    position: relative;
+    width: 17.36111111111111vw;
+    top:330px;
+    left:10%;
 }
 .greenmonster{
     border: green solid 2px;
-    width: 400px;
-    position: fixed;
-    top: 130px;
-    right: 0;
+    width: 27.77777777777778vw;
+    position: relative;
+    top: -325px;
+    left: 70%;
+    padding-bottom: 5px;
 }
 .redmonster{
     border: crimson solid 2px;
-    width: 400px;
-    position: fixed;
-    top: 130px;
-    right: 0;
+    width: 27.77777777777778vw;
+    position: relative;
+    top: -325px;
+    left: 70%;
+    padding-bottom: 5px;
 }
 .bluemonster{
     border: darkblue solid 2px;
@@ -122,10 +134,12 @@
 }
 .yellowmonster{
     border: orangered solid 2px;
-    width: 400px;
-    position: fixed;
-    top: 130px;
-    right: 0;
+    width: 27.77777777777778vw;
+    position: relative;
+    top: -325px;
+    left: 70%;
+    padding-bottom: 5px;
+    
 }
 .greenattacks{
     border: lawngreen solid 2px;
@@ -198,7 +212,7 @@
     @include blueButtons();
 }
 .blueattackButtons:hover{
-    background-color: rgb(156, 205, 221);
+    background-color: rgb(99, 155, 173);
     cursor: pointer;
 }
 .yellowattackButtons {
@@ -211,24 +225,26 @@
 }
 .greencombatLog {
     border: lawngreen solid 2px;
-    width: 400px;
+    width: 27.77777777777778vw;
+    height: 13.88888888888889vw;
     overflow: auto;
-    position: fixed;
-    top: 130px;
-    left: 0;
+    position: relative;
+    top: -82.13793103448276vh;
+    left: 10%;
 }
 .redcombatLog {
     border: crimson solid 2px;
-    width: 400px;
+    width: 27.77777777777778vw;
+    height: 13.88888888888889vw;
     overflow: auto;
-    position: fixed;
-    top: 130px;
-    left: 0;
+    position: relative;
+    top: -82.13793103448276vh;
+    left: 10%;
 }
 .bluecombatLog {
     border: darkblue solid 2px;
     width: 27.77777777777778vw;
-    height: 200px;
+    height: 13.88888888888889vw;
     overflow: auto;
     position: relative;
     top: -82.13793103448276vh;
@@ -236,11 +252,12 @@
 }
 .yellowcombatLog {
     border: orangered solid 2px;
-    width: 400px;
+    width: 27.77777777777778vw;
+    height: 13.88888888888889vw;
     overflow: auto;
-    position: fixed;
-    top: 130px;
-    left: 0;
+    position: relative;
+    top: -82.13793103448276vh;
+    left: 10%;
 }
 .greenfloorButton{
     width: 100%;

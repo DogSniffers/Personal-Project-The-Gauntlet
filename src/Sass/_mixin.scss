@@ -51,3 +51,15 @@
     border-style: solid;
     background-color: lightyellow;
 }
+@mixin greenBackgroundColor(){
+    background-color: green;
+}
+@mixin redBackgroundColor(){
+    background-color: coral;    
+}
+@mixin blueBackgroundColor(){
+    background-color: lightblue;
+}
+@mixin yellowBackgroundColor(){
+    background-color: lightyellow;
+}
