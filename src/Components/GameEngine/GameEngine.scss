@@ -42,30 +42,33 @@
 }
 .greenuserClass{
     @include greenBorder();
+    border-color: lawngreen;
+    background-color: darkgreen;
     width: 22.22222222222222vw;
     position: relative;
-    top:30px;
+    top:-60px;
     left:39%;
 }
 .reduserClass{
     @include redBorder();
     width: 22.22222222222222vw;
     position: relative;
-    top:30px;
+    top:-60px;
     left:39%;
 }
 .blueuserClass{
     @include blueBorder();
     width: 22.22222222222222vw;
+    background-color: aqua;
     position: relative;
-    top:30px;
+    top:-60px;
     left:39%;
 }
 .yellowuserClass{
     @include yellowBorder();
     width: 22.22222222222222vw;
     position: relative;
-    top:30px;
+    top:-60px;
     left:39%;
 }
 .greeninfo{
@@ -194,6 +197,7 @@
 // }
 .greenattackButtons {
     width: 100%;
+    
 }
 .greenattackButtons:hover{
     background-color: green;

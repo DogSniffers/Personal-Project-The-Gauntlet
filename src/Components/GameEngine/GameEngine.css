@@ -60,9 +60,11 @@
 .greenuserClass {
   border: darkgreen solid 2px;
   background-color: greenyellow;
+  border-color: lawngreen;
+  background-color: darkgreen;
   width: 22.22222222222222vw;
   position: relative;
-  top: 30px;
+  top: -60px;
   left: 39%;
 }
 
@@ -71,7 +73,7 @@
   background-color: orangered;
   width: 22.22222222222222vw;
   position: relative;
-  top: 30px;
+  top: -60px;
   left: 39%;
 }
 
@@ -79,8 +81,9 @@
   border: darkblue solid 2px;
   background-color: lightblue;
   width: 22.22222222222222vw;
+  background-color: aqua;
   position: relative;
-  top: 30px;
+  top: -60px;
   left: 39%;
 }
 
@@ -89,7 +92,7 @@
   background-color: lightyellow;
   width: 22.22222222222222vw;
   position: relative;
-  top: 30px;
+  top: -60px;
   left: 39%;
 }
 
@@ -311,7 +314,7 @@
 .greencombatLog {
   border: lawngreen solid 2px;
   width: 27.77777777777778vw;
-  height: 200px;
+  height: 13.88888888888889vw;
   overflow: auto;
   position: relative;
   top: -82.13793103448276vh;
@@ -331,7 +334,7 @@
 .bluecombatLog {
   border: darkblue solid 2px;
   width: 27.77777777777778vw;
-  height: 200px;
+  height: 13.88888888888889vw;
   overflow: auto;
   position: relative;
   top: -82.13793103448276vh;
@@ -341,7 +344,7 @@
 .yellowcombatLog {
   border: orangered solid 2px;
   width: 27.77777777777778vw;
-  height: 200px;
+  height: 13.88888888888889vw;
   overflow: auto;
   position: relative;
   top: -82.13793103448276vh;
